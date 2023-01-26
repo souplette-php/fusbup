@@ -1,0 +1,42 @@
+{
+  "name": "ju1ius/fusbup",
+  "description": "Supafast Public Suffix matching",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "public suffix list",
+    "top level domain",
+    "tld",
+    "psl",
+    "icann",
+    "domain"
+  ],
+  "authors": [
+    {
+      "name": "ju1ius",
+      "email": "jules.bernable@gmail.com"
+    }
+  ],
+  "scripts": {
+    "test": "tools/phpunit.phar",
+    "coverage": "XDEBUG_MODE=coverage tools/phpunit.phar --coverage-html=tmp/coverage"
+  },
+  "autoload": {
+    "psr-4": {
+      "ju1ius\\FusBup\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ju1ius\\FusBup\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=8.1",
+    "ext-ctype": "*",
+    "ext-intl": "*"
+  },
+  "require-dev": {
+    "symfony/stopwatch": "^6.2"
+  }
+}
