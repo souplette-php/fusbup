@@ -2,6 +2,8 @@
 
 namespace ju1ius\FusBup\Parser;
 
+use ju1ius\FusBup\Exception\ParseError;
+
 /**
  * @internal
  */
@@ -14,7 +16,7 @@ final class Rule
         public RuleType $type = RuleType::Default,
     ) {
         if (false === $canonical = idn_to_ascii($suffix)) {
-            var_dump($this->suffix);
+            throw ParseError::idnError($suffix);
         }
         $this->labels = array_reverse(explode('.', $canonical));
     }

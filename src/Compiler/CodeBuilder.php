@@ -121,7 +121,7 @@ final class CodeBuilder implements Stringable
         return $this;
     }
 
-    public function enumCase(\UnitEnum $value, bool $import = true): self
+    public function enumValue(\UnitEnum $value, bool $import = true): self
     {
         if ($import) {
             $this->use($value::class);

@@ -71,5 +71,6 @@ final class PslParserTest extends TestCase
     {
         yield 'gibberish' => ["a bunch of nonsense"];
         yield 'mixed rule prefix' => ['!*.x.y'];
+        yield 'invalid domain (idn_to_ascii error)' => ['...'];
     }
 }
