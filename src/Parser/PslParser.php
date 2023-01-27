@@ -58,7 +58,7 @@ final class PslParser
     private static function lines(string|SplFileObject $input): Traversable
     {
         $lines = match (true) {
-            $input instanceof SplFileObject => $input,
+            $input instanceof SplFileObject => new \NoRewindIterator($input),
             default => explode("\n", $input),
         };
         foreach ($lines as $line) {
