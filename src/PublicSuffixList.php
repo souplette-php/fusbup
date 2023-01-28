@@ -9,6 +9,11 @@ final class PublicSuffixList
 {
     private readonly Tree $tree;
 
+    public function __construct(
+        private readonly string $filename = __DIR__ . '/Resources/psl.php',
+    ) {
+    }
+
     /**
      * Returns whether the given domain is a public suffix.
      */
@@ -87,6 +92,6 @@ final class PublicSuffixList
 
     private function getTree(): Tree
     {
-        return $this->tree ??= new Tree(require __DIR__ . '/Resources/psl.php');
+        return $this->tree ??= new Tree(require $this->filename);
     }
 }
