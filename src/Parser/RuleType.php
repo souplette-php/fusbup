@@ -5,9 +5,14 @@ namespace ju1ius\FusBup\Parser;
 /**
  * @internal
  */
-enum RuleType
+enum RuleType: int
 {
-    case Default;
-    case Wildcard;
-    case Exception;
+    case Default = 0;
+    case Wildcard = 1;
+    case Exception = 2;
+
+    public function compare(self $other): int
+    {
+        return $this->value <=> $other->value;
+    }
 }

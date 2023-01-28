@@ -17,6 +17,7 @@ final class SuffixTreeBuilder
 {
     public static function build(array $rules): Tree
     {
+        usort($rules, Rule::compare(...));
         return self::process(RuleTree::of($rules));
     }
 
