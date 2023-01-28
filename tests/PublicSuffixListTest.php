@@ -75,7 +75,8 @@ final class PublicSuffixListTest extends TestCase
      */
     public function testIsCookieDomainAcceptable(string $requestDomain, string $cookieDomain, bool $expected): void
     {
-        self::markTestSkipped('[WIP]: not implemented');
+        $result = self::getList()->isCookieDomainAcceptable($requestDomain, $cookieDomain);
+        Assert::assertSame($expected, $result);
     }
 
     /**
