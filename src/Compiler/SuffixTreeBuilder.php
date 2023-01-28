@@ -4,9 +4,9 @@ namespace ju1ius\FusBup\Compiler;
 
 use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\Parser\RuleType;
+use ju1ius\FusBup\SuffixTree\Node;
 use ju1ius\FusBup\SuffixTree\Opcodes;
 use ju1ius\FusBup\SuffixTree\Tree;
-use ju1ius\FusBup\SuffixTree\Node;
 
 /**
  * Builds a compressed suffix tree from an array of parsed `Rule` objects.

@@ -19,3 +19,12 @@ grep -v -e '//' -e '^$' tests.txt \
   | sed -e 's/: / /' -e 's/(null)/null/' \
   > registerable.txt
 ```
+
+`is-public.txt` was generated with:
+```sh
+grep -v -e '//' -e '^$' tests.txt \
+  | cut -d' ' -f1 \
+  | xargs -L1 psl --is-public-suffix \
+  | sed -e 's/: / /' \
+  > is-public.txt
+```

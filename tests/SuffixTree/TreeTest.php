@@ -3,8 +3,10 @@
 namespace ju1ius\FusBup\Tests\SuffixTree;
 
 use ju1ius\FusBup\Compiler\SuffixTreeBuilder;
+use ju1ius\FusBup\Exception\UnknownOpcodeException;
 use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\Parser\RuleType;
+use ju1ius\FusBup\SuffixTree\Node;
 use ju1ius\FusBup\SuffixTree\Tree;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
@@ -77,5 +79,14 @@ final class TreeTest extends TestCase
             'nope.yep.com',
             [['nope'], ['yep', 'com']],
         ];
+    }
+
+    public function testUnknownOpcode(): void
+    {
+        $tree = new Tree(new Node(0, [
+            'com' => 42,
+        ]));
+        $this->expectException(UnknownOpcodeException::class);
+        $tree->split('a.com');
     }
 }

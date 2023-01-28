@@ -6,10 +6,25 @@ use Traversable;
 
 final class PslTestFile
 {
+    public static function isPublic(): Traversable
+    {
+        foreach (self::parse('is-public.txt') as [$input, $expected]) {
+            if (\is_null($input) || str_starts_with($input, '.')) {
+                continue;
+            }
+            $expected = match ($expected) {
+                '0' => false,
+                '1' => true,
+            };
+            $key = "{$input} => {$expected}";
+            yield $key => [$input, $expected];
+        }
+    }
+
     /**
      * @return Traversable<array{string, string}>
      */
-    public static function unregisterable(): Traversable
+    public static function unregistrable(): Traversable
     {
         yield from self::parse('unregisterable.txt');
     }
@@ -17,7 +32,7 @@ final class PslTestFile
     /**
      * @return Traversable<array{string, string}>
      */
-    public static function registerable(): Traversable
+    public static function registrable(): Traversable
     {
         yield from self::parse('registerable.txt');
     }
@@ -25,13 +40,11 @@ final class PslTestFile
     private static function parse(string $filename): Traversable
     {
         $file = new \SplFileObject(__DIR__ . '/Resources/' . $filename);
-        $id = 0;
         foreach ($file as $line) {
             $line = trim($line);
             if ($line === '' || str_starts_with($line, '//')) {
                 continue;
             }
-            $id++;
             [$input, $expected] = explode(' ', $line, 2);
             yield [
                 self::normalizeValue($input),

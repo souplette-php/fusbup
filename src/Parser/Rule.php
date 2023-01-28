@@ -2,7 +2,9 @@
 
 namespace ju1ius\FusBup\Parser;
 
+use ju1ius\FusBup\Exception\IdnException;
 use ju1ius\FusBup\Exception\ParseError;
+use ju1ius\FusBup\Utils\Idn;
 
 /**
  * @internal
@@ -15,8 +17,10 @@ final class Rule
         public string $suffix,
         public RuleType $type = RuleType::Default,
     ) {
-        if (false === $canonical = idn_to_ascii($suffix)) {
-            throw ParseError::idnError($suffix);
+        try {
+            $canonical = Idn::toAscii($this->suffix);
+        } catch (IdnException $err) {
+            throw ParseError::from($err, "Invalid suffix: {$suffix}");
         }
         $this->labels = array_reverse(explode('.', $canonical));
     }
