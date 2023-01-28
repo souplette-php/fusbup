@@ -1,30 +1,14 @@
+The JSON files in this directory are generated from the upstream
+[tests.txt](https://github.com/publicsuffix/list/blob/master/tests/tests.txt)
+file.
 
-The `tests.txt` file was retrieved from
-https://github.com/publicsuffix/list/blob/master/tests/tests.txt.
-
-`unregisterable.txt` was generated with:
+To regenerate them, run:
 ```sh
-grep -v -e '//' -e '^$' tests.txt \
-  | cut -d' ' -f1 \
-  | xargs -L1 psl --print-unreg-domain \
-  | sed -e 's/: / /' \
-  > unregisterable.txt
+composer run update-psl-tests
 ```
 
-`registerable.txt` was generated with:
+The `psl` binary must be installed on your system.
+On a Debian based OS, you can run:
 ```sh
-grep -v -e '//' -e '^$' tests.txt \
-  | cut -d' ' -f1 \
-  | xargs -L1 psl --print-reg-domain \
-  | sed -e 's/: / /' -e 's/(null)/null/' \
-  > registerable.txt
-```
-
-`is-public.txt` was generated with:
-```sh
-grep -v -e '//' -e '^$' tests.txt \
-  | cut -d' ' -f1 \
-  | xargs -L1 psl --is-public-suffix \
-  | sed -e 's/: / /' \
-  > is-public.txt
+apt install psl
 ```

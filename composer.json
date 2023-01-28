@@ -19,7 +19,9 @@
   ],
   "scripts": {
     "test": "tools/phpunit.phar",
-    "coverage": "XDEBUG_MODE=coverage tools/phpunit.phar --coverage-html=tmp/coverage"
+    "coverage": "rm -rf tmp/coverage && XDEBUG_MODE=coverage tools/phpunit.phar --coverage-html=tmp/coverage",
+    "update-list": "php scripts/update-list.php",
+    "update-psl-tests": "php scripts/update-psl-tests.php"
   },
   "autoload": {
     "psr-4": {

@@ -7,7 +7,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 const LIST_URL = 'https://publicsuffix.org/list/public_suffix_list.dat';
 
-$dataFile = new \SplFileObject(LIST_URL);
+$dataFile = new \SplFileObject($argv[1] ?? LIST_URL);
 $ast = (new PslParser())->parse($dataFile);
 $code = (new PslCompiler())->compileToFile($ast);
 

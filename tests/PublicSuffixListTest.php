@@ -27,7 +27,7 @@ final class PublicSuffixListTest extends TestCase
 
     public static function isPublicSuffixProvider(): iterable
     {
-        yield from PslTestFile::isPublic();
+        yield from PslTestProvider::isPublic();
     }
 
     /**
@@ -53,7 +53,7 @@ final class PublicSuffixListTest extends TestCase
 
     public static function getPublicSuffixProvider(): iterable
     {
-        yield from self::filterPslTests(PslTestFile::unregistrable(), false);
+        yield from self::filterPslTests(PslTestProvider::unregistrable(), false);
     }
 
     /**
@@ -67,7 +67,7 @@ final class PublicSuffixListTest extends TestCase
 
     public static function getRegistrableDomainProvider(): iterable
     {
-        yield from self::filterPslTests(PslTestFile::registrable());
+        yield from self::filterPslTests(PslTestProvider::registrable());
     }
 
     /**
@@ -124,7 +124,7 @@ final class PublicSuffixListTest extends TestCase
         $i = 0;
         foreach ($tests as [$input, $expected]) {
             // filter out invalid input and expected errors
-            if (\is_null($input) || str_starts_with($input, '.')) {
+            if (str_starts_with($input, '.')) {
                 continue;
             }
             if (!$allowNullResult && \is_null($expected)) {
