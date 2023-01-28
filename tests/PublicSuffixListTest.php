@@ -65,6 +65,24 @@ final class PublicSuffixListTest extends TestCase
         Assert::assertSame($expected, $result);
     }
 
+    /**
+     * @dataProvider getRegistrableDomainProvider
+     */
+    public function testSplitRegistrableDomain(string $input, ?string $expected): void
+    {
+        $result = self::getList()->splitRegistrableDomain($input);
+        if ($expected === null) {
+            Assert::assertNull($result);
+        } else {
+            [$head, $tail] = $result;
+            Assert::assertSame($expected, $tail);
+            $inputCanonical = Idn::toUnicode($input);
+            $domain = $head ? "{$head}.{$tail}" : $tail;
+            Assert::assertSame($inputCanonical, $domain);
+        }
+
+    }
+
     public static function getRegistrableDomainProvider(): iterable
     {
         yield from self::filterPslTests(PslTestProvider::registrable());

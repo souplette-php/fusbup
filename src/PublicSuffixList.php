@@ -55,8 +55,24 @@ final class PublicSuffixList
         if (!$head) {
             return null;
         }
-        $parts = [end($head), ...$tail];
-        return Idn::toUnicode($parts);
+        array_unshift($tail, array_pop($head));
+        return Idn::toUnicode($tail);
+    }
+
+    /**
+     * Splits a domain into it's private and registrable parts.
+     */
+    public function splitRegistrableDomain(string $domain): ?array
+    {
+        [$head, $tail] = $this->getTree()->split($domain);
+        if (!$head) {
+            return null;
+        }
+        array_unshift($tail, array_pop($head));
+        return [
+            $head ? Idn::toUnicode($head) : '',
+            Idn::toUnicode($tail),
+        ];
     }
 
     /**
