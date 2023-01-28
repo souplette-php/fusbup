@@ -80,7 +80,6 @@ final class PublicSuffixListTest extends TestCase
             $domain = $head ? "{$head}.{$tail}" : $tail;
             Assert::assertSame($inputCanonical, $domain);
         }
-
     }
 
     public static function getRegistrableDomainProvider(): iterable
