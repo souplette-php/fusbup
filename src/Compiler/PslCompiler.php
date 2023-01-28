@@ -10,20 +10,7 @@ final class PslCompiler
     /**
      * @param Rule[] $rules
      */
-    public function compileToString(array $rules): string
-    {
-        $tree = SuffixTreeBuilder::build($rules);
-        $code = new CodeBuilder();
-
-        $this->compileNode($tree->root, $code);
-
-        return (string)$code;
-    }
-
-    /**
-     * @param Rule[] $rules
-     */
-    public function compileToFile(array $rules): string
+    public function compile(array $rules): string
     {
         $tree = SuffixTreeBuilder::build($rules);
         $code = CodeBuilder::forFile()->raw('return ');

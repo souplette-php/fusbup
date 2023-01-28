@@ -9,7 +9,7 @@ const LIST_URL = 'https://publicsuffix.org/list/public_suffix_list.dat';
 
 $dataFile = new \SplFileObject($argv[1] ?? LIST_URL);
 $ast = (new PslParser())->parse($dataFile);
-$code = (new PslCompiler())->compileToFile($ast);
+$code = (new PslCompiler())->compile($ast);
 
 $rootDir = dirname(__DIR__);
 file_put_contents("{$rootDir}/src/Resources/psl.php", $code);

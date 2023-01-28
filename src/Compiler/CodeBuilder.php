@@ -5,6 +5,8 @@ namespace ju1ius\FusBup\Compiler;
 use Stringable;
 
 /**
+ * @todo This should be it's own composer package, so for now we just
+ * @codeCoverageIgnore
  * @internal
  */
 final class CodeBuilder implements Stringable
