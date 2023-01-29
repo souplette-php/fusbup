@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Update PSL
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * MON'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          tools: composer:v2
+      - name: Install Composer dependencies (${{ matrix.dependencies }})
+        uses: ramsey/composer-install@v2
+        with:
+          dependency-versions: lowest
+          composer-options: --prefer-dist --prefer-stable
+      - name: Install libpsl tools
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: psl
+      - name: Update public suffix list
+        run: composer run update-list
+      - name: Update libpsl tests
+        run: composer run update-psl-tests
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Automated updates from PSL upstream
+          commit-message: "[bot] updates psl from upstream"
+          base: main
+          branch: psl-updates
+          delete-branch: true
