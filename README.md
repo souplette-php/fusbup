@@ -1,6 +1,8 @@
 # ju1ius/fusbup
 
-PHP library to query the [public suffix list](https://publicsuffix.org/).
+[![codecov](https://codecov.io/gh/ju1ius/fusbup/branch/main/graph/badge.svg?token=bcrU1ru7IF)](https://codecov.io/gh/ju1ius/fusbup)
+
+PHP library to query the [Mozilla public suffix list](https://publicsuffix.org/).
 
 ## Installation
 
