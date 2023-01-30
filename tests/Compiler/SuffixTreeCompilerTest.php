@@ -2,20 +2,20 @@
 
 namespace ju1ius\FusBup\Tests\Compiler;
 
-use ju1ius\FusBup\Compiler\PslCompiler;
+use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeCompiler;
 use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\Parser\RuleType;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-final class PslCompilerTest extends TestCase
+final class SuffixTreeCompilerTest extends TestCase
 {
     /**
      * @dataProvider compileProvider
      */
     public function testCompile(array $rules, string $expected): void
     {
-        $code = (new PslCompiler())->compile($rules);
+        $code = (new SuffixTreeCompiler())->compile($rules);
         Assert::assertSame($expected, trim($code));
     }
 

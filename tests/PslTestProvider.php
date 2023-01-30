@@ -24,21 +24,21 @@ final class PslTestProvider
     }
 
     /**
-     * @return Traversable<array{string, string}>
+     * @return iterable<array{string, string}>
      * @throws JsonException
      */
-    public static function unregistrable(): Traversable
+    public static function unregistrable(): iterable
     {
-        yield from self::parse('etld.json');
+        return self::parse('etld.json');
     }
 
     /**
-     * @return Traversable<array{string, string}>
+     * @return iterable<array{string, string}>
      * @throws JsonException
      */
-    public static function registrable(): Traversable
+    public static function registrable(): iterable
     {
-        yield from self::parse('etld+1.json');
+        return self::parse('etld+1.json');
     }
 
     /**
@@ -47,7 +47,7 @@ final class PslTestProvider
     private static function parse(string $filename): array
     {
         return json_decode(
-            file_get_contents(__DIR__ . '/Resources/' . $filename),
+            file_get_contents(ResourceHelper::path($filename)),
             null,
             512,
             \JSON_THROW_ON_ERROR,

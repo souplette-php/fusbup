@@ -7,44 +7,29 @@ use ju1ius\FusBup\Utils\Idn;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-final class PublicSuffixListTest extends TestCase
+/**
+ * Ideally, the test methods would be implemented here instead of being abstract.
+ * However, it makes it difficult to debug individual data sets for a particular subclass...
+ */
+abstract class AbstractPslTest extends TestCase
 {
-    private static PublicSuffixList $list;
+    abstract protected static function getList(): PublicSuffixList;
 
-    private static function getList(): PublicSuffixList
-    {
-        return self::$list ??= new PublicSuffixList();
-    }
-
-    /**
-     * @dataProvider isPublicSuffixProvider
-     */
-    public function testIsPublicSuffix(string $input, bool $expected): void
-    {
-        $result = self::getList()->isPublicSuffix($input);
-        Assert::assertSame($expected, $result);
-    }
+    abstract public function testIsPublicSuffix(string $input, bool $expected): void;
 
     public static function isPublicSuffixProvider(): iterable
     {
         yield from PslTestProvider::isPublic();
     }
 
-    /**
-     * @dataProvider getPublicSuffixProvider
-     */
-    public function testGetPublicSuffix(string $input, string $expected): void
-    {
-        $result = self::getList()->getPublicSuffix($input);
-        Assert::assertSame($expected, $result);
-    }
+    abstract public function testGetPublicSuffix(string $input, string $expected): void;
 
     /**
      * @dataProvider getPublicSuffixProvider
      */
     public function testSplitPublicSuffix(string $input, string $suffix): void
     {
-        [$private, $public] = self::getList()->splitPublicSuffix($input);
+        [$private, $public] = static::getList()->splitPublicSuffix($input);
         Assert::assertSame($suffix, $public);
         $inputCanonical = Idn::toUnicode($input);
         $domain = $private ? "{$private}.{$public}" : $public;
@@ -56,21 +41,14 @@ final class PublicSuffixListTest extends TestCase
         yield from self::filterPslTests(PslTestProvider::unregistrable(), false);
     }
 
-    /**
-     * @dataProvider getRegistrableDomainProvider
-     */
-    public function testGetRegistrableDomain(string $input, ?string $expected): void
-    {
-        $result = self::getList()->getRegistrableDomain($input);
-        Assert::assertSame($expected, $result);
-    }
+    abstract public function testGetRegistrableDomain(string $input, ?string $expected): void;
 
     /**
      * @dataProvider getRegistrableDomainProvider
      */
     public function testSplitRegistrableDomain(string $input, ?string $expected): void
     {
-        $result = self::getList()->splitRegistrableDomain($input);
+        $result = static::getList()->splitRegistrableDomain($input);
         if ($expected === null) {
             Assert::assertNull($result);
         } else {
@@ -92,7 +70,7 @@ final class PublicSuffixListTest extends TestCase
      */
     public function testIsCookieDomainAcceptable(string $requestDomain, string $cookieDomain, bool $expected): void
     {
-        $result = self::getList()->isCookieDomainAcceptable($requestDomain, $cookieDomain);
+        $result = static::getList()->isCookieDomainAcceptable($requestDomain, $cookieDomain);
         Assert::assertSame($expected, $result);
     }
 
@@ -137,7 +115,7 @@ final class PublicSuffixListTest extends TestCase
         //yield ['hiho', null, false];
     }
 
-    private static function filterPslTests(\Traversable $tests, bool $allowNullResult = true): \Traversable
+    private static function filterPslTests(iterable $tests, bool $allowNullResult = true): \Traversable
     {
         $i = 0;
         foreach ($tests as [$input, $expected]) {
@@ -152,7 +130,12 @@ final class PublicSuffixListTest extends TestCase
             // libpsl returns results in their original form,
             // but we return them in canonicalized unicode form.
             $expected = $expected ? Idn::toUnicode($expected) : null;
-            $key = "#{$i} {$input} => {$expected}";
+            $key = sprintf(
+                '#%d %s => %s',
+                $i,
+                $input,
+                var_export($expected, true),
+            );
             yield $key => [$input, $expected];
         }
     }

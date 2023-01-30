@@ -2,82 +2,43 @@
 
 namespace ju1ius\FusBup;
 
-use ju1ius\FusBup\SuffixTree\Tree;
+use ju1ius\FusBup\Loader\PhpFileLoader;
 use ju1ius\FusBup\Utils\Idn;
 
-final class PublicSuffixList
+final class PublicSuffixList implements PublicSuffixListInterface
 {
-    private readonly Tree $tree;
+    private readonly PslLookupInterface $lookup;
 
     public function __construct(
-        private readonly string $filename = __DIR__ . '/Resources/psl.php',
+        private readonly PslLoaderInterface $loader = new PhpFileLoader(__DIR__ . '/Resources/psl.php'),
     ) {
     }
 
-    /**
-     * Returns whether the given domain is a public suffix.
-     */
-    public function isPublicSuffix(string $domain): bool
+    public function isPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): bool
     {
-        [$head, $tail] = $this->getTree()->split($domain);
-        return !$head && $tail;
+        return $this->getLookup()->isPublicSuffix($domain, $flags);
     }
 
-    /**
-     * Returns the public suffix of a domain.
-     */
-    public function getPublicSuffix(string $domain): string
+    public function getPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): string
     {
-        [, $tail] = $this->getTree()->split($domain);
-        return Idn::toUnicode($tail);
+        return Idn::toUnicode($this->getLookup()->getPublicSuffix($domain));
     }
 
-    /**
-     * Splits a domain into it's private and public suffix parts.
-     *
-     * @returns array{string, string}
-     */
     public function splitPublicSuffix(string $domain): array
     {
-        [$head, $tail] = $this->getTree()->split($domain);
-        return [
-            $head ? Idn::toUnicode($head) : '',
-            Idn::toUnicode($tail),
-        ];
+        return $this->getLookup()->splitPublicSuffix($domain);
     }
 
-    /**
-     * Returns the registrable part (AKA eTLD+1) of a domain.
-     */
     public function getRegistrableDomain(string $domain): ?string
     {
-        [$head, $tail] = $this->getTree()->split($domain);
-        if (!$head) {
-            return null;
-        }
-        array_unshift($tail, array_pop($head));
-        return Idn::toUnicode($tail);
+        return $this->getLookup()->getRegistrableDomain($domain);
     }
 
-    /**
-     * Splits a domain into it's private and registrable parts.
-     */
     public function splitRegistrableDomain(string $domain): ?array
     {
-        [$head, $tail] = $this->getTree()->split($domain);
-        if (!$head) {
-            return null;
-        }
-        array_unshift($tail, array_pop($head));
-        return [
-            $head ? Idn::toUnicode($head) : '',
-            Idn::toUnicode($tail),
-        ];
+        return $this->getLookup()->splitRegistrableDomain($domain);
     }
 
-    /**
-     * @link https://httpwg.org/specs/rfc6265.html#cookie-domain
-     */
     public function isCookieDomainAcceptable(string $requestDomain, string $cookieDomain): bool
     {
         // A string domain-matches a given domain string if at least one of the following conditions hold:
@@ -94,7 +55,7 @@ final class PublicSuffixList
             // The domain string is a suffix of the string
             str_ends_with($requestDomain, $cookieDomain)
             // The last character of the string that is not included in the domain string is "."
-            && $requestDomain[\strlen($requestDomain) - \strlen($cookieDomain) - 1] === '.'
+            && $requestDomain[-\strlen($cookieDomain) - 1] === '.'
             // The string is a host name (i.e., not an IP address).
             && filter_var($requestDomain, \FILTER_VALIDATE_IP) === false
         ) {
@@ -106,8 +67,8 @@ final class PublicSuffixList
         return false;
     }
 
-    private function getTree(): Tree
+    private function getLookup(): PslLookupInterface
     {
-        return $this->tree ??= new Tree(require $this->filename);
+        return $this->lookup ??= $this->loader->load();
     }
 }

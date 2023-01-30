@@ -16,6 +16,7 @@ final class Rule implements \Stringable
     public function __construct(
         public string $suffix,
         public RuleType $type = RuleType::Default,
+        public Section $section = Section::None,
     ) {
         try {
             $canonical = Idn::toAscii($this->suffix);
@@ -23,6 +24,16 @@ final class Rule implements \Stringable
             throw ParseError::from($err, "Invalid suffix: {$suffix}");
         }
         $this->labels = array_reverse(explode('.', $canonical));
+    }
+
+    public static function pub(string $suffix, RuleType $type = RuleType::Default): self
+    {
+        return new self($suffix, $type, Section::Icann);
+    }
+
+    public static function priv(string $suffix, RuleType $type = RuleType::Default): self
+    {
+        return new self($suffix, $type, Section::Private);
     }
 
     /**

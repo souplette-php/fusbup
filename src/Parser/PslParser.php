@@ -8,6 +8,8 @@ use Traversable;
 
 final class PslParser
 {
+    private Section $currentSection;
+
     /**
      * @return Rule[]
      */
@@ -22,10 +24,13 @@ final class PslParser
      */
     private function parseLines(iterable $lines): array
     {
+        $this->currentSection = Section::None;
         $rules = [];
         foreach ($lines as $line) {
-            // TODO: handle ===BEGIN SECTION=== comments
-            if (str_starts_with($line, '//')) continue;
+            if (str_starts_with($line, '//')) {
+                $this->handleComment($line);
+                continue;
+            }
             $rules[] = $this->parseRule($line);
         }
 
@@ -44,11 +49,36 @@ final class PslParser
         if (!preg_match(self::RULE_RX, $line, $m)) {
             throw ParseError::invalidRule($line);
         }
-        return new Rule($m['suffix'], match ($m['prefix']) {
+        $type = match ($m['prefix']) {
             '*.' => RuleType::Wildcard,
             '!' => RuleType::Exception,
             '' => RuleType::Default,
-        });
+        };
+        return new Rule($m['suffix'], $type, $this->currentSection);
+    }
+
+    private const SECTION_RX = <<<'REGEXP'
+    ~^
+        // \s+ === (?<action> BEGIN|END ) \s+
+        (?<id> \w+ )
+        \s+ DOMAINS ===
+    $~x
+    REGEXP;
+
+    private function handleComment(string $line): void
+    {
+        if (!preg_match(self::SECTION_RX, $line, $m)) {
+            return;
+        }
+        if ($m['action'] === 'END') {
+            $this->currentSection = Section::None;
+            return;
+        }
+        $this->currentSection = match ($m['id']) {
+            'ICANN' => Section::Icann,
+            'PRIVATE' => Section::Private,
+            default => Section::Unknown,
+        };
     }
 
     /**

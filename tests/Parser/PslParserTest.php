@@ -6,6 +6,7 @@ use ju1ius\FusBup\Exception\ParseError;
 use ju1ius\FusBup\Parser\PslParser;
 use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\Parser\RuleType;
+use ju1ius\FusBup\Parser\Section;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -55,6 +56,27 @@ final class PslParserTest extends TestCase
             [
                 new Rule('x.y', RuleType::Wildcard),
             ]
+        ];
+        yield 'handles ICANN & PRIVATE section' => [
+            <<<'EOS'
+            a
+            // ===BEGIN ICANN DOMAINS===
+            pub
+            // ===END ICANN DOMAINS===
+            b
+            // ===BEGIN PRIVATE DOMAINS===
+            priv
+            // ===END PRIVATE DOMAINS===
+            // ===BEGIN FOO DOMAINS===
+            foo
+            EOS,
+            [
+                new Rule('a'),
+                new Rule('pub', section: Section::Icann),
+                new Rule('b'),
+                new Rule('priv', section: Section::Private),
+                new Rule('foo', section: Section::Unknown),
+            ],
         ];
     }
 

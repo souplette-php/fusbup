@@ -2,29 +2,70 @@
 
 namespace ju1ius\FusBup\SuffixTree;
 
+use ju1ius\FusBup\Exception\UnknownDomainException;
 use ju1ius\FusBup\Exception\UnknownOpcodeException;
+use ju1ius\FusBup\PslLookupInterface;
 use ju1ius\FusBup\Utils\Idn;
 
 /**
  * @link https://github.com/publicsuffix/list/wiki/Format#algorithm
  * @internal
  */
-final class Tree
+final class Tree implements PslLookupInterface
 {
     public function __construct(
         public readonly Node $root,
     ) {
     }
 
-    /**
-     * Returns a tuple containing the private labels and the public labels.
-     * Labels are returned in their ASCII canonical form.
-     *
-     * $tree->split('a.b.co.uk') => [['a', 'b'], ['co', 'uk']]
-     *
-     * @return array<string[], string[]>
-     */
-    public function split(string $domain): array
+    public function isPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): bool
+    {
+        try {
+            [$head, $tail] = $this->split($domain, $flags);
+            return !$head && $tail;
+        } catch (UnknownDomainException) {
+            return false;
+        }
+    }
+
+    public function getPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): string
+    {
+        [, $tail] = $this->split($domain, $flags);
+        return Idn::toUnicode($tail);
+    }
+    public function splitPublicSuffix(string $domain): array
+    {
+        [$head, $tail] = $this->split($domain);
+        return [
+            $head ? Idn::toUnicode($head) : '',
+            Idn::toUnicode($tail),
+        ];
+    }
+
+    public function getRegistrableDomain(string $domain): ?string
+    {
+        [$head, $tail] = $this->split($domain);
+        if (!$head) {
+            return null;
+        }
+        array_unshift($tail, array_pop($head));
+        return Idn::toUnicode($tail);
+    }
+
+    public function splitRegistrableDomain(string $domain): ?array
+    {
+        [$head, $tail] = $this->split($domain);
+        if (!$head) {
+            return null;
+        }
+        array_unshift($tail, array_pop($head));
+        return [
+            $head ? Idn::toUnicode($head) : '',
+            Idn::toUnicode($tail),
+        ];
+    }
+
+    public function split(string $domain, int $flags = self::ALLOW_ALL): array
     {
         $labels = explode('.', Idn::toAscii($domain));
         $node = $this->root;
@@ -40,6 +81,7 @@ final class Tree
                 \is_int($node) => $node,
                 default => $node->op,
             };
+            // TODO: private flag
             switch ($opcode) {
                 case Opcodes::CONTINUE:
                     break;
@@ -59,12 +101,16 @@ final class Tree
                     throw new UnknownOpcodeException($opcode);
             }
         }
+
         // No matches: the public suffix is the rightmost label.
         if (!$matches) {
-            return [
-                array_slice($labels, 0, -1),
-                array_slice($labels, -1, 1),
-            ];
+            if ($flags & self::ALLOW_UNKNOWN) {
+                return [
+                    array_slice($labels, 0, -1),
+                    array_slice($labels, -1, 1),
+                ];
+            }
+            throw new UnknownDomainException();
         }
 
         $tail = end($matches);
