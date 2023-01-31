@@ -5876,7 +5876,6 @@ return new Node(1, [
     'loans' => 2,
     'locker' => 2,
     'locus' => 2,
-    'loft' => 2,
     'lol' => new Node(2, [
         'omg' => 2,
     ]),
@@ -8949,7 +8948,6 @@ return new Node(1, [
     'services' => new Node(2, [
         'loginline' => 2,
     ]),
-    'ses' => 2,
     'seven' => 2,
     'sew' => 2,
     'sex' => 2,
