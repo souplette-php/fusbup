@@ -1,6 +1,8 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 
 name: Update PSL
+permissions:
+  pull-requests: write
 on:
   workflow_dispatch:
   schedule:
