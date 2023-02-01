@@ -3,7 +3,7 @@
 
 /data
 /tmp
-/tools
+/tools/*
 !/tools/README.md
 
 /composer.lock
