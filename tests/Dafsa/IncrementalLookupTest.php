@@ -12,7 +12,7 @@ final class IncrementalLookupTest extends TestCase
 {
     private static function loadGraph(string $name): string
     {
-        $path = ResourceHelper::path("dafsa/{$name}.php");
+        $path = ResourceHelper::path("dafsa/chromium/{$name}.php");
         return ByteArray::toString(require $path);
     }
 

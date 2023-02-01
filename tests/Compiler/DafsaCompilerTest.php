@@ -55,9 +55,9 @@ final class DafsaCompilerTest extends TestCase
 
     public static function compileMatchesUpstreamImplementationProvider(): iterable
     {
-        foreach (ResourceHelper::glob('dafsa/*.gperf') as $inputFile) {
+        foreach (ResourceHelper::glob('dafsa/chromium/*.gperf') as $inputFile) {
             $testName = basename($inputFile, '.gperf');
-            $dafsaFile = ResourceHelper::path("dafsa/{$testName}.php");
+            $dafsaFile = ResourceHelper::path("dafsa/chromium/{$testName}.php");
             yield $testName => [$inputFile, $dafsaFile];
         }
     }
