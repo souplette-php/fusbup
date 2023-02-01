@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Tests\Dafsa;
 
-use ju1ius\FusBup\Compiler\Dafsa\DafsaCompiler;
+use ju1ius\FusBup\Compiler\DafsaCompiler;
 use ju1ius\FusBup\Dafsa\Graph;
 use ju1ius\FusBup\Tests\PslLookupTestProvider;
 use PHPUnit\Framework\Assert;

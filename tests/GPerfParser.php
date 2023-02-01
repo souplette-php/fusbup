@@ -9,8 +9,8 @@ final class GPerfParser
         $words = [];
         foreach (self::iter($filename) as [$word, $flags]) {
             $words[] = match ($reverse) {
-                true => strrev($word) . $flags,
-                false => $word . $flags,
+                true => strrev($word) . \chr($flags & 0x0F),
+                false => $word . \chr($flags & 0x0F),
             };
         }
 

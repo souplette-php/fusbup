@@ -3,8 +3,6 @@
 namespace ju1ius\FusBup\Tests\SuffixTree;
 
 use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeBuilder;
-use ju1ius\FusBup\Exception\UnknownOpcodeException;
-use ju1ius\FusBup\SuffixTree\Node;
 use ju1ius\FusBup\SuffixTree\Tree;
 use ju1ius\FusBup\Tests\PslLookupTestProvider;
 use PHPUnit\Framework\Assert;

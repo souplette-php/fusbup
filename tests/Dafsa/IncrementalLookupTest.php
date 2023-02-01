@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Tests\Dafsa;
 
-use ju1ius\FusBup\Compiler\ByteArray;
+use ju1ius\FusBup\Compiler\Utils\ByteArray;
 use ju1ius\FusBup\Dafsa\IncrementalLookup;
 use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;

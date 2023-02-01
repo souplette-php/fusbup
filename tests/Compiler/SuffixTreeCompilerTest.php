@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Tests\Compiler;
 
-use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeCompiler;
+use ju1ius\FusBup\Compiler\SuffixTreeCompiler;
 use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\Parser\RuleType;
 use PHPUnit\Framework\Assert;

@@ -4,6 +4,7 @@
 /data
 /tmp
 /tools
+!/tools/README.md
 
 /composer.lock
 /vendor

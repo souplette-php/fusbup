@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler\SuffixTree;
+namespace ju1ius\FusBup\Compiler;
 
-use ju1ius\FusBup\Compiler\CodeBuilder;
+use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeBuilder;
+use ju1ius\FusBup\Compiler\Utils\CodeBuilder;
 use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\SuffixTree\Node;
 

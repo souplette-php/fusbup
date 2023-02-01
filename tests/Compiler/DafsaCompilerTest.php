@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Compiler\Dafsa;
+namespace ju1ius\FusBup\Tests\Compiler;
 
-use ju1ius\FusBup\Compiler\ByteArray;
-use ju1ius\FusBup\Compiler\Dafsa\DafsaCompiler;
+use ju1ius\FusBup\Compiler\DafsaCompiler;
+use ju1ius\FusBup\Compiler\Utils\ByteArray;
 use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\Tests\GPerfParser;
 use ju1ius\FusBup\Tests\ResourceHelper;
@@ -31,7 +31,7 @@ final class DafsaCompilerTest extends TestCase
     {
         yield 'two simple overlapping rules' => [
             [Rule::pub('uk'), Rule::pub('co.uk')],
-            [0x02, 0x83, 0x63, 0x6f, 0x2e, 0x75, 0x6b, 0x80,],
+            [0x02, 0x83, 0x63, 0x6f, 0x2e, 0x75, 0x6b, 0x80],
             false,
         ];
         yield 'two simple overlapping rules, reversed' => [
@@ -43,9 +43,9 @@ final class DafsaCompilerTest extends TestCase
 
     /**
      * @medium
-     * @dataProvider compileMatchesChromiumImplementationProvider
+     * @dataProvider compileMatchesUpstreamImplementationProvider
      */
-    public function testCompileMatchesChromiumImplementation(string $inputFile, string $dafsaFile): void
+    public function testCompileMatchesUpstreamImplementation(string $inputFile, string $dafsaFile): void
     {
         $words = GPerfParser::parse($inputFile);
         $result = (new DafsaCompiler())->compileWords($words);
@@ -53,7 +53,7 @@ final class DafsaCompilerTest extends TestCase
         Assert::assertSame($expected, ByteArray::fromDafsa($result));
     }
 
-    public static function compileMatchesChromiumImplementationProvider(): iterable
+    public static function compileMatchesUpstreamImplementationProvider(): iterable
     {
         foreach (ResourceHelper::glob('dafsa/*.gperf') as $inputFile) {
             $testName = basename($inputFile, '.gperf');

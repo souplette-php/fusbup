@@ -1,35 +1,33 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler\Dafsa\Encoder;
+namespace ju1ius\FusBup\Compiler\Dafsa;
 
-use ju1ius\FusBup\Compiler\ByteArray;
-use ju1ius\FusBup\Compiler\Dafsa\Node;
-use ju1ius\FusBup\Compiler\Dafsa\Optimization\TopologicalSort;
+use ju1ius\FusBup\Compiler\Utils\ByteArray;
 
 /**
  * @internal
  */
-final class AsciiEncoder implements EncoderInterface
+final class Encoder
 {
     private \SplObjectStorage $offsets;
 
-    public function encode(array $nodes): array
+    public function encode(Dafsa $dafsa): array
     {
         $output = [];
         $this->offsets = new \SplObjectStorage();
-        $sorted = (new TopologicalSort())->process($nodes);
+        $sorted = (new TopologicalSort())->process($dafsa);
         foreach (array_reverse($sorted) as $node) {
             $current = \count($output);
             if ($this->shouldEncodePrefix($node, $current)) {
                 array_push($output, ...$this->encodePrefix($node));
             } else {
-                array_push($output, ...$this->encodeLinks($node->children, $current));
+                array_push($output, ...$this->encodeLinks($node, $current));
                 array_push($output, ...$this->encodeLabel($node));
             }
             $this->offsets[$node] = \count($output);
         }
 
-        array_push($output, ...$this->encodeLinks($nodes, \count($output)));
+        array_push($output, ...$this->encodeLinks($dafsa->rootNode, \count($output)));
 
         return array_reverse($output);
     }
@@ -37,24 +35,24 @@ final class AsciiEncoder implements EncoderInterface
     /**
      * Encodes a list of children as one, two or three byte offsets.
      *
-     * @param Node[] $children
+     * @param Node $node
      * @param int $current
      * @return int[]
      */
-    private function encodeLinks(array $children, int $current): array
+    private function encodeLinks(Node $node, int $current): array
     {
-        assert($children);
-        if ($children[0]->isSink()) {
+        assert($node->children);
+        $children = $node->children;
+        if (reset($children)->isSink) {
             // This is an <end_label> node and no links follow such nodes
-            assert(\count($children) === 1);
             return [];
         }
 
         $guess = 3 * \count($children);
-        // todo: check sort order
         $sortKey = fn($n) => -$this->offsets[$n];
         usort($children, fn($a, $b) => $sortKey($a) <=> $sortKey($b));
 
+        $last = 0;
         while (true) {
             $offset = $current + $guess;
             $buf = [];
@@ -108,9 +106,9 @@ final class AsciiEncoder implements EncoderInterface
             return false;
         }
 
-        $child = $node->children[0];
+        $child = reset($node->children);
         return (
-            !$child->isSink()
+            !$child->isSink
             && $this->offsets->contains($child)
             && $this->offsets[$child] === $currentOffset
         );
@@ -127,7 +125,7 @@ final class AsciiEncoder implements EncoderInterface
      */
     private function encodePrefix(Node $node): array
     {
-        assert($node->value);
-        return array_reverse(ByteArray::fromString($node->value));
+        assert($node->char !== '');
+        return array_reverse(ByteArray::fromString($node->char));
     }
 }

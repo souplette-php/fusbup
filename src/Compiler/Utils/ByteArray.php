@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler;
+namespace ju1ius\FusBup\Compiler\Utils;
 
 use ju1ius\FusBup\Dafsa\Graph;
 
