@@ -3,6 +3,7 @@
 namespace ju1ius\FusBup;
 
 use ju1ius\FusBup\Loader\PhpFileLoader;
+use ju1ius\FusBup\Loader\LoaderInterface;
 use ju1ius\FusBup\Utils\Idn;
 
 final class PublicSuffixList implements PublicSuffixListInterface
@@ -10,7 +11,7 @@ final class PublicSuffixList implements PublicSuffixListInterface
     private readonly PslLookupInterface $lookup;
 
     public function __construct(
-        private readonly PslLoaderInterface $loader = new PhpFileLoader(__DIR__ . '/Resources/psl.php'),
+        private readonly LoaderInterface $loader = new PhpFileLoader(__DIR__ . '/Resources/psl.php'),
     ) {
     }
 

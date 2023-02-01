@@ -4,6 +4,9 @@ namespace ju1ius\FusBup\Compiler\Utils;
 
 use ju1ius\FusBup\Dafsa\Graph;
 
+/**
+ * @internal
+ */
 final class ByteArray
 {
     public static function fromString(string $bytes): array

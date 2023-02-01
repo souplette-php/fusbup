@@ -3,8 +3,8 @@
 namespace ju1ius\FusBup\Tests\Compiler;
 
 use ju1ius\FusBup\Compiler\DafsaCompiler;
+use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Utils\ByteArray;
-use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\Tests\GPerfParser;
 use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;

@@ -2,12 +2,11 @@
 
 namespace ju1ius\FusBup\Compiler\SuffixTree;
 
-use ju1ius\FusBup\Parser\Rule;
-use ju1ius\FusBup\Parser\RuleType;
-use ju1ius\FusBup\Parser\Section;
+use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleType;
+use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\SuffixTree\Flags;
 use ju1ius\FusBup\SuffixTree\Node;
-use ju1ius\FusBup\SuffixTree\Opcodes;
 use ju1ius\FusBup\SuffixTree\Tree;
 
 /**

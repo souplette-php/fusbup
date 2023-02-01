@@ -5,7 +5,7 @@ namespace ju1ius\FusBup\Compiler\Utils;
 use Stringable;
 
 /**
- * @todo This should be it's own composer package, so for now we just
+ * @todo This should live in its own composer package, so for now we just
  * @codeCoverageIgnore
  * @internal
  */

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Parser;
+namespace ju1ius\FusBup\Tests\Compiler\Parser;
 
-use ju1ius\FusBup\Parser\Rule;
-use ju1ius\FusBup\Parser\RuleType;
+use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleType;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 

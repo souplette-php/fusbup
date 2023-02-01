@@ -7,6 +7,7 @@ use ju1ius\FusBup\PslLookupInterface;
 use ju1ius\FusBup\Utils\Idn;
 
 /**
+ * @internal
  * @todo cleanup this implementation.
  * @todo move IDN normalization to the PublicSuffixList class?
  */
@@ -196,6 +197,10 @@ final class Graph implements PslLookupInterface
         ];
     }
 
+    /**
+     * @todo remove this once we've figured out all the corner cases.
+     * @codeCoverageIgnore
+     */
     private function getRegistryLength(string $domain, bool $allowUnknown = true): int
     {
         [$result, $suffixLength] = IncrementalLookup::reverseLookup($this->buffer, $domain);

@@ -2,6 +2,9 @@
 
 namespace ju1ius\FusBup\Compiler\Dafsa;
 
+/**
+ * @internal
+ */
 final class Dafsa implements \IteratorAggregate
 {
     public Node $rootNode;
@@ -28,7 +31,7 @@ final class Dafsa implements \IteratorAggregate
 
     public function append(string $word): void
     {
-        $machine = new AppendStateMachine($word, $this->rootNode, $this->sinkNode);
+        $machine = new InsertionStateMachine($word, $this->rootNode, $this->sinkNode);
         $machine->run();
     }
 

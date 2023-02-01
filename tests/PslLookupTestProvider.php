@@ -2,8 +2,8 @@
 
 namespace ju1ius\FusBup\Tests;
 
-use ju1ius\FusBup\Parser\Rule;
-use ju1ius\FusBup\Parser\RuleType;
+use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleType;
 
 final class PslLookupTestProvider
 {

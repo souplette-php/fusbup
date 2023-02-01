@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
 use ju1ius\FusBup\Compiler\DafsaCompiler;
+use ju1ius\FusBup\Compiler\PslParser;
 use ju1ius\FusBup\Compiler\SuffixTreeCompiler;
-use ju1ius\FusBup\Parser\PslParser;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

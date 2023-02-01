@@ -2,6 +2,9 @@
 
 namespace ju1ius\FusBup\Dafsa;
 
+/**
+ * @internal
+ */
 final class IncrementalLookup
 {
     /**
@@ -95,15 +98,13 @@ final class IncrementalLookup
             if ($this->atLabelCharacter) {
                 // Currently processing a label, so it is only necessary to check the byte
                 // at $pos to see if it encodes a character matching $input.
-                $isLastCharInLabel = $this->isEol($this->pos);
-                $isMatch = $this->isMatch($this->pos, $input);
-                if ($isMatch) {
+                if ($this->isMatch($this->pos, $input)) {
                     // If this is not the last character in the label,
                     // the next byte should be interpreted as a character or return value.
                     // Otherwise, the next byte should be interpreted as a list of child node offsets.
+                    $this->atLabelCharacter = !$this->isEndOfLabel($this->pos);
                     ++$this->pos;
                     assert($this->pos < \strlen($this->graph));
-                    $this->atLabelCharacter = !$isLastCharInLabel;
                     return true;
                 }
             } else {
@@ -123,16 +124,14 @@ final class IncrementalLookup
                     // encoded the same way as characters.
                     // Since $input was already validated as a printable ASCII value,
                     // isMatch() will never return true if $offset is a result code.
-                    $isLastCharInLabel = $this->isEol($offset);
-                    $isMatch = $this->isMatch($offset, $input);
-                    if ($isMatch) {
+                    if ($this->isMatch($offset, $input)) {
                         // If this is not the last character in the label,
                         // the next byte should be interpreted as a character or return value.
                         // Otherwise, the next byte should be interpreted as a list of child node offsets.
+                        $this->atLabelCharacter = !$this->isEndOfLabel($offset);
                         $this->exhausted = false;
                         $this->pos = $offset + 1;
                         assert($this->pos < \strlen($this->graph));
-                        $this->atLabelCharacter = !$isLastCharInLabel;
                         return true;
                     }
                 }
@@ -184,7 +183,7 @@ final class IncrementalLookup
     /**
      * Check if byte at $offset is last in label.
      */
-    private function isEol(int $offset): bool
+    private function isEndOfLabel(int $offset): bool
     {
         return ($this->graph[$offset] & "\x80") !== "\x00";
     }

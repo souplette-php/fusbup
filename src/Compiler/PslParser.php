@@ -1,11 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Parser;
+namespace ju1ius\FusBup\Compiler;
 
+use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleType;
+use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\Exception\ParseError;
 use SplFileObject;
 use Traversable;
 
+/**
+ * @internal
+ */
 final class PslParser
 {
     private Section $currentSection;

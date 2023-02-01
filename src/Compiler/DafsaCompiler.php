@@ -4,18 +4,16 @@ namespace ju1ius\FusBup\Compiler;
 
 use ju1ius\FusBup\Compiler\Dafsa\Dafsa;
 use ju1ius\FusBup\Compiler\Dafsa\Encoder;
-use ju1ius\FusBup\Compiler\Dafsa\Encoder\AsciiEncoder;
-use ju1ius\FusBup\Compiler\Dafsa\Optimization\JoinLabels;
-use ju1ius\FusBup\Compiler\Dafsa\Optimization\JoinSuffixes;
-use ju1ius\FusBup\Compiler\Dafsa\Optimization\Reverse;
-use ju1ius\FusBup\Compiler\Dafsa\TreeBuilder\AsciiTreeBuilder;
+use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleType;
+use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\Compiler\Utils\ByteArray;
 use ju1ius\FusBup\Dafsa\Result;
-use ju1ius\FusBup\Parser\Rule;
-use ju1ius\FusBup\Parser\RuleType;
-use ju1ius\FusBup\Parser\Section;
 use ju1ius\FusBup\Utils\Idn;
 
+/**
+ * @internal
+ */
 final class DafsaCompiler
 {
     /**

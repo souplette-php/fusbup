@@ -13,4 +13,18 @@ final class ResourceHelper
     {
         return glob(self::path($relativePath));
     }
+
+    public static function tmp(string $name, callable $fn): void
+    {
+        if (!\is_dir($dir = __DIR__ . '/Resources/tmp')) {
+            mkdir($dir, recursive: true);
+        }
+        if (false !== $tmp = tempnam($dir, $name)) {
+            try {
+                $fn($tmp);
+            } finally {
+                unlink($tmp);
+            }
+        }
+    }
 }

@@ -2,6 +2,9 @@
 
 namespace ju1ius\FusBup\SuffixTree;
 
+/**
+ * @internal
+ */
 final class Flags
 {
     /**

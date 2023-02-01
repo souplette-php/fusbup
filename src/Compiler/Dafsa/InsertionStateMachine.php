@@ -3,11 +3,12 @@
 namespace ju1ius\FusBup\Compiler\Dafsa;
 
 /**
- * State machine for adding a word to a Dafsa.
+ * @internal
+ * State machine for inserting a word to a Dafsa.
  *
  * Each state returns a function reference to the "next state".
  * States should be invoked until "None" is returned,
- * in which case the new word has been appended.
+ * in which case the new word has been inserted.
  *
  * The prefix and suffix indexes are placed according to the currently-known valid
  * value (not the next value being investigated). Additionally, they are 0-indexed
@@ -34,7 +35,7 @@ namespace ju1ius\FusBup\Compiler\Dafsa;
  * The current suffix index is "10".
  * The next suffix node we'll attempt to find is at index "9".
  */
-final class AppendStateMachine
+final class InsertionStateMachine
 {
     private int $prefixIndex = 0;
     private SuffixCursor $suffixCursor;

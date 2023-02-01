@@ -2,6 +2,9 @@
 
 namespace ju1ius\FusBup\Dafsa;
 
+/**
+ * @internal
+ */
 final class Result
 {
     // key is not in set

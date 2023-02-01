@@ -2,6 +2,9 @@
 
 namespace ju1ius\FusBup\Compiler\Dafsa;
 
+/**
+ * @internal
+ */
 final class TopologicalSort
 {
     private \SplObjectStorage $incoming;

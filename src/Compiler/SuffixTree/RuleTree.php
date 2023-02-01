@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Compiler\SuffixTree;
 
-use ju1ius\FusBup\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\Rule;
 
 /**
  * @internal
