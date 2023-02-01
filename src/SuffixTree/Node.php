@@ -8,7 +8,7 @@ namespace ju1ius\FusBup\SuffixTree;
 final class Node
 {
     public function __construct(
-        public int $op,
+        public int $flags,
         /** @var array<string, self|int> */
         public array $children,
     ) {

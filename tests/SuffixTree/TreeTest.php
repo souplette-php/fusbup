@@ -31,13 +31,4 @@ final class TreeTest extends TestCase
     {
         yield from PslLookupTestProvider::splitCases();
     }
-
-    public function testUnknownOpcode(): void
-    {
-        $tree = new Tree(new Node(0, [
-            'com' => 42,
-        ]));
-        $this->expectException(UnknownOpcodeException::class);
-        $tree->split('a.com');
-    }
 }

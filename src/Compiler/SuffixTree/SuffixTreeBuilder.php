@@ -4,6 +4,8 @@ namespace ju1ius\FusBup\Compiler\SuffixTree;
 
 use ju1ius\FusBup\Parser\Rule;
 use ju1ius\FusBup\Parser\RuleType;
+use ju1ius\FusBup\Parser\Section;
+use ju1ius\FusBup\SuffixTree\Flags;
 use ju1ius\FusBup\SuffixTree\Node;
 use ju1ius\FusBup\SuffixTree\Opcodes;
 use ju1ius\FusBup\SuffixTree\Tree;
@@ -30,13 +32,13 @@ final class SuffixTreeBuilder
     private static function processNode(RuleNode $node): Node|int
     {
         $rule = $node->value;
-        $opcode = match ($rule) {
-            null => Opcodes::CONTINUE,
+        $flags = match ($rule) {
+            null => Flags::CONTINUE,
             default => self::processRule($rule),
         };
 
         if (!$node->children) {
-            return $opcode;
+            return $flags;
         }
 
         $children = [];
@@ -44,15 +46,21 @@ final class SuffixTreeBuilder
             $children[$label] = self::processNode($child);
         }
 
-        return new Node($opcode, $children);
+        return new Node($flags, $children);
     }
 
     private static function processRule(Rule $rule): int
     {
-        return match ($rule->type) {
-            RuleType::Default => Opcodes::STORE,
-            RuleType::Wildcard => Opcodes::WILDCARD,
-            RuleType::Exception => Opcodes::EXCLUDE,
+        $flags = match ($rule->type) {
+            RuleType::Default => Flags::STORE,
+            RuleType::Wildcard => Flags::WILDCARD,
+            RuleType::Exception => Flags::EXCLUDE,
         };
+        $flags |= match ($rule->section) {
+            Section::Icann => 0,
+            default => Flags::PRIVATE,
+        };
+
+        return $flags;
     }
 }

@@ -6,6 +6,10 @@ use ju1ius\FusBup\Exception\UnknownDomainException;
 use ju1ius\FusBup\PslLookupInterface;
 use ju1ius\FusBup\Utils\Idn;
 
+/**
+ * @todo cleanup this implementation.
+ * @todo move IDN normalization to the PublicSuffixList class?
+ */
 final class Graph implements PslLookupInterface
 {
     public const HEADER = ".DAFSA@PSL_0   \n";

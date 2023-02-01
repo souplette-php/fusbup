@@ -31,11 +31,6 @@ final class Rule implements \Stringable
         return new self($suffix, $type, Section::Icann);
     }
 
-    public static function priv(string $suffix, RuleType $type = RuleType::Default): self
-    {
-        return new self($suffix, $type, Section::Private);
-    }
-
     /**
      * @link https://github.com/publicsuffix/list/wiki/Format#right-to-left-sorting
      */

@@ -3,7 +3,6 @@
 namespace ju1ius\FusBup\SuffixTree;
 
 use ju1ius\FusBup\Exception\UnknownDomainException;
-use ju1ius\FusBup\Exception\UnknownOpcodeException;
 use ju1ius\FusBup\PslLookupInterface;
 use ju1ius\FusBup\Utils\Idn;
 
@@ -77,29 +76,23 @@ final class Tree implements PslLookupInterface
                 break;
             }
             array_unshift($path, $label);
-            $opcode = match (true) {
-                \is_int($node) => $node,
-                default => $node->op,
-            };
-            // TODO: private flag
-            switch ($opcode) {
-                case Opcodes::CONTINUE:
-                    break;
-                case Opcodes::STORE:
-                    $matches[] = $path;
-                    break;
-                case Opcodes::WILDCARD:
-                    $matches[] = $path;
-                    if ($next = $labels[$i - 1] ?? null) {
-                        $matches[] = [$next, ...$path];
-                    }
-                    break;
-                case Opcodes::EXCLUDE:
-                    $matches = array_filter($matches, fn($p) => $p !== $path);
-                    break;
-                default:
-                    throw new UnknownOpcodeException($opcode);
+            $nodeFlags = \is_int($node) ? $node : $node->flags;
+            if ($nodeFlags === Flags::CONTINUE) {
+                continue;
             }
+            if ($nodeFlags & Flags::STORE) {
+                $matches[] = $path;
+            }
+            if ($nodeFlags & Flags::WILDCARD) {
+                $matches[] = $path;
+                if ($next = $labels[$i - 1] ?? null) {
+                    $matches[] = [$next, ...$path];
+                }
+            }
+            if ($nodeFlags & Flags::EXCLUDE) {
+                $matches = array_filter($matches, fn($p) => $p !== $path);
+            }
+            // TODO: handle Flags::PRIVATE
         }
 
         // No matches: the public suffix is the rightmost label.

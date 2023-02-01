@@ -21,43 +21,57 @@ final class SuffixTreeCompilerTest extends TestCase
 
     public static function compileProvider(): iterable
     {
-        yield 'single rule' => [
+        yield 'single rule (public)' => [
+            [Rule::pub('a.b')],
+            <<<'EOS'
+            <?php declare(strict_types=1);
+
+            use ju1ius\FusBup\SuffixTree\Node;
+
+            return new Node(0, [
+                'b' => new Node(0, [
+                    'a' => 1,
+                ]),
+            ]);
+            EOS,
+        ];
+        yield 'single rule (private)' => [
             [new Rule('a.b')],
             <<<'EOS'
             <?php declare(strict_types=1);
 
             use ju1ius\FusBup\SuffixTree\Node;
 
-            return new Node(1, [
-                'b' => new Node(1, [
+            return new Node(0, [
+                'b' => new Node(0, [
+                    'a' => 9,
+                ]),
+            ]);
+            EOS,
+        ];
+        yield 'wildcard rule (public)' => [
+            [Rule::pub('a.b', RuleType::Wildcard)],
+            <<<'EOS'
+            <?php declare(strict_types=1);
+
+            use ju1ius\FusBup\SuffixTree\Node;
+
+            return new Node(0, [
+                'b' => new Node(0, [
                     'a' => 2,
                 ]),
             ]);
             EOS,
         ];
-        yield 'wildcard rule' => [
-            [new Rule('a.b', RuleType::Wildcard)],
+        yield 'exception rule (public)' => [
+            [Rule::pub('a.b', RuleType::Exception)],
             <<<'EOS'
             <?php declare(strict_types=1);
 
             use ju1ius\FusBup\SuffixTree\Node;
 
-            return new Node(1, [
-                'b' => new Node(1, [
-                    'a' => 3,
-                ]),
-            ]);
-            EOS,
-        ];
-        yield 'exception rule' => [
-            [new Rule('a.b', RuleType::Exception)],
-            <<<'EOS'
-            <?php declare(strict_types=1);
-
-            use ju1ius\FusBup\SuffixTree\Node;
-
-            return new Node(1, [
-                'b' => new Node(1, [
+            return new Node(0, [
+                'b' => new Node(0, [
                     'a' => 4,
                 ]),
             ]);

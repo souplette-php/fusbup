@@ -30,7 +30,7 @@ final class SuffixTreeCompiler
 
         $code
             ->new(Node::class)->raw('(')
-            ->int($node->op)
+            ->int($node->flags)
             ->raw(", [\n")
             ->indent()
             ->each($node->children, function(Node|int $v, $k, CodeBuilder $code) {

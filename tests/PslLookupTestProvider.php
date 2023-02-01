@@ -58,5 +58,26 @@ final class PslLookupTestProvider
             'nope.yep.com',
             [['nope'], ['yep', 'com']],
         ];
+        yield 'a / *.a matches a' => [
+            $ruleSet1 = [
+                new Rule('a'),
+                new Rule('a', RuleType::Wildcard),
+            ],
+            'a',
+            [[], ['a']],
+        ];
+        yield 'a / *.a matches b.a' => [
+            $ruleSet1,
+            'b.a',
+            [[], ['b', 'a']],
+        ];
+        yield 'wildcards imply a registered parent domain' => [
+            [
+                new Rule('a'),
+                new Rule('b.a', RuleType::Wildcard),
+            ],
+            'b.a',
+            [[], ['b', 'a']],
+        ];
     }
 }
