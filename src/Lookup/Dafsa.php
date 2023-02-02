@@ -99,38 +99,6 @@ final class Dafsa implements PslLookupInterface
         return substr($domain, -$suffixLength);
     }
 
-    public function splitPublicSuffix(string $domain): array
-    {
-        [$head, $tail] = $this->split($domain);
-        return [
-            $head ? Idn::toUnicode($head) : '',
-            Idn::toUnicode($tail),
-        ];
-    }
-
-    public function getRegistrableDomain(string $domain, int $flags = self::ALLOW_ALL): ?string
-    {
-        [$head, $tail] = $this->split($domain);
-        if (!$head) {
-            return null;
-        }
-        array_unshift($tail, array_pop($head));
-        return Idn::toUnicode($tail);
-    }
-
-    public function splitRegistrableDomain(string $domain): ?array
-    {
-        [$head, $tail] = $this->split($domain);
-        if (!$head) {
-            return null;
-        }
-        array_unshift($tail, array_pop($head));
-        return [
-            $head ? Idn::toUnicode($head) : '',
-            Idn::toUnicode($tail),
-        ];
-    }
-
     public function split(string $domain, int $flags = self::ALLOW_ALL): array
     {
         $domain = Idn::toAscii($domain);
@@ -193,6 +161,7 @@ final class Dafsa implements PslLookupInterface
         if ($suffixLength === \strlen($domain)) {
             return [[], explode('.', $domain)];
         }
+
         $head = substr($domain, 0, -$suffixLength - 1);
         $tail = substr($domain, -$suffixLength);
         return [

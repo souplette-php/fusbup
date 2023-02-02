@@ -24,6 +24,29 @@ abstract class AbstractLookupTest extends TestCase
         Assert::assertSame($expected, $result);
     }
 
+    /**
+     * @dataProvider splitProvider
+     */
+    public function testIsPublicSuffix(array $rules, string $domain, array $expected): void
+    {
+        $lookup = static::compile($rules);
+        [$head, $tail] = $expected;
+        $result = $lookup->isPublicSuffix($domain);
+        $expectPublic = !$head && $tail;
+        Assert::assertSame($expectPublic, $result);
+    }
+
+    /**
+     * @dataProvider splitProvider
+     */
+    public function testGetPublicSuffix(array $rules, string $domain, array $expected): void
+    {
+        $lookup = static::compile($rules);
+        [, $tail] = $expected;
+        $result = $lookup->getPublicSuffix($domain);
+        Assert::assertSame(implode('.', $tail), $result);
+    }
+
     public static function splitProvider(): iterable
     {
         yield 'no match uses * as default' => [

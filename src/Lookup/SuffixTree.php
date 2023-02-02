@@ -33,38 +33,7 @@ final class SuffixTree implements PslLookupInterface
     public function getPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): string
     {
         [, $tail] = $this->split($domain, $flags);
-        return Idn::toUnicode($tail);
-    }
-    public function splitPublicSuffix(string $domain): array
-    {
-        [$head, $tail] = $this->split($domain);
-        return [
-            $head ? Idn::toUnicode($head) : '',
-            Idn::toUnicode($tail),
-        ];
-    }
-
-    public function getRegistrableDomain(string $domain): ?string
-    {
-        [$head, $tail] = $this->split($domain);
-        if (!$head) {
-            return null;
-        }
-        array_unshift($tail, array_pop($head));
-        return Idn::toUnicode($tail);
-    }
-
-    public function splitRegistrableDomain(string $domain): ?array
-    {
-        [$head, $tail] = $this->split($domain);
-        if (!$head) {
-            return null;
-        }
-        array_unshift($tail, array_pop($head));
-        return [
-            $head ? Idn::toUnicode($head) : '',
-            Idn::toUnicode($tail),
-        ];
+        return implode('.', $tail);
     }
 
     public function split(string $domain, int $flags = self::ALLOW_ALL): array

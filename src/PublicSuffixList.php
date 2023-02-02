@@ -2,13 +2,34 @@
 
 namespace ju1ius\FusBup;
 
+use ju1ius\FusBup\Exception\DomainLookupException;
+use ju1ius\FusBup\Exception\PrivateDomainException;
+use ju1ius\FusBup\Exception\UnknownDomainException;
 use ju1ius\FusBup\Loader\LoaderInterface;
 use ju1ius\FusBup\Loader\PhpFileLoader;
 use ju1ius\FusBup\Lookup\PslLookupInterface;
 use ju1ius\FusBup\Utils\Idn;
 
-final class PublicSuffixList implements PublicSuffixListInterface
+final class PublicSuffixList
 {
+    /**
+     * Disallows both unknown and private suffixes.
+     */
+    public const ALLOW_NONE = PslLookupInterface::ALLOW_NONE;
+    /**
+     * Allows private suffixes (not in the ICANN section of the public suffix list).
+     */
+    public const ALLOW_PRIVATE = PslLookupInterface::ALLOW_PRIVATE;
+    /**
+     * Allows unknown TLDs.
+     */
+    public const ALLOW_UNKNOWN = PslLookupInterface::ALLOW_UNKNOWN;
+    /**
+     * Allows both unknown TLDs and private suffixes.
+     * This is the default values for all methods.
+     */
+    public const ALLOW_ALL = PslLookupInterface::ALLOW_ALL;
+
     private readonly PslLookupInterface $lookup;
 
     public function __construct(
@@ -16,32 +37,78 @@ final class PublicSuffixList implements PublicSuffixListInterface
     ) {
     }
 
+    /**
+     * Returns whether the given domain is a public suffix.
+     */
     public function isPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): bool
     {
         return $this->getLookup()->isPublicSuffix($domain, $flags);
     }
 
+    /**
+     * Returns the public suffix of a domain.
+     *
+     * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
+     * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
+     */
     public function getPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): string
     {
-        return Idn::toUnicode($this->getLookup()->getPublicSuffix($domain));
+        return Idn::toUnicode($this->getLookup()->getPublicSuffix($domain, $flags));
     }
 
-    public function splitPublicSuffix(string $domain): array
+    /**
+     * Splits a domain into it's private and public suffix parts.
+     *
+     * @returns array{string, string}
+     *
+     * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
+     * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
+     */
+    public function splitPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): ?array
     {
-        return $this->getLookup()->splitPublicSuffix($domain);
+        [$head, $tail] = $this->getLookup()->split($domain, $flags);
+        return [
+            $head ? Idn::toUnicode($head) : '',
+            Idn::toUnicode($tail),
+        ];
     }
 
-    public function getRegistrableDomain(string $domain): ?string
+    /**
+     * Returns the registrable part (AKA eTLD+1) of a domain.
+     *
+     * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
+     * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
+     */
+    public function getRegistrableDomain(string $domain, int $flags = self::ALLOW_ALL): ?string
     {
-        return $this->getLookup()->getRegistrableDomain($domain);
+        [$head, $tail] = $this->getLookup()->split($domain, $flags);
+        if (!$head) {
+            return null;
+        }
+        array_unshift($tail, array_pop($head));
+        return Idn::toUnicode($tail);
     }
 
-    public function splitRegistrableDomain(string $domain): ?array
+    /**
+     * Splits a domain into it's private and registrable parts.
+     *
+     * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
+     * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
+     */
+    public function splitRegistrableDomain(string $domain, int $flags = self::ALLOW_ALL): ?array
     {
-        return $this->getLookup()->splitRegistrableDomain($domain);
+        [$head, $tail] = $this->getLookup()->split($domain, $flags);
+        if (!$head) {
+            return null;
+        }
+        array_unshift($tail, array_pop($head));
+        return [
+            $head ? Idn::toUnicode($head) : '',
+            Idn::toUnicode($tail),
+        ];
     }
 
-    public function isCookieDomainAcceptable(string $requestDomain, string $cookieDomain): bool
+    public function isCookieDomainAcceptable(string $requestDomain, string $cookieDomain, int $flags = self::ALLOW_ALL): bool
     {
         // A string domain-matches a given domain string if at least one of the following conditions hold:
         // 1. The domain string and the string are identical.
@@ -62,8 +129,12 @@ final class PublicSuffixList implements PublicSuffixListInterface
             && filter_var($requestDomain, \FILTER_VALIDATE_IP) === false
         ) {
             // cookie domain matches, but it must be longer than the longest public suffix in $requestDomain
-            $requestSuffix = $this->getPublicSuffix($requestDomain);
-            return \strlen($cookieDomain) > \strlen($requestSuffix);
+            try {
+                $requestSuffix = $this->getPublicSuffix($requestDomain, $flags);
+                return \strlen($cookieDomain) > \strlen($requestSuffix);
+            } catch (DomainLookupException) {
+                return false;
+            }
         }
 
         return false;
