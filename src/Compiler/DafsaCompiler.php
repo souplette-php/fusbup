@@ -8,7 +8,7 @@ use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\Compiler\Utils\ByteArray;
-use ju1ius\FusBup\Dafsa\Result;
+use ju1ius\FusBup\Lookup\Dafsa\Result;
 use ju1ius\FusBup\Utils\Idn;
 
 /**

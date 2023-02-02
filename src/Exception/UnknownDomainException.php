@@ -2,6 +2,6 @@
 
 namespace ju1ius\FusBup\Exception;
 
-final class UnknownDomainException extends \DomainException implements FusBupException
+final class UnknownDomainException extends DomainLookupException
 {
 }

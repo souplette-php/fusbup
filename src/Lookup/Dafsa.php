@@ -1,9 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Dafsa;
+namespace ju1ius\FusBup\Lookup;
 
 use ju1ius\FusBup\Exception\UnknownDomainException;
-use ju1ius\FusBup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\Dafsa\IncrementalLookup;
+use ju1ius\FusBup\Lookup\Dafsa\Result;
 use ju1ius\FusBup\Utils\Idn;
 
 /**
@@ -11,7 +12,7 @@ use ju1ius\FusBup\Utils\Idn;
  * @todo cleanup this implementation.
  * @todo move IDN normalization to the PublicSuffixList class?
  */
-final class Graph implements PslLookupInterface
+final class Dafsa implements PslLookupInterface
 {
     public const HEADER = ".DAFSA@PSL_0   \n";
 

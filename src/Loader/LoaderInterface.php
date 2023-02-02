@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Loader;
 
-use ju1ius\FusBup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\PslLookupInterface;
 
 interface LoaderInterface
 {

@@ -2,6 +2,8 @@
 
 namespace ju1ius\FusBup;
 
+use ju1ius\FusBup\Lookup\PslLookupInterface;
+
 interface PublicSuffixListInterface extends PslLookupInterface
 {
     /**

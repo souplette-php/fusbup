@@ -26,7 +26,7 @@ final class SuffixTreeCompilerTest extends TestCase
             <<<'EOS'
             <?php declare(strict_types=1);
 
-            use ju1ius\FusBup\SuffixTree\Node;
+            use ju1ius\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
                 'b' => new Node(0, [
@@ -40,7 +40,7 @@ final class SuffixTreeCompilerTest extends TestCase
             <<<'EOS'
             <?php declare(strict_types=1);
 
-            use ju1ius\FusBup\SuffixTree\Node;
+            use ju1ius\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
                 'b' => new Node(0, [
@@ -54,7 +54,7 @@ final class SuffixTreeCompilerTest extends TestCase
             <<<'EOS'
             <?php declare(strict_types=1);
 
-            use ju1ius\FusBup\SuffixTree\Node;
+            use ju1ius\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
                 'b' => new Node(0, [
@@ -68,7 +68,7 @@ final class SuffixTreeCompilerTest extends TestCase
             <<<'EOS'
             <?php declare(strict_types=1);
 
-            use ju1ius\FusBup\SuffixTree\Node;
+            use ju1ius\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
                 'b' => new Node(0, [

@@ -5,9 +5,9 @@ namespace ju1ius\FusBup\Compiler\SuffixTree;
 use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\Parser\Section;
-use ju1ius\FusBup\SuffixTree\Flags;
-use ju1ius\FusBup\SuffixTree\Node;
-use ju1ius\FusBup\SuffixTree\Tree;
+use ju1ius\FusBup\Lookup\SuffixTree;
+use ju1ius\FusBup\Lookup\SuffixTree\Flags;
+use ju1ius\FusBup\Lookup\SuffixTree\Node;
 
 /**
  * Builds a compressed suffix tree from an array of parsed `Rule` objects.
@@ -16,16 +16,16 @@ use ju1ius\FusBup\SuffixTree\Tree;
  */
 final class SuffixTreeBuilder
 {
-    public static function build(array $rules): Tree
+    public static function build(array $rules): SuffixTree
     {
         usort($rules, Rule::compare(...));
         return self::process(RuleTree::of($rules));
     }
 
-    private static function process(RuleTree $ruleTree): Tree
+    private static function process(RuleTree $ruleTree): SuffixTree
     {
         $root = self::processNode($ruleTree->root);
-        return new Tree($root);
+        return new SuffixTree($root);
     }
 
     private static function processNode(RuleNode $node): Node|int

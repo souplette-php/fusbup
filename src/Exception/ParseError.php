@@ -2,6 +2,9 @@
 
 namespace ju1ius\FusBup\Exception;
 
+/**
+ * An error happened while parsing the public suffix list.
+ */
 final class ParseError extends \RuntimeException implements FusBupException
 {
     public static function from(\Throwable $err, ?string $message = null): self

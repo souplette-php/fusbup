@@ -2,8 +2,8 @@
 
 namespace ju1ius\FusBup\Loader;
 
-use ju1ius\FusBup\PslLookupInterface;
-use ju1ius\FusBup\SuffixTree\Tree;
+use ju1ius\FusBup\Lookup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\SuffixTree;
 
 final class PhpFileLoader implements LoaderInterface
 {
@@ -14,6 +14,6 @@ final class PhpFileLoader implements LoaderInterface
 
     public function load(): PslLookupInterface
     {
-        return new Tree(require $this->filename);
+        return new SuffixTree(require $this->filename);
     }
 }

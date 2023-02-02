@@ -1,18 +1,18 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\SuffixTree;
+namespace ju1ius\FusBup\Tests\Lookup;
 
-use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeBuilder;
-use ju1ius\FusBup\SuffixTree\Tree;
-use ju1ius\FusBup\Tests\PslLookupTestProvider;
+use ju1ius\FusBup\Compiler\DafsaCompiler;
+use ju1ius\FusBup\Lookup\Dafsa;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-final class TreeTest extends TestCase
+final class DafsaTest extends TestCase
 {
-    private static function compile(array $rules): Tree
+    private static function compile(array $rules): Dafsa
     {
-        return SuffixTreeBuilder::build($rules);
+        $dafsa = (new DafsaCompiler())->compile($rules, true);
+        return new Dafsa(substr($dafsa, 16));
     }
 
     /**
@@ -20,8 +20,8 @@ final class TreeTest extends TestCase
      */
     public function testSplit(array $rules, string $domain, array $expected): void
     {
-        $tree = self::compile($rules);
-        $result = $tree->split($domain);
+        $graph = self::compile($rules);
+        $result = $graph->split($domain);
         Assert::assertSame($expected, $result);
     }
 

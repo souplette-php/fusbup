@@ -18,7 +18,7 @@ composer require ju1ius/fusbup
 use ju1ius\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList();
-// get the public suffix (AKA eTLD) of a domain
+// get the public suffix (AKA eTLD, short for Effective Top-Level Domain) of a domain
 assert($psl->getPublicSuffix('foo.co.uk') === 'co.uk');
 // check if a domain is a public suffix
 assert($psl->isPublicSuffix('fukushima.jp'));

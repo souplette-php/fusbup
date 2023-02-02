@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Dafsa;
+namespace ju1ius\FusBup\Tests\Lookup\Dafsa;
 
 use ju1ius\FusBup\Compiler\Utils\ByteArray;
-use ju1ius\FusBup\Dafsa\IncrementalLookup;
+use ju1ius\FusBup\Lookup\Dafsa\IncrementalLookup;
 use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;

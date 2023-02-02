@@ -2,9 +2,9 @@
 
 namespace ju1ius\FusBup\Loader;
 
-use ju1ius\FusBup\Dafsa\Graph;
 use ju1ius\FusBup\Exception\LoaderException;
-use ju1ius\FusBup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\Dafsa;
+use ju1ius\FusBup\Lookup\PslLookupInterface;
 
 final class DafsaFileLoader implements LoaderInterface
 {
@@ -16,12 +16,12 @@ final class DafsaFileLoader implements LoaderInterface
     public function load(): PslLookupInterface
     {
         $fp = new \SplFileObject($this->filename, 'rb');
-        if ($fp->fgets() !== Graph::HEADER) {
+        if ($fp->fgets() !== Dafsa::HEADER) {
             throw LoaderException::invalidDafsaHeader($this->filename);
         }
 
         $graph = $fp->fread($fp->getSize());
 
-        return new Graph($graph);
+        return new Dafsa($graph);
     }
 }

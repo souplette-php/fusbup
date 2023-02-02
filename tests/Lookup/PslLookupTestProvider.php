@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests;
+namespace ju1ius\FusBup\Tests\Lookup;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
@@ -78,6 +78,26 @@ final class PslLookupTestProvider
             ],
             'b.a',
             [[], ['b', 'a']],
+        ];
+    }
+
+    public static function privateDomainErrorCases(): iterable
+    {
+        yield 'private tld' => [
+            [new Rule('a'), Rule::pub('b.a')],
+            'b.a',
+        ];
+        yield 'private etld' => [
+            [Rule::pub('a'), new Rule('b.a')],
+            'b.a',
+        ];
+    }
+
+    public static function unknownDomainErrorCases(): iterable
+    {
+        yield [
+            [Rule::pub('a')],
+            'b.c',
         ];
     }
 }

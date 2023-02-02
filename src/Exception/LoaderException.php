@@ -2,6 +2,9 @@
 
 namespace ju1ius\FusBup\Exception;
 
+/**
+ * An error happened while loading the compiled public suffix database.
+ */
 final class LoaderException extends \RuntimeException implements FusBupException
 {
     public static function invalidDafsaHeader(string $filename): self

@@ -2,8 +2,9 @@
 
 namespace ju1ius\FusBup;
 
-use ju1ius\FusBup\Loader\PhpFileLoader;
 use ju1ius\FusBup\Loader\LoaderInterface;
+use ju1ius\FusBup\Loader\PhpFileLoader;
+use ju1ius\FusBup\Lookup\PslLookupInterface;
 use ju1ius\FusBup\Utils\Idn;
 
 final class PublicSuffixList implements PublicSuffixListInterface

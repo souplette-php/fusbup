@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Compiler\Utils;
 
-use ju1ius\FusBup\Dafsa\Graph;
+use ju1ius\FusBup\Lookup\Dafsa;
 
 /**
  * @internal
@@ -16,7 +16,7 @@ final class ByteArray
 
     public static function fromDafsa(string $dafsa): array
     {
-        $dafsa = substr($dafsa, \strlen(Graph::HEADER));
+        $dafsa = substr($dafsa, \strlen(Dafsa::HEADER));
         return self::fromString($dafsa);
     }
 
@@ -27,6 +27,6 @@ final class ByteArray
 
     public static function toDafsa(array $bytes): string
     {
-        return Graph::HEADER . self::toString($bytes);
+        return Dafsa::HEADER . self::toString($bytes);
     }
 }
