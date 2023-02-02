@@ -4,10 +4,27 @@ namespace ju1ius\FusBup\Tests\Lookup;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
+use ju1ius\FusBup\Exception\PrivateDomainException;
+use ju1ius\FusBup\Exception\UnknownDomainException;
+use ju1ius\FusBup\Lookup\PslLookupInterface;
+use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\TestCase;
 
-final class PslLookupTestProvider
+abstract class AbstractLookupTest extends TestCase
 {
-    public static function splitCases(): iterable
+    abstract protected static function compile(array $rules): PslLookupInterface;
+
+    /**
+     * @dataProvider splitProvider
+     */
+    public function testSplit(array $rules, string $domain, array $expected): void
+    {
+        $lookup = static::compile($rules);
+        $result = $lookup->split($domain);
+        Assert::assertSame($expected, $result);
+    }
+
+    public static function splitProvider(): iterable
     {
         yield 'no match uses * as default' => [
             [new Rule('a.b'), new Rule('b.c')],
@@ -81,7 +98,27 @@ final class PslLookupTestProvider
         ];
     }
 
-    public static function privateDomainErrorCases(): iterable
+    /**
+     * @dataProvider providePrivateDomainErrorCases
+     */
+    public function testSplitDisallowPrivate(array $rules, string $domain): void
+    {
+        $lookup = static::compile($rules);
+        $this->expectException(PrivateDomainException::class);
+        $lookup->split($domain, $lookup::ALLOW_NONE);
+    }
+
+    /**
+     * @dataProvider provideUnknownDomainErrorCases
+     */
+    public function testSplitDisallowUnknown(array $rules, string $domain): void
+    {
+        $lookup = static::compile($rules);
+        $this->expectException(UnknownDomainException::class);
+        $lookup->split($domain, $lookup::ALLOW_NONE);
+    }
+
+    public static function providePrivateDomainErrorCases(): iterable
     {
         yield 'private tld' => [
             [new Rule('a'), Rule::pub('b.a')],
@@ -93,7 +130,7 @@ final class PslLookupTestProvider
         ];
     }
 
-    public static function unknownDomainErrorCases(): iterable
+    public static function provideUnknownDomainErrorCases(): iterable
     {
         yield [
             [Rule::pub('a')],

@@ -2,6 +2,7 @@
 
 namespace ju1ius\FusBup\Lookup;
 
+use ju1ius\FusBup\Exception\PrivateDomainException;
 use ju1ius\FusBup\Exception\UnknownDomainException;
 use ju1ius\FusBup\Lookup\Dafsa\IncrementalLookup;
 use ju1ius\FusBup\Lookup\Dafsa\Result;
@@ -24,7 +25,7 @@ final class Dafsa implements PslLookupInterface
     public function isPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): bool
     {
         $domain = Idn::toAscii($domain);
-        [$result, $suffixLength] = IncrementalLookup::reverseLookup($this->buffer, $domain);
+        [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
         if ($result === Result::NotFound) {
             if ($flags & self::ALLOW_UNKNOWN) {
                 return !str_contains($domain, '.');
@@ -49,7 +50,7 @@ final class Dafsa implements PslLookupInterface
     public function getPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): string
     {
         $domain = Idn::toAscii($domain);
-        [$result, $suffixLength] = IncrementalLookup::reverseLookup($this->buffer, $domain);
+        [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
         // No rule found in the registry.
         if ($result === Result::NotFound) {
             // If we allow unknown registries, return the length of last subcomponent.
@@ -133,8 +134,7 @@ final class Dafsa implements PslLookupInterface
     public function split(string $domain, int $flags = self::ALLOW_ALL): array
     {
         $domain = Idn::toAscii($domain);
-        [$result, $suffixLength] = IncrementalLookup::reverseLookup($this->buffer, $domain);
-        $head = $tail = [];
+        [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
         // No rule found in the registry.
         if ($result === Result::NotFound) {
             // If we allow unknown registries, return the last subcomponent is the eTLD.
@@ -144,6 +144,9 @@ final class Dafsa implements PslLookupInterface
                 return [$parts, [$tail]];
             }
             throw new UnknownDomainException();
+        }
+        if (($result & Result::Private) && !($flags & self::ALLOW_PRIVATE)) {
+            throw new PrivateDomainException();
         }
         // Exception rules override wildcard rules when the domain is an exact match,
         // but wildcards take precedence when there's a subdomain.
@@ -199,12 +202,44 @@ final class Dafsa implements PslLookupInterface
     }
 
     /**
+     * This method assumes the graph has been compiled in reverse mode.
+     *
+     * @todo benchmark if this is really more performant than forward lookup.
+     */
+    private function reverseLookup(string $key, int $flags): array
+    {
+        $lookup = new IncrementalLookup($this->buffer);
+        $result = Result::NotFound;
+        $suffixLength = 0;
+        // Look up host from right to left.
+        for ($i = \strlen($key) - 1; $i >= 0 && $lookup->advance($key[$i]); $i--) {
+            // Only host itself or a part that follows a dot can match.
+            if ($i === 0 || $key[$i - 1] === '.') {
+                $value = $lookup->getResultForCurrentSequence();
+                if ($value === Result::NotFound) {
+                    continue;
+                }
+                if (($value & Result::Private) && !($flags & self::ALLOW_PRIVATE)) {
+                    throw new PrivateDomainException();
+                }
+                // Save length and return value.
+                // Since hosts are looked up from right to left,
+                // the last saved value will be from the longest match.
+                $result = $value;
+                $suffixLength = \strlen($key) - $i;
+            }
+        }
+        return [$result, $suffixLength];
+    }
+
+    /**
      * @todo remove this once we've figured out all the corner cases.
      * @codeCoverageIgnore
      */
-    private function getRegistryLength(string $domain, bool $allowUnknown = true): int
+    private function getRegistryLength(string $domain, int $flags = self::ALLOW_ALL): int
     {
-        [$result, $suffixLength] = IncrementalLookup::reverseLookup($this->buffer, $domain);
+        $allowUnknown = $flags & self::ALLOW_UNKNOWN;
+        [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
         assert($suffixLength <= \strlen($domain));
         // No rule found in the registry.
         if ($result === Result::NotFound) {

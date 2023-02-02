@@ -44,35 +44,6 @@ final class IncrementalLookup
         return $lookup->getResultForCurrentSequence();
     }
 
-    /**
-     * @return array{int, int}
-     */
-    public static function reverseLookup(string $graph, string $key, bool $includePrivate = true): array
-    {
-        $lookup = new self($graph);
-        $result = Result::NotFound;
-        $suffixLength = 0;
-        // Look up host from right to left.
-        for ($i = \strlen($key) - 1; $i >= 0 && $lookup->advance($key[$i]); $i--) {
-            // Only host itself or a part that follows a dot can match.
-            if ($i === 0 || $key[$i - 1] === '.') {
-                $value = $lookup->getResultForCurrentSequence();
-                if ($value !== Result::NotFound) {
-                    // Break if private and private rules should be excluded.
-                    if (!$includePrivate && ($value & Result::Private)) {
-                        break;
-                    }
-                    // Save length and return value.
-                    // Since hosts are looked up from right to left,
-                    // the last saved values will be from the longest match.
-                    $suffixLength = \strlen($key) - $i;
-                    $result = $value;
-                }
-            }
-        }
-        return [$result, $suffixLength];
-    }
-
     // Advance the query by adding a character to the input sequence.
     // |input| can be any char value, but only ASCII characters will ever result in matches,
     // since the fixed set itself is limited to ASCII strings.
@@ -205,24 +176,25 @@ final class IncrementalLookup
         switch ($this->graph[$this->pos] & "\x60") {
             case "\x60":
                 // Read three byte offset
-                $offset += (ord($this->graph[$this->pos] & "\x1F") << 16)
-                    | (ord($this->graph[$this->pos + 1]) << 8)
-                    | ord($this->graph[$this->pos + 2])
+                $offset += (\ord($this->graph[$this->pos] & "\x1F") << 16)
+                    | (\ord($this->graph[$this->pos + 1]) << 8)
+                    | \ord($this->graph[$this->pos + 2])
                 ;
                 $bytesConsumed = 3;
                 break;
             case "\x40":
                 // Read two byte offset
-                $offset += (ord($this->graph[$this->pos] & "\x1F") << 8)
-                    | ord($this->graph[$this->pos + 1])
+                $offset += (\ord($this->graph[$this->pos] & "\x1F") << 8)
+                    | \ord($this->graph[$this->pos + 1])
                 ;
                 $bytesConsumed = 2;
                 break;
             default:
-                $offset += ord($this->graph[$this->pos] & "\x3F");
+                $offset += \ord($this->graph[$this->pos] & "\x3F");
                 $bytesConsumed = 1;
                 break;
         }
+        //if ($this->isEndOfLabel($this->pos)) {
         if (($this->graph[$this->pos] & "\x80") !== "\x00") {
             $this->exhausted = true;
         } else {
