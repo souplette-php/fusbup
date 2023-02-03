@@ -7,22 +7,22 @@ use ju1ius\FusBup\Exception\PrivateETLDException;
 use ju1ius\FusBup\Exception\UnknownTLDException;
 use ju1ius\FusBup\Loader\LoaderInterface;
 use ju1ius\FusBup\Loader\PhpFileLoader;
-use ju1ius\FusBup\Lookup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\LookupInterface;
 use ju1ius\FusBup\Utils\Idn;
 
 final class PublicSuffixList
 {
-    public const FORBID_NONE = PslLookupInterface::FORBID_NONE;
+    public const FORBID_NONE = LookupInterface::FORBID_NONE;
     /**
      * Forbids private suffixes (not in the ICANN section of the public suffix list).
      */
-    public const FORBID_PRIVATE = PslLookupInterface::FORBID_PRIVATE;
+    public const FORBID_PRIVATE = LookupInterface::FORBID_PRIVATE;
     /**
      * Allows unknown TLDs.
      */
-    public const FORBID_UNKNOWN = PslLookupInterface::FORBID_UNKNOWN;
+    public const FORBID_UNKNOWN = LookupInterface::FORBID_UNKNOWN;
 
-    private readonly PslLookupInterface $lookup;
+    private readonly LookupInterface $lookup;
 
     public function __construct(
         private readonly LoaderInterface $loader = new PhpFileLoader(__DIR__ . '/Resources/psl.php'),
@@ -30,27 +30,27 @@ final class PublicSuffixList
     }
 
     /**
-     * Returns whether the given domain is a public suffix.
+     * Returns whether the given domain is an effective TLD.
      */
-    public function isPublicSuffix(string $domain, int $flags = self::FORBID_NONE): bool
+    public function isEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): bool
     {
-        return $this->getLookup()->isPublicSuffix($domain, $flags);
+        return $this->getLookup()->isEffectiveTLD($domain, $flags);
     }
 
     /**
-     * Returns the public suffix of a domain.
+     * Returns the effective TLD of a domain.
      *
      * @throws UnknownTLDException If FORBID_UNKNOWN flag is set and the TLD is not in the public suffix list.
      * @throws PrivateETLDException If FORBID_PRIVATE flag is set and the effective TLD is not in the ICANN section
      *                                of the public suffix list
      */
-    public function getPublicSuffix(string $domain, int $flags = self::FORBID_NONE): string
+    public function getEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): string
     {
-        return Idn::toUnicode($this->getLookup()->getPublicSuffix($domain, $flags));
+        return Idn::toUnicode($this->getLookup()->getEffectiveTLD($domain, $flags));
     }
 
     /**
-     * Splits a domain into it's private and public suffix parts.
+     * Splits a domain into it's private and effective TLD parts.
      *
      * @returns array{string, string}
      *
@@ -58,7 +58,7 @@ final class PublicSuffixList
      * @throws PrivateETLDException If FORBID_PRIVATE flag is set and the effective TLD is not in the ICANN section
      *                                of the public suffix list
      */
-    public function splitPublicSuffix(string $domain, int $flags = self::FORBID_NONE): ?array
+    public function splitEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): ?array
     {
         [$head, $tail] = $this->getLookup()->split($domain, $flags);
         return [
@@ -126,7 +126,7 @@ final class PublicSuffixList
         ) {
             // cookie domain matches, but it must be longer than the longest public suffix in $requestDomain
             try {
-                $requestSuffix = $this->getPublicSuffix($requestDomain, $flags);
+                $requestSuffix = $this->getEffectiveTLD($requestDomain, $flags);
                 return \strlen($cookieDomain) > \strlen($requestSuffix);
             } catch (ForbiddenDomainException) {
                 return false;
@@ -136,7 +136,7 @@ final class PublicSuffixList
         return false;
     }
 
-    private function getLookup(): PslLookupInterface
+    private function getLookup(): LookupInterface
     {
         return $this->lookup ??= $this->loader->load();
     }

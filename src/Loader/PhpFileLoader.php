@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Loader;
 
-use ju1ius\FusBup\Lookup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\LookupInterface;
 use ju1ius\FusBup\Lookup\SuffixTree;
 
 final class PhpFileLoader implements LoaderInterface
@@ -12,7 +12,7 @@ final class PhpFileLoader implements LoaderInterface
     ) {
     }
 
-    public function load(): PslLookupInterface
+    public function load(): LookupInterface
     {
         return new SuffixTree(require $this->filename);
     }

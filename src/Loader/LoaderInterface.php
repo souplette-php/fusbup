@@ -2,9 +2,9 @@
 
 namespace ju1ius\FusBup\Loader;
 
-use ju1ius\FusBup\Lookup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\LookupInterface;
 
 interface LoaderInterface
 {
-    public function load(): PslLookupInterface;
+    public function load(): LookupInterface;
 }

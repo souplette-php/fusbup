@@ -6,15 +6,15 @@ namespace ju1ius\FusBup\Lookup;
  * @link https://github.com/publicsuffix/list/wiki/Format#algorithm
  * @internal
  */
-interface PslLookupInterface
+interface LookupInterface
 {
     const FORBID_NONE = 0;
     const FORBID_PRIVATE = 1;
     const FORBID_UNKNOWN = 2;
 
-    public function isPublicSuffix(string $domain, int $flags = self::FORBID_NONE): bool;
+    public function isEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): bool;
 
-    public function getPublicSuffix(string $domain, int $flags = self::FORBID_NONE): string;
+    public function getEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): string;
 
     /**
      * Returns a tuple containing the private labels and the public labels.

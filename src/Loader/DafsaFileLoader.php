@@ -4,7 +4,7 @@ namespace ju1ius\FusBup\Loader;
 
 use ju1ius\FusBup\Exception\LoaderException;
 use ju1ius\FusBup\Lookup\Dafsa;
-use ju1ius\FusBup\Lookup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\LookupInterface;
 
 final class DafsaFileLoader implements LoaderInterface
 {
@@ -13,7 +13,7 @@ final class DafsaFileLoader implements LoaderInterface
     ) {
     }
 
-    public function load(): PslLookupInterface
+    public function load(): LookupInterface
     {
         $fp = new \SplFileObject($this->filename, 'rb');
         if ($fp->fgets() !== Dafsa::HEADER) {

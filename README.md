@@ -12,18 +12,18 @@ composer require ju1ius/fusbup
 
 ## Basic usage
 
-### Querying public suffixes (AKA eTLD)
+### Querying effective top-level domains (eTLD)
 
 ```php
 use ju1ius\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList();
-// get the public suffix (AKA eTLD, short for Effective Top-Level Domain) of a domain
-assert($psl->getPublicSuffix('foo.co.uk') === 'co.uk');
-// check if a domain is a public suffix
-assert($psl->isPublicSuffix('fukushima.jp'));
-// split a domain into it's private and public parts
-assert($psl->splitPublicSuffix('www.foo.co.uk') === ['www.foo', 'co.uk']);
+// get the eTLD (short for Effective Top-Level Domain) of a domain
+assert($psl->getEffectiveTLD('foo.co.uk') === 'co.uk');
+// check if a domain is an eTLD
+assert($psl->isEffectiveTLD('fukushima.jp'));
+// split a domain into it's private and eTLD parts
+assert($psl->splitEffectiveTLD('www.foo.co.uk') === ['www.foo', 'co.uk']);
 ```
 
 ### Querying registrable domains (AKA eTLD+1)
@@ -32,9 +32,9 @@ assert($psl->splitPublicSuffix('www.foo.co.uk') === ['www.foo', 'co.uk']);
 use ju1ius\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList();
-// get the registrable part (AKA eTLD+1) of a domain
+// get the registrable part (eTLD+1) of a domain
 assert($psl->getRegistrableDomain('www.foo.co.uk') === 'foo.co.uk');
-//
+// split a domain into it's private and registrable parts.
 assert($psl->splitRegistrableDomain('www.foo.co.uk') === ['www', 'foo.co.uk']);
 ```
 
@@ -48,10 +48,10 @@ for matching a cookie domain against a request domain.
 use ju1ius\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList();
-// check if a cookie domain is applicable to an hostname
+// check if a cookie domain is applicable to a hostname
 $requestDomain = 'my.domain.com'
 $cookieDomain = '.domain.com';
 assert($psl->isCookieDomainAcceptable($requestDomain, $cookieDomain));
-// cookie domains are rejected for public suffixes:
+// cookie are rejected if their domain is an eTLD:
 assert(false === $psl->isCookieDomainAcceptable('foo.com', '.com'))
 ```

@@ -1,35 +1,46 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests;
+namespace ju1ius\FusBup\Tests\PublicSuffixList;
 
 use ju1ius\FusBup\PublicSuffixList;
+use ju1ius\FusBup\Tests\PslTestProvider;
 use ju1ius\FusBup\Utils\Idn;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Ideally, the test methods would be implemented here instead of being abstract.
- * However, it makes it difficult to debug individual data sets for a particular subclass...
- */
 abstract class AbstractPslTest extends TestCase
 {
     abstract protected static function getList(): PublicSuffixList;
 
-    abstract public function testIsPublicSuffix(string $input, bool $expected): void;
+    /**
+     * @dataProvider isPublicSuffixProvider
+     */
+    public function testIsPublicSuffix(string $input, bool $expected): void
+    {
+        $result = static::getList()->isEffectiveTLD($input);
+        Assert::assertSame($expected, $result);
+    }
 
     public static function isPublicSuffixProvider(): iterable
     {
         yield from PslTestProvider::isPublic();
     }
 
-    abstract public function testGetPublicSuffix(string $input, string $expected): void;
+    /**
+     * @dataProvider getPublicSuffixProvider
+     */
+    public function testGetPublicSuffix(string $input, string $expected): void
+    {
+        $result = static::getList()->getEffectiveTLD($input);
+        Assert::assertSame($expected, $result);
+    }
 
     /**
      * @dataProvider getPublicSuffixProvider
      */
     public function testSplitPublicSuffix(string $input, string $suffix): void
     {
-        [$private, $public] = static::getList()->splitPublicSuffix($input);
+        [$private, $public] = static::getList()->splitEffectiveTLD($input);
         Assert::assertSame($suffix, $public);
         $inputCanonical = Idn::toUnicode($input);
         $domain = $private ? "{$private}.{$public}" : $public;
@@ -41,7 +52,14 @@ abstract class AbstractPslTest extends TestCase
         yield from self::filterPslTests(PslTestProvider::unregistrable(), false);
     }
 
-    abstract public function testGetRegistrableDomain(string $input, ?string $expected): void;
+    /**
+     * @dataProvider getRegistrableDomainProvider
+     */
+    public function testGetRegistrableDomain(string $input, ?string $expected): void
+    {
+        $result = static::getList()->getRegistrableDomain($input);
+        Assert::assertSame($expected, $result);
+    }
 
     /**
      * @dataProvider getRegistrableDomainProvider

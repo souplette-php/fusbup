@@ -11,9 +11,8 @@ use ju1ius\FusBup\Utils\Idn;
 /**
  * @internal
  * @todo cleanup this implementation.
- * @todo move IDN normalization to the PublicSuffixList class?
  */
-final class Dafsa implements PslLookupInterface
+final class Dafsa implements LookupInterface
 {
     public const HEADER = ".DAFSA@PSL_0   \n";
 
@@ -22,7 +21,7 @@ final class Dafsa implements PslLookupInterface
     ) {
     }
 
-    public function isPublicSuffix(string $domain, int $flags = self::FORBID_NONE): bool
+    public function isEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): bool
     {
         $domain = Idn::toAscii($domain);
         [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
@@ -47,7 +46,7 @@ final class Dafsa implements PslLookupInterface
         return $suffixLength === \strlen($domain);
     }
 
-    public function getPublicSuffix(string $domain, int $flags = self::FORBID_NONE): string
+    public function getEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): string
     {
         $domain = Idn::toAscii($domain);
         [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
@@ -65,8 +64,7 @@ final class Dafsa implements PslLookupInterface
         // Exception rules override wildcard rules when the domain is an exact match,
         // but wildcards take precedence when there's a subdomain.
         if ($result & Result::Wildcard) {
-            // If the complete host matches, then the host is the wildcard suffix,
-            // so return 0.
+            // If the complete host matches, then the host is the wildcard suffix
             if ($suffixLength === \strlen($domain)) {
                 // todo: or nothing?
                 return $domain;
@@ -112,9 +110,6 @@ final class Dafsa implements PslLookupInterface
             $parts = explode('.', $domain);
             $tail = array_pop($parts);
             return [$parts, [$tail]];
-        }
-        if (($result & Result::Private) && ($flags & self::FORBID_PRIVATE)) {
-            throw new PrivateETLDException($domain);
         }
         // Exception rules override wildcard rules when the domain is an exact match,
         // but wildcards take precedence when there's a subdomain.
@@ -172,8 +167,6 @@ final class Dafsa implements PslLookupInterface
 
     /**
      * This method assumes the graph has been compiled in reverse mode.
-     *
-     * @todo benchmark if this is really more performant than forward lookup.
      */
     private function reverseLookup(string $key, int $flags): array
     {
@@ -192,70 +185,11 @@ final class Dafsa implements PslLookupInterface
                     throw new PrivateETLDException($key);
                 }
                 // Save length and return value.
-                // Since hosts are looked up from right to left,
-                // the last saved value will be from the longest match.
+                // Since hosts are looked up from right to left, the last saved value will be from the longest match.
                 $result = $value;
                 $suffixLength = \strlen($key) - $i;
             }
         }
         return [$result, $suffixLength];
-    }
-
-    /**
-     * @todo remove this once we've figured out all the corner cases.
-     * @codeCoverageIgnore
-     */
-    private function getRegistryLength(string $domain, int $flags = self::FORBID_NONE): int
-    {
-        $allowUnknown = $flags & self::ALLOW_UNKNOWN;
-        [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
-        assert($suffixLength <= \strlen($domain));
-        // No rule found in the registry.
-        if ($result === Result::NotFound) {
-            // If we allow unknown registries, return the length of last subcomponent.
-            if ($allowUnknown) {
-                if (false !== $lastDot = strrpos($domain, '.')) {
-                    return \strlen($domain) - $lastDot - 1;
-                }
-            }
-            return 0;
-        }
-        // Exception rules override wildcard rules when the domain is an exact match,
-        // but wildcards take precedence when there's a subdomain.
-        if ($result & Result::Wildcard) {
-            // If the complete host matches, then the host is the wildcard suffix,
-            // so return 0.
-            if ($suffixLength === \strlen($domain)) {
-                return 0;
-            }
-            assert($suffixLength + 2 <= \strlen($domain));
-            assert($domain[-$suffixLength - 1] === '.');
-            if (false === $precedingDot = strrpos($domain, '.', -$suffixLength - 2)) {
-                // If no preceding dot, then the host is the registry itself, so return 0.
-                return 0;
-            }
-            // Return suffix size plus size of subdomain.
-            return \strlen($domain) - $precedingDot - 1;
-        }
-        if ($result & Result::Exception) {
-            if (false === $firstDot = strpos($domain, '.', -$suffixLength)) {
-                // If we get here, we had an exception rule with no dots (e.g. "!foo").
-                // This would only be valid if we had a corresponding wildcard rule,
-                // which would have to be "*".
-                // But we explicitly disallow that case, so this kind of rule is invalid.
-                // TODO(https://crbug.com/459802): This assumes that all wildcard entries,
-                // such as *.foo.invalid, also have their parent, foo.invalid, as an entry
-                // on the PSL, which is why it returns the length of foo.invalid.
-                // This isn't entirely correct.
-                return 0;
-            }
-            return \strlen($domain) - $firstDot - 1;
-        }
-        // If a complete match, then the host is the registry itself, so return 0.
-        if ($suffixLength === \strlen($domain)) {
-            return 0;
-        }
-
-        return $suffixLength;
     }
 }

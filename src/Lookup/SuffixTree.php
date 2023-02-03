@@ -13,14 +13,14 @@ use ju1ius\FusBup\Utils\Idn;
  * @link https://github.com/publicsuffix/list/wiki/Format#algorithm
  * @internal
  */
-final class SuffixTree implements PslLookupInterface
+final class SuffixTree implements LookupInterface
 {
     public function __construct(
         public readonly Node $root,
     ) {
     }
 
-    public function isPublicSuffix(string $domain, int $flags = self::FORBID_NONE): bool
+    public function isEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): bool
     {
         try {
             [$head, $tail] = $this->split($domain, $flags);
@@ -30,7 +30,7 @@ final class SuffixTree implements PslLookupInterface
         }
     }
 
-    public function getPublicSuffix(string $domain, int $flags = self::FORBID_NONE): string
+    public function getEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): string
     {
         [, $tail] = $this->split($domain, $flags);
         return implode('.', $tail);

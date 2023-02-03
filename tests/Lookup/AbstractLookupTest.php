@@ -6,13 +6,13 @@ use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Exception\PrivateETLDException;
 use ju1ius\FusBup\Exception\UnknownTLDException;
-use ju1ius\FusBup\Lookup\PslLookupInterface;
+use ju1ius\FusBup\Lookup\LookupInterface;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractLookupTest extends TestCase
 {
-    abstract protected static function compile(array $rules): PslLookupInterface;
+    abstract protected static function compile(array $rules): LookupInterface;
 
     /**
      * @dataProvider splitProvider
@@ -31,7 +31,7 @@ abstract class AbstractLookupTest extends TestCase
     {
         $lookup = static::compile($rules);
         [$head, $tail] = $expected;
-        $result = $lookup->isPublicSuffix($domain);
+        $result = $lookup->isEffectiveTLD($domain);
         $expectPublic = !$head && $tail;
         Assert::assertSame($expectPublic, $result);
     }
@@ -43,7 +43,7 @@ abstract class AbstractLookupTest extends TestCase
     {
         $lookup = static::compile($rules);
         [, $tail] = $expected;
-        $result = $lookup->getPublicSuffix($domain);
+        $result = $lookup->getEffectiveTLD($domain);
         Assert::assertSame(implode('.', $tail), $result);
     }
 
