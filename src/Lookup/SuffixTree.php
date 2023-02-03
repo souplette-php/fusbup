@@ -2,9 +2,9 @@
 
 namespace ju1ius\FusBup\Lookup;
 
-use ju1ius\FusBup\Exception\DomainLookupException;
-use ju1ius\FusBup\Exception\PrivateDomainException;
-use ju1ius\FusBup\Exception\UnknownDomainException;
+use ju1ius\FusBup\Exception\ForbiddenDomainException;
+use ju1ius\FusBup\Exception\PrivateETLDException;
+use ju1ius\FusBup\Exception\UnknownTLDException;
 use ju1ius\FusBup\Lookup\SuffixTree\Flags;
 use ju1ius\FusBup\Lookup\SuffixTree\Node;
 use ju1ius\FusBup\Utils\Idn;
@@ -25,7 +25,7 @@ final class SuffixTree implements PslLookupInterface
         try {
             [$head, $tail] = $this->split($domain, $flags);
             return !$head && $tail;
-        } catch (DomainLookupException) {
+        } catch (ForbiddenDomainException) {
             return false;
         }
     }
@@ -53,7 +53,7 @@ final class SuffixTree implements PslLookupInterface
                 continue;
             }
             if (($nodeFlags & Flags::PRIVATE) && ($flags & self::FORBID_PRIVATE)) {
-                throw new PrivateDomainException();
+                throw new PrivateETLDException($domain);
             }
             if ($nodeFlags & Flags::STORE) {
                 $matches[] = $path;
@@ -72,7 +72,7 @@ final class SuffixTree implements PslLookupInterface
         // No matches: the public suffix is the rightmost label.
         if (!$matches) {
             if ($flags & self::FORBID_UNKNOWN) {
-                throw new UnknownDomainException();
+                throw new UnknownTLDException($domain);
             }
             return [
                 array_slice($labels, 0, -1),

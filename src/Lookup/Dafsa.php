@@ -2,8 +2,8 @@
 
 namespace ju1ius\FusBup\Lookup;
 
-use ju1ius\FusBup\Exception\PrivateDomainException;
-use ju1ius\FusBup\Exception\UnknownDomainException;
+use ju1ius\FusBup\Exception\PrivateETLDException;
+use ju1ius\FusBup\Exception\UnknownTLDException;
 use ju1ius\FusBup\Lookup\Dafsa\IncrementalLookup;
 use ju1ius\FusBup\Lookup\Dafsa\Result;
 use ju1ius\FusBup\Utils\Idn;
@@ -55,7 +55,7 @@ final class Dafsa implements PslLookupInterface
         if ($result === Result::NotFound) {
             // If we allow unknown registries, return the length of last subcomponent.
             if ($flags & self::FORBID_UNKNOWN) {
-                throw new UnknownDomainException();
+                throw new UnknownTLDException($domain);
             }
             if (false !== $lastDot = strrpos($domain, '.')) {
                 return substr($domain, $lastDot + 1);
@@ -107,14 +107,14 @@ final class Dafsa implements PslLookupInterface
         if ($result === Result::NotFound) {
             // If we allow unknown registries, return the last subcomponent is the eTLD.
             if ($flags & self::FORBID_UNKNOWN) {
-                throw new UnknownDomainException();
+                throw new UnknownTLDException($domain);
             }
             $parts = explode('.', $domain);
             $tail = array_pop($parts);
             return [$parts, [$tail]];
         }
         if (($result & Result::Private) && ($flags & self::FORBID_PRIVATE)) {
-            throw new PrivateDomainException();
+            throw new PrivateETLDException($domain);
         }
         // Exception rules override wildcard rules when the domain is an exact match,
         // but wildcards take precedence when there's a subdomain.
@@ -189,7 +189,7 @@ final class Dafsa implements PslLookupInterface
                     continue;
                 }
                 if (($value & Result::Private) && ($flags & self::FORBID_PRIVATE)) {
-                    throw new PrivateDomainException();
+                    throw new PrivateETLDException($key);
                 }
                 // Save length and return value.
                 // Since hosts are looked up from right to left,

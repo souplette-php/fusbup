@@ -4,8 +4,8 @@ namespace ju1ius\FusBup\Tests\Lookup;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
-use ju1ius\FusBup\Exception\PrivateDomainException;
-use ju1ius\FusBup\Exception\UnknownDomainException;
+use ju1ius\FusBup\Exception\PrivateETLDException;
+use ju1ius\FusBup\Exception\UnknownTLDException;
 use ju1ius\FusBup\Lookup\PslLookupInterface;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
@@ -127,7 +127,7 @@ abstract class AbstractLookupTest extends TestCase
     public function testSplitDisallowPrivate(array $rules, string $domain): void
     {
         $lookup = static::compile($rules);
-        $this->expectException(PrivateDomainException::class);
+        $this->expectException(PrivateETLDException::class);
         $lookup->split($domain, $lookup::FORBID_PRIVATE);
     }
 
@@ -137,7 +137,7 @@ abstract class AbstractLookupTest extends TestCase
     public function testSplitDisallowUnknown(array $rules, string $domain): void
     {
         $lookup = static::compile($rules);
-        $this->expectException(UnknownDomainException::class);
+        $this->expectException(UnknownTLDException::class);
         $lookup->split($domain, $lookup::FORBID_UNKNOWN);
     }
 

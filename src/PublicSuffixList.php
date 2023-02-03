@@ -2,9 +2,9 @@
 
 namespace ju1ius\FusBup;
 
-use ju1ius\FusBup\Exception\DomainLookupException;
-use ju1ius\FusBup\Exception\PrivateDomainException;
-use ju1ius\FusBup\Exception\UnknownDomainException;
+use ju1ius\FusBup\Exception\ForbiddenDomainException;
+use ju1ius\FusBup\Exception\PrivateETLDException;
+use ju1ius\FusBup\Exception\UnknownTLDException;
 use ju1ius\FusBup\Loader\LoaderInterface;
 use ju1ius\FusBup\Loader\PhpFileLoader;
 use ju1ius\FusBup\Lookup\PslLookupInterface;
@@ -40,8 +40,9 @@ final class PublicSuffixList
     /**
      * Returns the public suffix of a domain.
      *
-     * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
-     * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
+     * @throws UnknownTLDException If FORBID_UNKNOWN flag is set and the TLD is not in the public suffix list.
+     * @throws PrivateETLDException If FORBID_PRIVATE flag is set and the effective TLD is not in the ICANN section
+     *                                of the public suffix list
      */
     public function getPublicSuffix(string $domain, int $flags = self::FORBID_NONE): string
     {
@@ -53,8 +54,9 @@ final class PublicSuffixList
      *
      * @returns array{string, string}
      *
-     * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
-     * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
+     * @throws UnknownTLDException If FORBID_UNKNOWN flag is set and the TLD is not in the public suffix list.
+     * @throws PrivateETLDException If FORBID_PRIVATE flag is set and the effective TLD is not in the ICANN section
+     *                                of the public suffix list
      */
     public function splitPublicSuffix(string $domain, int $flags = self::FORBID_NONE): ?array
     {
@@ -68,8 +70,9 @@ final class PublicSuffixList
     /**
      * Returns the registrable part (AKA eTLD+1) of a domain.
      *
-     * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
-     * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
+      *@throws UnknownTLDException If FORBID_UNKNOWN flag is set and the TLD is not in the public suffix list.
+     * @throws PrivateETLDException If FORBID_PRIVATE flag is set and the effective TLD is not in the ICANN section
+     *                                of the public suffix list
      */
     public function getRegistrableDomain(string $domain, int $flags = self::FORBID_NONE): ?string
     {
@@ -84,8 +87,9 @@ final class PublicSuffixList
     /**
      * Splits a domain into it's private and registrable parts.
      *
-     * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
-     * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
+     * @throws UnknownTLDException If FORBID_UNKNOWN flag is set and the TLD is not in the public suffix list.
+     * @throws PrivateETLDException If FORBID_PRIVATE flag is set and the effective TLD is not in the ICANN section
+     *                                of the public suffix list
      */
     public function splitRegistrableDomain(string $domain, int $flags = self::FORBID_NONE): ?array
     {
@@ -124,7 +128,7 @@ final class PublicSuffixList
             try {
                 $requestSuffix = $this->getPublicSuffix($requestDomain, $flags);
                 return \strlen($cookieDomain) > \strlen($requestSuffix);
-            } catch (DomainLookupException) {
+            } catch (ForbiddenDomainException) {
                 return false;
             }
         }
