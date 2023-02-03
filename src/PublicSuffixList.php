@@ -12,23 +12,15 @@ use ju1ius\FusBup\Utils\Idn;
 
 final class PublicSuffixList
 {
+    public const FORBID_NONE = PslLookupInterface::FORBID_NONE;
     /**
-     * Disallows both unknown and private suffixes.
+     * Forbids private suffixes (not in the ICANN section of the public suffix list).
      */
-    public const ALLOW_NONE = PslLookupInterface::ALLOW_NONE;
-    /**
-     * Allows private suffixes (not in the ICANN section of the public suffix list).
-     */
-    public const ALLOW_PRIVATE = PslLookupInterface::ALLOW_PRIVATE;
+    public const FORBID_PRIVATE = PslLookupInterface::FORBID_PRIVATE;
     /**
      * Allows unknown TLDs.
      */
-    public const ALLOW_UNKNOWN = PslLookupInterface::ALLOW_UNKNOWN;
-    /**
-     * Allows both unknown TLDs and private suffixes.
-     * This is the default values for all methods.
-     */
-    public const ALLOW_ALL = PslLookupInterface::ALLOW_ALL;
+    public const FORBID_UNKNOWN = PslLookupInterface::FORBID_UNKNOWN;
 
     private readonly PslLookupInterface $lookup;
 
@@ -40,7 +32,7 @@ final class PublicSuffixList
     /**
      * Returns whether the given domain is a public suffix.
      */
-    public function isPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): bool
+    public function isPublicSuffix(string $domain, int $flags = self::FORBID_NONE): bool
     {
         return $this->getLookup()->isPublicSuffix($domain, $flags);
     }
@@ -51,7 +43,7 @@ final class PublicSuffixList
      * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
      * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
      */
-    public function getPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): string
+    public function getPublicSuffix(string $domain, int $flags = self::FORBID_NONE): string
     {
         return Idn::toUnicode($this->getLookup()->getPublicSuffix($domain, $flags));
     }
@@ -64,7 +56,7 @@ final class PublicSuffixList
      * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
      * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
      */
-    public function splitPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): ?array
+    public function splitPublicSuffix(string $domain, int $flags = self::FORBID_NONE): ?array
     {
         [$head, $tail] = $this->getLookup()->split($domain, $flags);
         return [
@@ -79,7 +71,7 @@ final class PublicSuffixList
      * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
      * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
      */
-    public function getRegistrableDomain(string $domain, int $flags = self::ALLOW_ALL): ?string
+    public function getRegistrableDomain(string $domain, int $flags = self::FORBID_NONE): ?string
     {
         [$head, $tail] = $this->getLookup()->split($domain, $flags);
         if (!$head) {
@@ -95,7 +87,7 @@ final class PublicSuffixList
      * @throws UnknownDomainException If the domain is unknown and the ALLOW_UNKNOWN flag is not set.
      * @throws PrivateDomainException If the domain is private and the ALLOW_PRIVATE flag is not set.
      */
-    public function splitRegistrableDomain(string $domain, int $flags = self::ALLOW_ALL): ?array
+    public function splitRegistrableDomain(string $domain, int $flags = self::FORBID_NONE): ?array
     {
         [$head, $tail] = $this->getLookup()->split($domain, $flags);
         if (!$head) {
@@ -108,7 +100,7 @@ final class PublicSuffixList
         ];
     }
 
-    public function isCookieDomainAcceptable(string $requestDomain, string $cookieDomain, int $flags = self::ALLOW_ALL): bool
+    public function isCookieDomainAcceptable(string $requestDomain, string $cookieDomain, int $flags = self::FORBID_NONE): bool
     {
         // A string domain-matches a given domain string if at least one of the following conditions hold:
         // 1. The domain string and the string are identical.

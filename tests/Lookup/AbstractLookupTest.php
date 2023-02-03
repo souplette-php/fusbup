@@ -128,7 +128,7 @@ abstract class AbstractLookupTest extends TestCase
     {
         $lookup = static::compile($rules);
         $this->expectException(PrivateDomainException::class);
-        $lookup->split($domain, $lookup::ALLOW_NONE);
+        $lookup->split($domain, $lookup::FORBID_PRIVATE);
     }
 
     /**
@@ -138,7 +138,7 @@ abstract class AbstractLookupTest extends TestCase
     {
         $lookup = static::compile($rules);
         $this->expectException(UnknownDomainException::class);
-        $lookup->split($domain, $lookup::ALLOW_NONE);
+        $lookup->split($domain, $lookup::FORBID_UNKNOWN);
     }
 
     public static function providePrivateDomainErrorCases(): iterable

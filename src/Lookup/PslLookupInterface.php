@@ -8,14 +8,13 @@ namespace ju1ius\FusBup\Lookup;
  */
 interface PslLookupInterface
 {
-    const ALLOW_NONE = 0;
-    const ALLOW_PRIVATE = 1;
-    const ALLOW_UNKNOWN = 2;
-    const ALLOW_ALL = self::ALLOW_PRIVATE | self::ALLOW_UNKNOWN;
+    const FORBID_NONE = 0;
+    const FORBID_PRIVATE = 1;
+    const FORBID_UNKNOWN = 2;
 
-    public function isPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): bool;
+    public function isPublicSuffix(string $domain, int $flags = self::FORBID_NONE): bool;
 
-    public function getPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): string;
+    public function getPublicSuffix(string $domain, int $flags = self::FORBID_NONE): string;
 
     /**
      * Returns a tuple containing the private labels and the public labels.
@@ -27,5 +26,5 @@ interface PslLookupInterface
      *
      * @return array<string[], string[]>
      */
-    public function split(string $domain, int $flags = self::ALLOW_ALL): array;
+    public function split(string $domain, int $flags = self::FORBID_NONE): array;
 }

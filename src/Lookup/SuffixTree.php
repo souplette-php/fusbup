@@ -20,7 +20,7 @@ final class SuffixTree implements PslLookupInterface
     ) {
     }
 
-    public function isPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): bool
+    public function isPublicSuffix(string $domain, int $flags = self::FORBID_NONE): bool
     {
         try {
             [$head, $tail] = $this->split($domain, $flags);
@@ -30,13 +30,13 @@ final class SuffixTree implements PslLookupInterface
         }
     }
 
-    public function getPublicSuffix(string $domain, int $flags = self::ALLOW_ALL): string
+    public function getPublicSuffix(string $domain, int $flags = self::FORBID_NONE): string
     {
         [, $tail] = $this->split($domain, $flags);
         return implode('.', $tail);
     }
 
-    public function split(string $domain, int $flags = self::ALLOW_ALL): array
+    public function split(string $domain, int $flags = self::FORBID_NONE): array
     {
         $labels = explode('.', Idn::toAscii($domain));
         $node = $this->root;
@@ -52,7 +52,7 @@ final class SuffixTree implements PslLookupInterface
             if ($nodeFlags === Flags::CONTINUE) {
                 continue;
             }
-            if (($nodeFlags & Flags::PRIVATE) && !($flags & self::ALLOW_PRIVATE)) {
+            if (($nodeFlags & Flags::PRIVATE) && ($flags & self::FORBID_PRIVATE)) {
                 throw new PrivateDomainException();
             }
             if ($nodeFlags & Flags::STORE) {
@@ -71,13 +71,13 @@ final class SuffixTree implements PslLookupInterface
 
         // No matches: the public suffix is the rightmost label.
         if (!$matches) {
-            if ($flags & self::ALLOW_UNKNOWN) {
-                return [
-                    array_slice($labels, 0, -1),
-                    array_slice($labels, -1, 1),
-                ];
+            if ($flags & self::FORBID_UNKNOWN) {
+                throw new UnknownDomainException();
             }
-            throw new UnknownDomainException();
+            return [
+                array_slice($labels, 0, -1),
+                array_slice($labels, -1, 1),
+            ];
         }
 
         $tail = end($matches);
