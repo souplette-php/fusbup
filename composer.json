@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "test": "XDEBUG_MODE=off tools/phpunit.phar",
-    "coverage": "rm -rf tmp/coverage && XDEBUG_MODE=coverage tools/phpunit.phar --coverage-html=tmp/coverage",
+    "coverage": "rm -rf tmp/coverage && XDEBUG_MODE=off php -dpcov.enabled=1 tools/phpunit.phar --coverage-html=tmp/coverage",
     "update-list": "XDEBUG_MODE=off php scripts/update-list.php",
     "update-psl-tests": "XDEBUG_MODE=off php scripts/update-psl-tests.php"
   },
