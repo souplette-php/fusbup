@@ -17,6 +17,15 @@ final class IncrementalLookupTest extends TestCase
         return ByteArray::toString(require $path);
     }
 
+    public function testExhaustLookup(): void
+    {
+        // just try to hit the `exhausted` code path in the advance() method.
+        $lookup = new IncrementalLookup("\x81jp\x80");
+        $input = ['a', 'b', 'c'];
+        $result = array_reduce($input, fn($_, $c) => $lookup->advance($c));
+        Assert::assertFalse($result);
+    }
+
     #[DataProvider('singleRuleProvider')]
     public function testSingleRule(string $input, int $expected): void
     {

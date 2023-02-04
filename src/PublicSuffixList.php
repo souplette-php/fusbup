@@ -104,7 +104,7 @@ final class PublicSuffixList
         ];
     }
 
-    public function isCookieDomainAcceptable(string $requestDomain, string $cookieDomain, int $flags = self::FORBID_NONE): bool
+    public function isCookieDomainAcceptable(string $requestDomain, string $cookieDomain): bool
     {
         // A string domain-matches a given domain string if at least one of the following conditions hold:
         // 1. The domain string and the string are identical.
@@ -125,13 +125,8 @@ final class PublicSuffixList
             && filter_var($requestDomain, \FILTER_VALIDATE_IP) === false
         ) {
             // cookie domain matches, but it must be longer than the longest public suffix in $requestDomain
-            try {
-                $requestSuffix = $this->getEffectiveTLD($requestDomain, $flags);
-                return \strlen($cookieDomain) > \strlen($requestSuffix);
-            } catch (ForbiddenDomainException) {
-                // TODO: dos it make sense to use flags here?
-                return false;
-            }
+            $requestSuffix = $this->getEffectiveTLD($requestDomain);
+            return \strlen($cookieDomain) > \strlen($requestSuffix);
         }
 
         return false;

@@ -8,8 +8,10 @@ use ju1ius\FusBup\Lookup\LookupInterface;
 
 final class DafsaFileLoader implements LoaderInterface
 {
+    public const DEFAULT_PATH = __DIR__ . '/../Resources/psl.dafsa';
+
     public function __construct(
-        private readonly string $filename = __DIR__ . '/../Resources/psl.dafsa',
+        private readonly string $filename = self::DEFAULT_PATH,
     ) {
     }
 

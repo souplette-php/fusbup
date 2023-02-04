@@ -7,8 +7,10 @@ use ju1ius\FusBup\Lookup\SuffixTree;
 
 final class PhpFileLoader implements LoaderInterface
 {
+    public const DEFAULT_PATH = __DIR__ . '/../Resources/psl.php';
+
     public function __construct(
-        private readonly string $filename = __DIR__ . '/../Resources/psl.php',
+        private readonly string $filename = self::DEFAULT_PATH,
     ) {
     }
 

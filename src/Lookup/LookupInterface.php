@@ -8,9 +8,9 @@ namespace ju1ius\FusBup\Lookup;
  */
 interface LookupInterface
 {
-    const FORBID_NONE = 0;
-    const FORBID_PRIVATE = 1;
-    const FORBID_UNKNOWN = 2;
+    public const FORBID_NONE = 0;
+    public const FORBID_PRIVATE = 1;
+    public const FORBID_UNKNOWN = 2;
 
     public function isEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): bool;
 

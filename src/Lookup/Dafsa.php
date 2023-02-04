@@ -89,11 +89,7 @@ final class Dafsa implements LookupInterface
                 // This would only be valid if we had a corresponding wildcard rule,
                 // which would have to be "*".
                 // But we explicitly disallow that case, so this kind of rule is invalid.
-                // TODO(https://crbug.com/459802): This assumes that all wildcard entries,
-                // such as *.foo.invalid, also have their parent, foo.invalid, as an entry
-                // on the PSL, which is why it returns the length of foo.invalid.
-                // This isn't entirely correct.
-                return '';
+                throw new \LogicException('Exception rule for top-level domain');
             }
             return substr($domain, $firstDot + 1);
         }
@@ -143,11 +139,7 @@ final class Dafsa implements LookupInterface
                 // This would only be valid if we had a corresponding wildcard rule,
                 // which would have to be "*".
                 // But we explicitly disallow that case, so this kind of rule is invalid.
-                // TODO(https://crbug.com/459802): This assumes that all wildcard entries,
-                // such as *.foo.invalid, also have their parent, foo.invalid, as an entry
-                // on the PSL, which is why it returns the length of foo.invalid.
-                // This isn't entirely correct.
-                return [[], []];
+                throw new \LogicException('Exception rule for top-level domain');
             }
             $head = substr($domain, 0, $firstDot);
             $tail = substr($domain, $firstDot + 1);
