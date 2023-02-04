@@ -3,6 +3,7 @@
 namespace ju1ius\FusBup\Compiler\SuffixTree;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\Lookup\SuffixTree;
@@ -16,9 +17,8 @@ use ju1ius\FusBup\Lookup\SuffixTree\Node;
  */
 final class SuffixTreeBuilder
 {
-    public static function build(array $rules): SuffixTree
+    public static function build(RuleList $rules): SuffixTree
     {
-        usort($rules, Rule::compare(...));
         return self::process(RuleTree::of($rules));
     }
 

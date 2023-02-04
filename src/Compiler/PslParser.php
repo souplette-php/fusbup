@@ -3,6 +3,7 @@
 namespace ju1ius\FusBup\Compiler;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\Exception\ParseError;
@@ -16,12 +17,10 @@ final class PslParser
 {
     private Section $currentSection;
 
-    /**
-     * @return Rule[]
-     */
-    public function parse(string|SplFileObject $input): array
+    public function parse(string|SplFileObject $input): RuleList
     {
-        return $this->parseLines(self::lines($input));
+        $rules = $this->parseLines(self::lines($input));
+        return RuleList::of($rules);
     }
 
     /**
@@ -44,10 +43,11 @@ final class PslParser
     }
 
     private const RULE_RX = <<<'REGEXP'
-    /^
-        (?<prefix> ! | \*\. )?
-        (?<suffix> [^!*\s]+ )
-    $/x
+    /^(?:
+        ! (*MARK:excl) (?<suffix> [^!*\s.]+ \. [^!*\s]+ )
+        | \*\. (*MARK:wild) (?<suffix> [^!*\s]+ )
+        | (?<suffix> [^!*\s]+ )
+    )$/Jx
     REGEXP;
 
     private function parseRule(string $line): Rule
@@ -55,10 +55,10 @@ final class PslParser
         if (!preg_match(self::RULE_RX, $line, $m)) {
             throw ParseError::invalidRule($line);
         }
-        $type = match ($m['prefix']) {
-            '*.' => RuleType::Wildcard,
-            '!' => RuleType::Exception,
-            '' => RuleType::Default,
+        $type = match ($m['MARK'] ?? null) {
+            'wild' => RuleType::Wildcard,
+            'excl' => RuleType::Exception,
+            default => RuleType::Default,
         };
         return new Rule($m['suffix'], $type, $this->currentSection);
     }

@@ -3,6 +3,7 @@
 namespace ju1ius\FusBup\Tests\Compiler;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\SuffixTreeCompiler;
 use PHPUnit\Framework\Assert;
@@ -14,7 +15,7 @@ final class SuffixTreeCompilerTest extends TestCase
     #[DataProvider('compileProvider')]
     public function testCompile(array $rules, string $expected): void
     {
-        $code = (new SuffixTreeCompiler())->compile($rules);
+        $code = (new SuffixTreeCompiler())->compile(RuleList::of($rules));
         Assert::assertSame($expected, trim($code));
     }
 
@@ -63,14 +64,17 @@ final class SuffixTreeCompilerTest extends TestCase
             EOS,
         ];
         yield 'exception rule (public)' => [
-            [Rule::pub('a.b', RuleType::Exception)],
+            [
+                Rule::pub('b', RuleType::Wildcard),
+                Rule::pub('a.b', RuleType::Exception),
+            ],
             <<<'EOS'
             <?php declare(strict_types=1);
 
             use ju1ius\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
-                'b' => new Node(0, [
+                'b' => new Node(2, [
                     'a' => 4,
                 ]),
             ]);

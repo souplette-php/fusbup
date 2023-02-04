@@ -5,6 +5,7 @@ namespace ju1ius\FusBup\Compiler;
 use ju1ius\FusBup\Compiler\Dafsa\Dafsa;
 use ju1ius\FusBup\Compiler\Dafsa\Encoder;
 use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\Compiler\Utils\ByteArray;
@@ -16,12 +17,8 @@ use ju1ius\FusBup\Utils\Idn;
  */
 final class DafsaCompiler
 {
-    /**
-     * @param Rule[] $rules
-     */
-    public function compile(array $rules, bool $reverse = false): string
+    public function compile(RuleList $rules, bool $reverse = false): string
     {
-        usort($rules, Rule::compare(...));
         $words = self::createWordList($rules, $reverse);
         return $this->compileWords($words);
     }
@@ -35,10 +32,9 @@ final class DafsaCompiler
     }
 
     /**
-     * @param Rule[] $rules
      * @return string[]
      */
-    private static function createWordList(array $rules, bool $reverse = false): array
+    private static function createWordList(RuleList $rules, bool $reverse = false): array
     {
         $words = [];
         foreach ($rules as $rule) {

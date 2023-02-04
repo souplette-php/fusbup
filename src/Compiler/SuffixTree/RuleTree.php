@@ -3,6 +3,7 @@
 namespace ju1ius\FusBup\Compiler\SuffixTree;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 
 /**
  * @internal
@@ -14,10 +15,7 @@ final class RuleTree
     ) {
     }
 
-    /**
-     * @param Rule[] $rules
-     */
-    public static function of(array $rules): self
+    public static function of(RuleList $rules): self
     {
         $self = new self();
         foreach ($rules as $rule) {

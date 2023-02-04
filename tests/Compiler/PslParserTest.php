@@ -3,6 +3,7 @@
 namespace ju1ius\FusBup\Tests\Compiler;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\Compiler\PslParser;
@@ -13,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 final class PslParserTest extends TestCase
 {
-    private static function parse(string|\SplFileObject $input): array
+    private static function parse(string|\SplFileObject $input): RuleList
     {
         $parser = new PslParser();
         return $parser->parse($input);
@@ -23,7 +24,7 @@ final class PslParserTest extends TestCase
     public function testParseString(string $input, array $expected): void
     {
         $rules = self::parse($input);
-        Assert::assertEquals($expected, $rules);
+        Assert::assertEquals(RuleList::of($expected), $rules);
     }
 
     public static function parseStringProvider(): iterable
@@ -43,17 +44,17 @@ final class PslParserTest extends TestCase
                 new Rule('foo.bar.baz'),
             ]
         ];
-        yield 'parses exclusion rules' => [
-            "com\n!foo.com",
-            [
-                new Rule('com'),
-                new Rule('foo.com', RuleType::Exception),
-            ]
-        ];
         yield 'parses wildcard rules' => [
             "*.x.y",
             [
                 new Rule('x.y', RuleType::Wildcard),
+            ]
+        ];
+        yield 'parses exclusion rules' => [
+            "*.com\n!foo.com",
+            [
+                new Rule('com', RuleType::Wildcard),
+                new Rule('foo.com', RuleType::Exception),
             ]
         ];
         yield 'handles ICANN & PRIVATE section' => [
@@ -91,5 +92,8 @@ final class PslParserTest extends TestCase
         yield 'gibberish' => ["a bunch of nonsense"];
         yield 'mixed rule prefix' => ['!*.x.y'];
         yield 'invalid domain (idn_to_ascii error)' => ['...'];
+        yield 'TLD exception' => ['!com'];
+        yield 'exception without matching wildcard' => ["com\n!foo.com"];
+        yield 'duplicate rule' => ["a.b\na.b"];
     }
 }

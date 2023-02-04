@@ -84,14 +84,14 @@ final class Dafsa implements LookupInterface
             return substr($domain, $precedingDot + 1);
         }
         if ($result & Result::Exception) {
-            if (false === $firstDot = strpos($domain, '.', -$suffixLength)) {
-                // If we get here, we had an exception rule with no dots (e.g. "!foo").
-                // This would only be valid if we had a corresponding wildcard rule,
-                // which would have to be "*".
-                // But we explicitly disallow that case, so this kind of rule is invalid.
-                throw new \LogicException('Exception rule for top-level domain');
+            if (false !== $firstDot = strpos($domain, '.', -$suffixLength)) {
+                return substr($domain, $firstDot + 1);
             }
-            return substr($domain, $firstDot + 1);
+            // If we get here, we had an exception rule with no dots (e.g. "!foo").
+            // This would only be valid if we had a corresponding wildcard rule,
+            // which would have to be "*".
+            // But we explicitly disallow that case, so this kind of rule is invalid.
+            throw new \LogicException('Exception rule for top-level domain'); // @codeCoverageIgnore
         }
 
         return substr($domain, -$suffixLength);
@@ -134,19 +134,19 @@ final class Dafsa implements LookupInterface
             ];
         }
         if ($result & Result::Exception) {
-            if (false === $firstDot = strpos($domain, '.', -$suffixLength)) {
-                // If we get here, we had an exception rule with no dots (e.g. "!foo").
-                // This would only be valid if we had a corresponding wildcard rule,
-                // which would have to be "*".
-                // But we explicitly disallow that case, so this kind of rule is invalid.
-                throw new \LogicException('Exception rule for top-level domain');
+            if (false !== $firstDot = strpos($domain, '.', -$suffixLength)) {
+                $head = substr($domain, 0, $firstDot);
+                $tail = substr($domain, $firstDot + 1);
+                return [
+                    explode('.', $head),
+                    explode('.', $tail),
+                ];
             }
-            $head = substr($domain, 0, $firstDot);
-            $tail = substr($domain, $firstDot + 1);
-            return [
-                explode('.', $head),
-                explode('.', $tail),
-            ];
+            // If we get here, we had an exception rule with no dots (e.g. "!foo").
+            // This would only be valid if we had a corresponding wildcard rule,
+            // which would have to be "*".
+            // But the parser explicitly disallows that case, so this kind of rule is invalid.
+            throw new \LogicException('Exception rule for top-level domain'); // @codeCoverageIgnore
         }
 
         if ($suffixLength === \strlen($domain)) {

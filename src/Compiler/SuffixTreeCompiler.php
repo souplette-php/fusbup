@@ -3,6 +3,7 @@
 namespace ju1ius\FusBup\Compiler;
 
 use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeBuilder;
 use ju1ius\FusBup\Compiler\Utils\CodeBuilder;
 use ju1ius\FusBup\Lookup\SuffixTree\Node;
@@ -12,10 +13,7 @@ use ju1ius\FusBup\Lookup\SuffixTree\Node;
  */
 final class SuffixTreeCompiler
 {
-    /**
-     * @param Rule[] $rules
-     */
-    public function compile(array $rules): string
+    public function compile(RuleList $rules): string
     {
         $tree = SuffixTreeBuilder::build($rules);
         $code = CodeBuilder::forFile()->raw('return ');

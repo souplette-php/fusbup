@@ -4,6 +4,7 @@ namespace ju1ius\FusBup\Tests\Compiler;
 
 use ju1ius\FusBup\Compiler\DafsaCompiler;
 use ju1ius\FusBup\Compiler\Parser\Rule;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\Utils\ByteArray;
 use ju1ius\FusBup\Tests\GPerfParser;
 use ju1ius\FusBup\Tests\ResourceHelper;
@@ -17,7 +18,7 @@ final class DafsaCompilerTest extends TestCase
 {
     private function toByteArray(array $rules, bool $reverse = false): array
     {
-        $output = (new DafsaCompiler())->compile($rules, $reverse);
+        $output = (new DafsaCompiler())->compile(RuleList::of($rules), $reverse);
         return ByteArray::fromDafsa($output);
     }
 
