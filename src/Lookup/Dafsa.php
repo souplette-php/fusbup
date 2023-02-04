@@ -24,7 +24,11 @@ final class Dafsa implements LookupInterface
     public function isEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): bool
     {
         $domain = Idn::toAscii($domain);
-        [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
+        try {
+            [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
+        } catch (PrivateETLDException) {
+            return false;
+        }
         if ($result === Result::NotFound) {
             if ($flags & self::FORBID_UNKNOWN) {
                 return false;

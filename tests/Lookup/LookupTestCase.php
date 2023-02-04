@@ -117,6 +117,36 @@ abstract class LookupTestCase extends TestCase
     }
 
     #[DataProvider('providePrivateDomainErrorCases')]
+    public function testIsEffectiveTLDReturnsFalseForPrivateEntries(array $rules, string $domain): void
+    {
+        $lookup = static::compile($rules);
+        Assert::assertFalse($lookup->isEffectiveTLD($domain, $lookup::FORBID_PRIVATE));
+    }
+
+    #[DataProvider('provideUnknownDomainErrorCases')]
+    public function testIsEffectiveTLDReturnsFalseForUnknownTLD(array $rules, string $domain): void
+    {
+        $lookup = static::compile($rules);
+        Assert::assertFalse($lookup->isEffectiveTLD($domain, $lookup::FORBID_UNKNOWN));
+    }
+
+    #[DataProvider('providePrivateDomainErrorCases')]
+    public function testEffectiveLTDDisallowPrivate(array $rules, string $domain): void
+    {
+        $lookup = static::compile($rules);
+        $this->expectException(PrivateETLDException::class);
+        $lookup->getEffectiveTLD($domain, $lookup::FORBID_PRIVATE);
+    }
+
+    #[DataProvider('provideUnknownDomainErrorCases')]
+    public function testEffectiveLTDDisallowUnknown(array $rules, string $domain): void
+    {
+        $lookup = static::compile($rules);
+        $this->expectException(UnknownTLDException::class);
+        $lookup->getEffectiveTLD($domain, $lookup::FORBID_UNKNOWN);
+    }
+
+    #[DataProvider('providePrivateDomainErrorCases')]
     public function testSplitDisallowPrivate(array $rules, string $domain): void
     {
         $lookup = static::compile($rules);

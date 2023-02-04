@@ -122,6 +122,27 @@ abstract class PslTestCase extends TestCase
         //yield ['hiho', null, false];
     }
 
+    #[DataProvider('forbiddenCookieDomainsProvider')]
+    public function testCookieDomainWithFlags(string $requestDomain, string $cookieDomain, int $flags): void
+    {
+        $result = static::getList()->isCookieDomainAcceptable($requestDomain, $cookieDomain, $flags);
+        Assert::assertFalse($result);
+    }
+
+    public static function forbiddenCookieDomainsProvider(): iterable
+    {
+        yield [
+            'b.a.googleapis.com',
+            'a.googleapis.com',
+            PublicSuffixList::FORBID_PRIVATE,
+        ];
+        yield [
+            'www.foo.test',
+            'foo.test',
+            PublicSuffixList::FORBID_UNKNOWN,
+        ];
+    }
+
     private static function filterPslTests(iterable $tests, bool $allowNullResult = true): \Traversable
     {
         $i = 0;

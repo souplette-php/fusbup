@@ -4,7 +4,6 @@ namespace ju1ius\FusBup\Tests\PublicSuffixList;
 
 use ju1ius\FusBup\Loader\PhpFileLoader;
 use ju1ius\FusBup\PublicSuffixList;
-use PHPUnit\Framework\Assert;
 
 final class PslSuffixTreeTest extends PslTestCase
 {
