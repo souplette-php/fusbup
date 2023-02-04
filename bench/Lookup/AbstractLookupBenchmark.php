@@ -11,8 +11,10 @@ use PhpBench\Attributes\ParamProviders;
 use PhpBench\Attributes\RetryThreshold;
 use PhpBench\Attributes\Revs;
 use PhpBench\Attributes\Subject;
+use PhpBench\Attributes\Warmup;
 
 #[RetryThreshold(2.0)]
+#[Warmup(2)]
 #[OutputTimeUnit('seconds')]
 #[OutputMode('throughput')]
 #[BeforeMethods('setUp')]
