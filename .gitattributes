@@ -12,6 +12,7 @@
 /.phive             export-ignore
 /.php-cs-fixer.php  export-ignore
 /phpunit.xml        export-ignore
+/phpbench.json      export-ignore
 
 /tests              export-ignore
 

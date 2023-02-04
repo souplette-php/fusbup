@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - main
+      - psl-updates
   schedule:
     - cron: '0 0 * * MON'
 

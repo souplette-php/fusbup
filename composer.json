@@ -22,7 +22,8 @@
     "test": "XDEBUG_MODE=off tools/phpunit.phar",
     "coverage": "rm -rf tmp/coverage && XDEBUG_MODE=off php -dpcov.enabled=1 tools/phpunit.phar --coverage-html=tmp/coverage",
     "update-list": "XDEBUG_MODE=off php scripts/update-list.php",
-    "update-psl-tests": "XDEBUG_MODE=off php scripts/update-psl-tests.php"
+    "update-psl-tests": "XDEBUG_MODE=off php scripts/update-psl-tests.php",
+    "bench": "XDEBUG_MODE=off tools/phpbench.phar run --report=aggregate"
   },
   "autoload": {
     "psr-4": {
@@ -31,7 +32,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "ju1ius\\FusBup\\Tests\\": "tests/"
+      "ju1ius\\FusBup\\Tests\\": "tests/",
+      "ju1ius\\FusBup\\Benchmarks\\": "bench/"
     }
   },
   "require": {

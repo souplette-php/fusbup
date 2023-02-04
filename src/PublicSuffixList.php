@@ -129,6 +129,7 @@ final class PublicSuffixList
                 $requestSuffix = $this->getEffectiveTLD($requestDomain, $flags);
                 return \strlen($cookieDomain) > \strlen($requestSuffix);
             } catch (ForbiddenDomainException) {
+                // TODO: dos it make sense to use flags here?
                 return false;
             }
         }
