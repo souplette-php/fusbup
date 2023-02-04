@@ -8,15 +8,14 @@ use ju1ius\FusBup\Exception\PrivateETLDException;
 use ju1ius\FusBup\Exception\UnknownTLDException;
 use ju1ius\FusBup\Lookup\LookupInterface;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-abstract class AbstractLookupTest extends TestCase
+abstract class LookupTestCase extends TestCase
 {
     abstract protected static function compile(array $rules): LookupInterface;
 
-    /**
-     * @dataProvider splitProvider
-     */
+    #[DataProvider('splitProvider')]
     public function testSplit(array $rules, string $domain, array $expected): void
     {
         $lookup = static::compile($rules);
@@ -24,9 +23,7 @@ abstract class AbstractLookupTest extends TestCase
         Assert::assertSame($expected, $result);
     }
 
-    /**
-     * @dataProvider splitProvider
-     */
+    #[DataProvider('splitProvider')]
     public function testIsPublicSuffix(array $rules, string $domain, array $expected): void
     {
         $lookup = static::compile($rules);
@@ -36,9 +33,7 @@ abstract class AbstractLookupTest extends TestCase
         Assert::assertSame($expectPublic, $result);
     }
 
-    /**
-     * @dataProvider splitProvider
-     */
+    #[DataProvider('splitProvider')]
     public function testGetPublicSuffix(array $rules, string $domain, array $expected): void
     {
         $lookup = static::compile($rules);
@@ -121,9 +116,7 @@ abstract class AbstractLookupTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider providePrivateDomainErrorCases
-     */
+    #[DataProvider('providePrivateDomainErrorCases')]
     public function testSplitDisallowPrivate(array $rules, string $domain): void
     {
         $lookup = static::compile($rules);
@@ -131,9 +124,7 @@ abstract class AbstractLookupTest extends TestCase
         $lookup->split($domain, $lookup::FORBID_PRIVATE);
     }
 
-    /**
-     * @dataProvider provideUnknownDomainErrorCases
-     */
+    #[DataProvider('provideUnknownDomainErrorCases')]
     public function testSplitDisallowUnknown(array $rules, string $domain): void
     {
         $lookup = static::compile($rules);

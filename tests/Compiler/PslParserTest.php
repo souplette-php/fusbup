@@ -8,6 +8,7 @@ use ju1ius\FusBup\Compiler\Parser\Section;
 use ju1ius\FusBup\Compiler\PslParser;
 use ju1ius\FusBup\Exception\ParseError;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class PslParserTest extends TestCase
@@ -18,9 +19,7 @@ final class PslParserTest extends TestCase
         return $parser->parse($input);
     }
 
-    /**
-     * @dataProvider parseStringProvider
-     */
+    #[DataProvider('parseStringProvider')]
     public function testParseString(string $input, array $expected): void
     {
         $rules = self::parse($input);
@@ -80,9 +79,7 @@ final class PslParserTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider parseErrorsProvider
-     */
+    #[DataProvider('parseErrorsProvider')]
     public function testParseErrors(string|\SplFileObject $input): void
     {
         $this->expectException(ParseError::class);

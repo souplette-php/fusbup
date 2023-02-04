@@ -6,6 +6,7 @@ use ju1ius\FusBup\Compiler\Dafsa\Dafsa;
 use ju1ius\FusBup\Compiler\Dafsa\Node;
 use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,9 +15,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class MozillaDafsaTest extends TestCase
 {
-    /**
-     * @dataProvider fromWordsProvider
-     */
+    #[DataProvider('fromWordsProvider')]
     public function testFromWords(string $input, string $expected): void
     {
         $words = array_map(trim(...), explode("\n", trim($input)));

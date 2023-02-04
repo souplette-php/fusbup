@@ -6,7 +6,7 @@ use ju1ius\FusBup\Loader\PhpFileLoader;
 use ju1ius\FusBup\PublicSuffixList;
 use PHPUnit\Framework\Assert;
 
-final class PslSuffixTreeTest extends AbstractPslTest
+final class PslSuffixTreeTest extends PslTestCase
 {
     private static PublicSuffixList $list;
 

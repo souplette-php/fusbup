@@ -6,13 +6,12 @@ use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\SuffixTreeCompiler;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class SuffixTreeCompilerTest extends TestCase
 {
-    /**
-     * @dataProvider compileProvider
-     */
+    #[DataProvider('compileProvider')]
     public function testCompile(array $rules, string $expected): void
     {
         $code = (new SuffixTreeCompiler())->compile($rules);

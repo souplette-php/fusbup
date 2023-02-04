@@ -6,15 +6,14 @@ use ju1ius\FusBup\PublicSuffixList;
 use ju1ius\FusBup\Tests\PslTestProvider;
 use ju1ius\FusBup\Utils\Idn;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-abstract class AbstractPslTest extends TestCase
+abstract class PslTestCase extends TestCase
 {
     abstract protected static function getList(): PublicSuffixList;
 
-    /**
-     * @dataProvider isPublicSuffixProvider
-     */
+    #[DataProvider('isPublicSuffixProvider')]
     public function testIsPublicSuffix(string $input, bool $expected): void
     {
         $result = static::getList()->isEffectiveTLD($input);
@@ -26,18 +25,14 @@ abstract class AbstractPslTest extends TestCase
         yield from PslTestProvider::isPublic();
     }
 
-    /**
-     * @dataProvider getPublicSuffixProvider
-     */
+    #[DataProvider('getPublicSuffixProvider')]
     public function testGetPublicSuffix(string $input, string $expected): void
     {
         $result = static::getList()->getEffectiveTLD($input);
         Assert::assertSame($expected, $result);
     }
 
-    /**
-     * @dataProvider getPublicSuffixProvider
-     */
+    #[DataProvider('getPublicSuffixProvider')]
     public function testSplitPublicSuffix(string $input, string $suffix): void
     {
         [$private, $public] = static::getList()->splitEffectiveTLD($input);
@@ -52,18 +47,14 @@ abstract class AbstractPslTest extends TestCase
         yield from self::filterPslTests(PslTestProvider::unregistrable(), false);
     }
 
-    /**
-     * @dataProvider getRegistrableDomainProvider
-     */
+    #[DataProvider('getRegistrableDomainProvider')]
     public function testGetRegistrableDomain(string $input, ?string $expected): void
     {
         $result = static::getList()->getRegistrableDomain($input);
         Assert::assertSame($expected, $result);
     }
 
-    /**
-     * @dataProvider getRegistrableDomainProvider
-     */
+    #[DataProvider('getRegistrableDomainProvider')]
     public function testSplitRegistrableDomain(string $input, ?string $expected): void
     {
         $result = static::getList()->splitRegistrableDomain($input);
@@ -83,9 +74,7 @@ abstract class AbstractPslTest extends TestCase
         yield from self::filterPslTests(PslTestProvider::registrable());
     }
 
-    /**
-     * @dataProvider isCookieDomainAcceptableProvider
-     */
+    #[DataProvider('isCookieDomainAcceptableProvider')]
     public function testIsCookieDomainAcceptable(string $requestDomain, string $cookieDomain, bool $expected): void
     {
         $result = static::getList()->isCookieDomainAcceptable($requestDomain, $cookieDomain);

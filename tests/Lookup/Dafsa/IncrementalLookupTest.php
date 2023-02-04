@@ -6,6 +6,7 @@ use ju1ius\FusBup\Compiler\Utils\ByteArray;
 use ju1ius\FusBup\Lookup\Dafsa\IncrementalLookup;
 use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class IncrementalLookupTest extends TestCase
@@ -16,9 +17,7 @@ final class IncrementalLookupTest extends TestCase
         return ByteArray::toString(require $path);
     }
 
-    /**
-     * @dataProvider singleRuleProvider
-     */
+    #[DataProvider('singleRuleProvider')]
     public function testSingleRule(string $input, int $expected): void
     {
         $graph = "\x81jp\x80";
@@ -35,9 +34,7 @@ final class IncrementalLookupTest extends TestCase
         yield ['jpp', -1];
     }
 
-    /**
-     * @dataProvider oneByteOffsetsProvider
-     */
+    #[DataProvider('oneByteOffsetsProvider')]
     public function testOneByteOffsets(string $input, int $expected): void
     {
         $graph = self::loadGraph('effective_tld_names_unittest1');
@@ -64,10 +61,9 @@ final class IncrementalLookupTest extends TestCase
      * which makes it impossible to merge labels.
      * Each inner node is about 100 bytes and a one byte offset can add at most 64 bytes
      * to previous offset.
-     * Thus the paths must go over two byte offsets.
-     *
-     * @dataProvider twoBytesOffsetsProvider
+     * Thus, the paths must go over two byte offsets.
      */
+    #[DataProvider('twoBytesOffsetsProvider')]
     public function testTwoBytesOffsets(string $input, int $expected): void
     {
         $graph = self::loadGraph('effective_tld_names_unittest3');
@@ -102,9 +98,8 @@ final class IncrementalLookupTest extends TestCase
      * to a return value without using a three byte offset is small (but not zero).
      * The test is repeated with some different keys and with a reasonable probability
      * that at least one of the tested paths has go over a three byte offset.
-     *
-     * @dataProvider threeBytesOffsetsProvider
      */
+    #[DataProvider('threeBytesOffsetsProvider')]
     public function testThreeBytesOffsets(string $input, int $expected): void
     {
         $graph = self::loadGraph('effective_tld_names_unittest4');
@@ -128,9 +123,7 @@ final class IncrementalLookupTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider joinedPrefixesProvider
-     */
+    #[DataProvider('joinedPrefixesProvider')]
     public function testJoinedPrefixes(string $input, int $expected): void
     {
         $graph = self::loadGraph('effective_tld_names_unittest5');
@@ -150,9 +143,7 @@ final class IncrementalLookupTest extends TestCase
         yield ['bbbbn', 0];
     }
 
-    /**
-     * @dataProvider joinedSuffixesProvider
-     */
+    #[DataProvider('joinedSuffixesProvider')]
     public function testJoinedSuffixes(string $input, int $expected): void
     {
         $graph = self::loadGraph('effective_tld_names_unittest6');

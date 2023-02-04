@@ -6,7 +6,7 @@ use ju1ius\FusBup\Loader\DafsaFileLoader;
 use ju1ius\FusBup\PublicSuffixList;
 use PHPUnit\Framework\Assert;
 
-final class PslDafsaTest extends AbstractPslTest
+final class PslDafsaTest extends PslTestCase
 {
     private static PublicSuffixList $list;
 

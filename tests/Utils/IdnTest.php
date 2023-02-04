@@ -5,13 +5,12 @@ namespace ju1ius\FusBup\Tests\Utils;
 use ju1ius\FusBup\Exception\IdnException;
 use ju1ius\FusBup\Utils\Idn;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class IdnTest extends TestCase
 {
-    /**
-     * @dataProvider toAsciiProvider
-     */
+    #[DataProvider('toAsciiProvider')]
     public function testToAscii(array|string $input, string $expected): void
     {
         Assert::assertSame($expected, Idn::toAscii($input));
@@ -24,9 +23,7 @@ final class IdnTest extends TestCase
         yield ['☕.💩.🤟', 'xn--53h.xn--ls8h.xn--7p9h'];
     }
 
-    /**
-     * @dataProvider toAsciiErrorsProvider
-     */
+    #[DataProvider('toAsciiErrorsProvider')]
     public function testToAsciiErrors(string $input): void
     {
         $this->expectException(IdnException::class);
@@ -39,9 +36,7 @@ final class IdnTest extends TestCase
         yield 'empty label' => ['foo..bar'];
     }
 
-    /**
-     * @dataProvider toUnicodeProvider
-     */
+    #[DataProvider('toUnicodeProvider')]
     public function testToUnicode(array|string $input, string $expected): void
     {
         Assert::assertSame($expected, Idn::toUnicode($input));
@@ -54,9 +49,7 @@ final class IdnTest extends TestCase
         yield ['xn--53h.xn--ls8h.xn--7p9h', '☕.💩.🤟'];
     }
 
-    /**
-     * @dataProvider toUnicodeErrorsProvider
-     */
+    #[DataProvider('toUnicodeErrorsProvider')]
     public function testToUnicodeErrors(string $input): void
     {
         $this->expectException(IdnException::class);

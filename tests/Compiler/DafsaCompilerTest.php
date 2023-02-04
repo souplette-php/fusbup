@@ -8,8 +8,11 @@ use ju1ius\FusBup\Compiler\Utils\ByteArray;
 use ju1ius\FusBup\Tests\GPerfParser;
 use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\TestCase;
 
+#[Medium]
 final class DafsaCompilerTest extends TestCase
 {
     private function toByteArray(array $rules, bool $reverse = false): array
@@ -18,9 +21,7 @@ final class DafsaCompilerTest extends TestCase
         return ByteArray::fromDafsa($output);
     }
 
-    /**
-     * @dataProvider compileMatchesBytesProvider
-     */
+    #[DataProvider('compileMatchesBytesProvider')]
     public function testCompileMatchesBytes(array $input, array $expected, bool $reverse = false): void
     {
         $output = self::toByteArray($input, $reverse);
@@ -41,10 +42,7 @@ final class DafsaCompilerTest extends TestCase
         ];
     }
 
-    /**
-     * @medium
-     * @dataProvider compileMatchesUpstreamImplementationProvider
-     */
+    #[DataProvider('compileMatchesUpstreamImplementationProvider')]
     public function testCompileMatchesUpstreamImplementation(string $inputFile, string $dafsaFile): void
     {
         $words = GPerfParser::parse($inputFile);

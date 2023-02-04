@@ -5,13 +5,12 @@ namespace ju1ius\FusBup\Tests\Compiler\Parser;
 use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class RuleTest extends TestCase
 {
-    /**
-     * @dataProvider toStringProvider
-     */
+    #[DataProvider('toStringProvider')]
     public function testToString(Rule $input, string $expected): void
     {
         Assert::assertSame($expected, (string)$input);
@@ -33,9 +32,7 @@ final class RuleTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider sortOrderProvider
-     */
+    #[DataProvider('sortOrderProvider')]
     public function testSortOrder(array $rules, array $expected): void
     {
         usort($rules, Rule::compare(...));
