@@ -14,7 +14,7 @@ use ju1ius\FusBup\Utils\Idn;
  */
 final class Dafsa implements LookupInterface
 {
-    public const HEADER = ".DAFSA@PSL_0   \n";
+    public const HEADER = ".DAFSA@FUSBUP_0\n";
 
     public function __construct(
         private readonly string $buffer,
