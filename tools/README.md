@@ -1,11 +1,17 @@
 # DevTools setup
 
+We use the following tools to generate test cases and/or compare our implementation
+against well-established ones (gecko, chromium and libpsl).
+
 ## Install PHP devtools
 
 ```sh
 cd "$(git rev-parse --show-toplevel)"
 phive install
 ```
+
+If you just want to run the test suite and benchmarks, you can stop here.
+Otherwise you should read the following chapters.
 
 ## Install the `psl` binary
 

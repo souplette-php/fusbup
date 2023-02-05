@@ -1,12 +1,14 @@
 {
   "name": "ju1ius/fusbup",
-  "description": "Supafast Public Suffix matching",
+  "description": "A fast & memory-efficient interface to the Mozilla Public Suffix List.",
   "type": "library",
   "license": "MIT",
   "keywords": [
     "public suffix list",
     "top level domain",
+    "effective tld",
     "tld",
+    "etld",
     "psl",
     "icann",
     "domain",
