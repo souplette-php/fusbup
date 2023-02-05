@@ -2,7 +2,6 @@
 
 namespace ju1ius\FusBup\Compiler;
 
-use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeBuilder;
 use ju1ius\FusBup\Compiler\Utils\CodeBuilder;

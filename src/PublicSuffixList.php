@@ -2,7 +2,6 @@
 
 namespace ju1ius\FusBup;
 
-use ju1ius\FusBup\Exception\ForbiddenDomainException;
 use ju1ius\FusBup\Exception\PrivateETLDException;
 use ju1ius\FusBup\Exception\UnknownTLDException;
 use ju1ius\FusBup\Loader\LoaderInterface;

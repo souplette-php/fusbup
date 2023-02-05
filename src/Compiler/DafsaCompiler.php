@@ -4,7 +4,6 @@ namespace ju1ius\FusBup\Compiler;
 
 use ju1ius\FusBup\Compiler\Dafsa\Dafsa;
 use ju1ius\FusBup\Compiler\Dafsa\Encoder;
-use ju1ius\FusBup\Compiler\Parser\Rule;
 use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\Parser\RuleType;
 use ju1ius\FusBup\Compiler\Parser\Section;

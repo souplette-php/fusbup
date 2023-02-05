@@ -10,7 +10,6 @@ use ju1ius\FusBup\Utils\Idn;
 
 /**
  * @internal
- * @todo cleanup this implementation.
  */
 final class Dafsa implements LookupInterface
 {
@@ -70,14 +69,12 @@ final class Dafsa implements LookupInterface
         if ($result & Result::Wildcard) {
             // If the complete host matches, then the host is the wildcard suffix
             if ($suffixLength === \strlen($domain)) {
-                // todo: or nothing?
                 return $domain;
             }
             assert($suffixLength + 2 <= \strlen($domain));
             assert($domain[-$suffixLength - 1] === '.');
             if (false === $precedingDot = strrpos($domain, '.', -$suffixLength - 2)) {
-                // If no preceding dot, then the host is the registry itself, so return 0.
-                // FIXME
+                // If no preceding dot, then the host is the registry itself.
                 return $domain;
             }
             // Return suffix size plus size of subdomain.
@@ -87,10 +84,7 @@ final class Dafsa implements LookupInterface
             if (false !== $firstDot = strpos($domain, '.', -$suffixLength)) {
                 return substr($domain, $firstDot + 1);
             }
-            // If we get here, we had an exception rule with no dots (e.g. "!foo").
-            // This would only be valid if we had a corresponding wildcard rule,
-            // which would have to be "*".
-            // But we explicitly disallow that case, so this kind of rule is invalid.
+            // see the split() method for context
             throw new \LogicException('Exception rule for top-level domain'); // @codeCoverageIgnore
         }
 
@@ -121,8 +115,7 @@ final class Dafsa implements LookupInterface
             assert($suffixLength + 2 <= \strlen($domain));
             assert($domain[-$suffixLength - 1] === '.');
             if (false === $precedingDot = strrpos($domain, '.', -$suffixLength - 2)) {
-                // If no preceding dot, then the host is the registry itself, so return 0.
-                // FIXME
+                // If no preceding dot, then the host is the registry itself.
                 return [[], explode('.', $domain)];
             }
             // Return suffix size plus size of subdomain.
