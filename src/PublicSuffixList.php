@@ -4,8 +4,8 @@ namespace ju1ius\FusBup;
 
 use ju1ius\FusBup\Exception\PrivateETLDException;
 use ju1ius\FusBup\Exception\UnknownTLDException;
+use ju1ius\FusBup\Loader\DafsaLoader;
 use ju1ius\FusBup\Loader\LoaderInterface;
-use ju1ius\FusBup\Loader\SuffixTreeLoader;
 use ju1ius\FusBup\Lookup\LookupInterface;
 use ju1ius\FusBup\Utils\Idn;
 
@@ -24,7 +24,7 @@ final class PublicSuffixList
     private readonly LookupInterface $lookup;
 
     public function __construct(
-        private readonly LoaderInterface $loader = new SuffixTreeLoader(__DIR__ . '/Resources/psl.php'),
+        private readonly LoaderInterface $loader = new DafsaLoader(),
     ) {
     }
 
