@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Tests\PublicSuffixList;
 
-use ju1ius\FusBup\Loader\PhpFileLoader;
+use ju1ius\FusBup\Loader\SuffixTreeLoader;
 use ju1ius\FusBup\PublicSuffixList;
 
 final class PslSuffixTreeTest extends PslTestCase
@@ -11,6 +11,6 @@ final class PslSuffixTreeTest extends PslTestCase
 
     protected static function getList(): PublicSuffixList
     {
-        return self::$list ??= new PublicSuffixList(new PhpFileLoader());
+        return self::$list ??= new PublicSuffixList(new SuffixTreeLoader());
     }
 }

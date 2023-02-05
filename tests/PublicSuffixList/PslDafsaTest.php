@@ -2,7 +2,7 @@
 
 namespace ju1ius\FusBup\Tests\PublicSuffixList;
 
-use ju1ius\FusBup\Loader\DafsaFileLoader;
+use ju1ius\FusBup\Loader\DafsaLoader;
 use ju1ius\FusBup\PublicSuffixList;
 
 final class PslDafsaTest extends PslTestCase
@@ -11,6 +11,6 @@ final class PslDafsaTest extends PslTestCase
 
     protected static function getList(): PublicSuffixList
     {
-        return self::$list ??= new PublicSuffixList(new DafsaFileLoader());
+        return self::$list ??= new PublicSuffixList(new DafsaLoader());
     }
 }

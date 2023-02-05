@@ -5,7 +5,7 @@ namespace ju1ius\FusBup\Loader;
 use ju1ius\FusBup\Lookup\LookupInterface;
 use ju1ius\FusBup\Lookup\SuffixTree;
 
-final class PhpFileLoader implements LoaderInterface
+final class SuffixTreeLoader implements LoaderInterface
 {
     public const DEFAULT_PATH = __DIR__ . '/../Resources/psl.php';
 

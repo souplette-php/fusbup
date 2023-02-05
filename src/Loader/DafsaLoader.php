@@ -6,7 +6,7 @@ use ju1ius\FusBup\Exception\LoaderException;
 use ju1ius\FusBup\Lookup\Dafsa;
 use ju1ius\FusBup\Lookup\LookupInterface;
 
-final class DafsaFileLoader implements LoaderInterface
+final class DafsaLoader implements LoaderInterface
 {
     public const DEFAULT_PATH = __DIR__ . '/../Resources/psl.dafsa';
 

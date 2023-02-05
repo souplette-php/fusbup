@@ -2,8 +2,8 @@
 
 namespace ju1ius\FusBup\Benchmarks;
 
-use ju1ius\FusBup\Loader\DafsaFileLoader;
-use ju1ius\FusBup\Loader\PhpFileLoader;
+use ju1ius\FusBup\Loader\DafsaLoader;
+use ju1ius\FusBup\Loader\SuffixTreeLoader;
 use PhpBench\Attributes\Iterations;
 use PhpBench\Attributes\RetryThreshold;
 use PhpBench\Attributes\Revs;
@@ -17,7 +17,7 @@ final class LoaderBench
     #[Revs(10)]
     public function suffixTree(): void
     {
-        $loader = new PhpFileLoader();
+        $loader = new SuffixTreeLoader();
         $loader->load();
     }
 
@@ -26,7 +26,7 @@ final class LoaderBench
     #[Revs(100)]
     public function dafsa(): void
     {
-        $loader = new DafsaFileLoader();
+        $loader = new DafsaLoader();
         $loader->load();
     }
 }
