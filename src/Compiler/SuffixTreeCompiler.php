@@ -4,8 +4,8 @@ namespace ju1ius\FusBup\Compiler;
 
 use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeBuilder;
-use ju1ius\FusBup\Compiler\Utils\CodeBuilder;
 use ju1ius\FusBup\Lookup\SuffixTree\Node;
+use ju1ius\Luigi\CodeBuilder;
 
 /**
  * @internal

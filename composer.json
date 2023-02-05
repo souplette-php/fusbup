@@ -41,7 +41,8 @@
   "require": {
     "php": ">=8.1",
     "ext-ctype": "*",
-    "ext-intl": "*"
+    "ext-intl": "*",
+    "ju1ius/luigi": "^1.0"
   },
   "require-dev": {
     "symfony/stopwatch": "^6.2"
