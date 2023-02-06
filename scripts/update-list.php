@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use ju1ius\FusBup\Compiler\DafsaCompiler;
+use ju1ius\FusBup\Compiler\Parser\RuleList;
 use ju1ius\FusBup\Compiler\PslParser;
 use ju1ius\FusBup\Compiler\SuffixTreeCompiler;
 
@@ -18,13 +19,13 @@ compileDafsa($ast, "{$rootDir}/src/Resources/psl.dafsa");
 exit(0);
 
 
-function compileTree(array $rules, string $path): void
+function compileTree(RuleList $rules, string $path): void
 {
     $code = (new SuffixTreeCompiler())->compile($rules);
     file_put_contents($path, $code);
 }
 
-function compileDafsa(array $rules, string $path): void
+function compileDafsa(RuleList $rules, string $path): void
 {
     $graph = (new DafsaCompiler())->compile($rules, true);
     file_put_contents($path, $graph);
