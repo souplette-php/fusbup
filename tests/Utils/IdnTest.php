@@ -32,6 +32,7 @@ final class IdnTest extends TestCase
 
     public static function toAsciiErrorsProvider(): iterable
     {
+        yield 'empty' => [''];
         yield 'leading dot' => ['.foo'];
         yield 'empty label' => ['foo..bar'];
     }
@@ -58,6 +59,7 @@ final class IdnTest extends TestCase
 
     public static function toUnicodeErrorsProvider(): iterable
     {
+        yield 'empty' => [''];
         yield 'leading dot' => ['.foo'];
         yield 'empty label' => ['foo..bar'];
     }

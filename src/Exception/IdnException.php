@@ -4,7 +4,7 @@ namespace ju1ius\FusBup\Exception;
 
 final class IdnException extends \RuntimeException implements FusBupException
 {
-    public static function toAscii(string $input, array $info): self
+    public static function toAscii(string $input, ?array $info): self
     {
         return new self(sprintf(
             'Could not convert domain "%s" to ASCII: %s.',
@@ -13,7 +13,7 @@ final class IdnException extends \RuntimeException implements FusBupException
         ));
     }
 
-    public static function toUnicode(string $input, array $info): self
+    public static function toUnicode(string $input, ?array $info): self
     {
         return new self(sprintf(
             'Could not convert domain "%s" to Unicode: %s.',
@@ -38,8 +38,11 @@ final class IdnException extends \RuntimeException implements FusBupException
         IDNA_ERROR_CONTEXTJ => 'invalid context joiner',
     ];
 
-    private static function getErrors(array $info): array
+    private static function getErrors(?array $info): array
     {
+        if ($info === null) {
+            return [intl_get_error_message()];
+        }
         $mask = $info['errors'] ?? 0;
         $errors = [];
         foreach (self::ERRORS as $bit => $message) {
