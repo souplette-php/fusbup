@@ -37,7 +37,7 @@ abstract class PslTestCase extends TestCase
     {
         [$private, $public] = static::getList()->splitEffectiveTLD($input);
         Assert::assertSame($suffix, $public);
-        $inputCanonical = Idn::toUnicode($input);
+        $inputCanonical = Idn::toAscii($input);
         $domain = $private ? "{$private}.{$public}" : $public;
         Assert::assertSame($inputCanonical, $domain);
     }
@@ -63,7 +63,7 @@ abstract class PslTestCase extends TestCase
         } else {
             [$head, $tail] = $result;
             Assert::assertSame($expected, $tail);
-            $inputCanonical = Idn::toUnicode($input);
+            $inputCanonical = Idn::toAscii($input);
             $domain = $head ? "{$head}.{$tail}" : $tail;
             Assert::assertSame($inputCanonical, $domain);
         }
@@ -135,8 +135,8 @@ abstract class PslTestCase extends TestCase
             }
             $i++;
             // libpsl returns results in their original form,
-            // but we return them in canonicalized unicode form.
-            $expected = $expected ? Idn::toUnicode($expected) : null;
+            // but we return them in canonicalized ASCII form.
+            $expected = $expected ? Idn::toAscii($expected) : null;
             $key = sprintf(
                 '#%d %s => %s',
                 $i,

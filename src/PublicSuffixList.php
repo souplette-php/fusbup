@@ -5,7 +5,6 @@ namespace ju1ius\FusBup;
 use ju1ius\FusBup\Loader\DafsaLoader;
 use ju1ius\FusBup\Loader\LoaderInterface;
 use ju1ius\FusBup\Lookup\LookupInterface;
-use ju1ius\FusBup\Utils\Idn;
 
 final class PublicSuffixList implements PublicSuffixListInterface
 {
@@ -23,15 +22,15 @@ final class PublicSuffixList implements PublicSuffixListInterface
 
     public function getEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): string
     {
-        return Idn::toUnicode($this->getLookup()->getEffectiveTLD($domain, $flags));
+        return $this->getLookup()->getEffectiveTLD($domain, $flags);
     }
 
     public function splitEffectiveTLD(string $domain, int $flags = self::FORBID_NONE): ?array
     {
         [$head, $tail] = $this->getLookup()->split($domain, $flags);
         return [
-            $head ? Idn::toUnicode($head) : '',
-            Idn::toUnicode($tail),
+            implode('.', $head),
+            implode('.', $tail),
         ];
     }
 
@@ -42,7 +41,7 @@ final class PublicSuffixList implements PublicSuffixListInterface
             return null;
         }
         array_unshift($tail, array_pop($head));
-        return Idn::toUnicode($tail);
+        return implode('.', $tail);
     }
 
     public function splitRegistrableDomain(string $domain, int $flags = self::FORBID_NONE): ?array
@@ -53,8 +52,8 @@ final class PublicSuffixList implements PublicSuffixListInterface
         }
         array_unshift($tail, array_pop($head));
         return [
-            $head ? Idn::toUnicode($head) : '',
-            Idn::toUnicode($tail),
+            implode('.', $head),
+            implode('.', $tail),
         ];
     }
 

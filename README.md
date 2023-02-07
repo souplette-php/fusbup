@@ -57,6 +57,21 @@ assert($psl->isCookieDomainAcceptable($requestDomain, $cookieDomain));
 assert(false === $psl->isCookieDomainAcceptable('foo.com', '.com'))
 ```
 
+### Internationalized domain names
+
+All `PublicSuffixList` methods that return domains
+return them in their [normalized ASCII](https://url.spec.whatwg.org/#idna) form.
+
+```php
+use ju1ius\FusBup\PublicSuffixList;
+use ju1ius\FusBup\Utils\Idn;
+
+$psl = new PublicSuffixList();
+assert($psl->getRegistrableDomain('☕.example') === 'xn--53h.example');
+// use Idn::toUnicode() to convert them back to unicode if needed:
+assert(Idn::toUnicode('xn--53h.example') === '☕.example');
+```
+
 
 ## Performance
 
