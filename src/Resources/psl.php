@@ -238,6 +238,10 @@ return new Node(0, [
         'run' => new Node(9, [
             'a' => 9,
         ]),
+        'snowflake' => new Node(9, [
+            'privatelink' => 9,
+        ]),
+        'streamlit' => 9,
         'telebit' => 9,
         'typedream' => 9,
         'vercel' => 9,
@@ -1188,6 +1192,7 @@ return new Node(0, [
         'ac' => 1,
         'ah' => 1,
         'bj' => 1,
+        'canva-apps' => 9,
         'com' => new Node(1, [
             'amazonaws' => new Node(0, [
                 'cn-north-1' => new Node(0, [
@@ -1538,6 +1543,7 @@ return new Node(0, [
         'br' => 9,
         'builtwithdark' => 9,
         'cafjs' => 9,
+        'canva-apps' => 9,
         'cechire' => 9,
         'cf-ipfs' => 9,
         'ciscofreak' => 9,
@@ -1641,6 +1647,7 @@ return new Node(0, [
             'us-4' => 9,
         ]),
         'familyds' => 9,
+        'fastly-edge' => 9,
         'fastly-terrarium' => 9,
         'fastvps-server' => 9,
         'fbsbx' => new Node(0, [
@@ -1798,6 +1805,7 @@ return new Node(0, [
         'isa-geek' => 9,
         'isa-hockeynut' => 9,
         'issmarterthanyou' => 9,
+        'it' => 9,
         'jdevcloud' => 9,
         'jelastic' => new Node(0, [
             'demo' => 9,
@@ -2223,6 +2231,7 @@ return new Node(0, [
         'bss' => 9,
     ]),
     'dev' => new Node(1, [
+        'autocode' => 9,
         'curv' => 9,
         'deno' => 9,
         'deno-staging' => 9,
@@ -6816,6 +6825,19 @@ return new Node(0, [
     'nec' => 1,
     'net' => new Node(1, [
         'adobeaemcloud' => 9,
+        'adobeio-static' => 9,
+        'adobeioruntime' => 9,
+        'akadns' => 9,
+        'akamai' => 9,
+        'akamai-staging' => 9,
+        'akamaiedge' => 9,
+        'akamaiedge-staging' => 9,
+        'akamaihd' => 9,
+        'akamaihd-staging' => 9,
+        'akamaiorigin' => 9,
+        'akamaiorigin-staging' => 9,
+        'akamaized' => 9,
+        'akamaized-staging' => 9,
         'alwaysdata' => 9,
         'appudo' => 9,
         'at-band-camp' => 9,
@@ -6884,6 +6906,10 @@ return new Node(0, [
         'dynv6' => 9,
         'eating-organic' => 9,
         'edgeapp' => 9,
+        'edgekey' => 9,
+        'edgekey-staging' => 9,
+        'edgesuite' => 9,
+        'edgesuite-staging' => 9,
         'elastx' => new Node(0, [
             'jls-sto1' => 9,
             'jls-sto2' => 9,
