@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler\Dafsa;
+namespace Souplette\FusBup\Compiler\Dafsa;
 
 /**
  * State machine for inserting a word to a Dafsa.

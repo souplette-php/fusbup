@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler;
+namespace Souplette\FusBup\Compiler;
 
-use ju1ius\FusBup\Compiler\Parser\Rule;
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Compiler\Parser\RuleType;
-use ju1ius\FusBup\Compiler\Parser\Section;
-use ju1ius\FusBup\Exception\ParseError;
+use Souplette\FusBup\Compiler\Parser\Rule;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Compiler\Parser\RuleType;
+use Souplette\FusBup\Compiler\Parser\Section;
+use Souplette\FusBup\Exception\ParseError;
 use SplFileObject;
 use Traversable;
 

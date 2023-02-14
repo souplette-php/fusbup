@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Utils;
+namespace Souplette\FusBup\Utils;
 
-use ju1ius\FusBup\Exception\IdnException;
+use Souplette\FusBup\Exception\IdnException;
 
 /**
  * @link https://url.spec.whatwg.org/#idna

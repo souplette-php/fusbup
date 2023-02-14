@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\PublicSuffixList;
+namespace Souplette\FusBup\Tests\PublicSuffixList;
 
-use ju1ius\FusBup\Loader\SuffixTreeLoader;
-use ju1ius\FusBup\PublicSuffixList;
+use Souplette\FusBup\Loader\SuffixTreeLoader;
+use Souplette\FusBup\PublicSuffixList;
 
 final class PslSuffixTreeTest extends PslTestCase
 {

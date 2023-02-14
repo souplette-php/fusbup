@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Exception;
+namespace Souplette\FusBup\Exception;
 
 /**
  * An error happened while loading the compiled public suffix database.

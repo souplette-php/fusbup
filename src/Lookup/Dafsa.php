@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Lookup;
+namespace Souplette\FusBup\Lookup;
 
-use ju1ius\FusBup\Exception\PrivateETLDException;
-use ju1ius\FusBup\Exception\UnknownTLDException;
-use ju1ius\FusBup\Lookup\Dafsa\IncrementalLookup;
-use ju1ius\FusBup\Lookup\Dafsa\Result;
-use ju1ius\FusBup\Utils\Idn;
+use Souplette\FusBup\Exception\PrivateETLDException;
+use Souplette\FusBup\Exception\UnknownTLDException;
+use Souplette\FusBup\Lookup\Dafsa\IncrementalLookup;
+use Souplette\FusBup\Lookup\Dafsa\Result;
+use Souplette\FusBup\Utils\Idn;
 
 /**
  * @internal

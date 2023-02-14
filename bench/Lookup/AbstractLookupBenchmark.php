@@ -1,8 +1,7 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Benchmarks\Lookup;
+namespace Souplette\FusBup\Benchmarks\Lookup;
 
-use ju1ius\FusBup\Lookup\LookupInterface;
 use PhpBench\Attributes\BeforeMethods;
 use PhpBench\Attributes\Iterations;
 use PhpBench\Attributes\OutputMode;
@@ -12,6 +11,7 @@ use PhpBench\Attributes\RetryThreshold;
 use PhpBench\Attributes\Revs;
 use PhpBench\Attributes\Subject;
 use PhpBench\Attributes\Warmup;
+use Souplette\FusBup\Lookup\LookupInterface;
 
 #[RetryThreshold(2.0)]
 #[Warmup(2)]

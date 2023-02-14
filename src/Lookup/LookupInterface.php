@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Lookup;
+namespace Souplette\FusBup\Lookup;
 
 /**
  * @link https://github.com/publicsuffix/list/wiki/Format#algorithm

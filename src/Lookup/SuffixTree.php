@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Lookup;
+namespace Souplette\FusBup\Lookup;
 
-use ju1ius\FusBup\Exception\ForbiddenDomainException;
-use ju1ius\FusBup\Exception\PrivateETLDException;
-use ju1ius\FusBup\Exception\UnknownTLDException;
-use ju1ius\FusBup\Lookup\SuffixTree\Flags;
-use ju1ius\FusBup\Lookup\SuffixTree\Node;
-use ju1ius\FusBup\Utils\Idn;
+use Souplette\FusBup\Exception\ForbiddenDomainException;
+use Souplette\FusBup\Exception\PrivateETLDException;
+use Souplette\FusBup\Exception\UnknownTLDException;
+use Souplette\FusBup\Lookup\SuffixTree\Flags;
+use Souplette\FusBup\Lookup\SuffixTree\Node;
+use Souplette\FusBup\Utils\Idn;
 
 /**
  * @link https://github.com/publicsuffix/list/wiki/Format#algorithm

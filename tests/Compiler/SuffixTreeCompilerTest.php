@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Compiler;
+namespace Souplette\FusBup\Tests\Compiler;
 
-use ju1ius\FusBup\Compiler\Parser\Rule;
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Compiler\Parser\RuleType;
-use ju1ius\FusBup\Compiler\SuffixTreeCompiler;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Compiler\Parser\Rule;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Compiler\Parser\RuleType;
+use Souplette\FusBup\Compiler\SuffixTreeCompiler;
 
 final class SuffixTreeCompilerTest extends TestCase
 {
@@ -26,7 +26,7 @@ final class SuffixTreeCompilerTest extends TestCase
             <<<'EOS'
             <?php declare(strict_types=1);
 
-            use ju1ius\FusBup\Lookup\SuffixTree\Node;
+            use Souplette\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
                 'b' => new Node(0, [
@@ -40,7 +40,7 @@ final class SuffixTreeCompilerTest extends TestCase
             <<<'EOS'
             <?php declare(strict_types=1);
 
-            use ju1ius\FusBup\Lookup\SuffixTree\Node;
+            use Souplette\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
                 'b' => new Node(0, [
@@ -54,7 +54,7 @@ final class SuffixTreeCompilerTest extends TestCase
             <<<'EOS'
             <?php declare(strict_types=1);
 
-            use ju1ius\FusBup\Lookup\SuffixTree\Node;
+            use Souplette\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
                 'b' => new Node(0, [
@@ -71,7 +71,7 @@ final class SuffixTreeCompilerTest extends TestCase
             <<<'EOS'
             <?php declare(strict_types=1);
 
-            use ju1ius\FusBup\Lookup\SuffixTree\Node;
+            use Souplette\FusBup\Lookup\SuffixTree\Node;
 
             return new Node(0, [
                 'b' => new Node(2, [

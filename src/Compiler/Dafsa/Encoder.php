@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler\Dafsa;
+namespace Souplette\FusBup\Compiler\Dafsa;
 
-use ju1ius\FusBup\Compiler\Utils\ByteArray;
+use Souplette\FusBup\Compiler\Utils\ByteArray;
 
 /**
  * @internal

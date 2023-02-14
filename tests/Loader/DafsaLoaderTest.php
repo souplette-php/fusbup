@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Loader;
+namespace Souplette\FusBup\Tests\Loader;
 
-use ju1ius\FusBup\Exception\LoaderException;
-use ju1ius\FusBup\Loader\DafsaLoader;
-use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Exception\LoaderException;
+use Souplette\FusBup\Loader\DafsaLoader;
+use Souplette\FusBup\Tests\ResourceHelper;
 
 final class DafsaLoaderTest extends TestCase
 {

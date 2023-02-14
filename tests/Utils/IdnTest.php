@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Utils;
+namespace Souplette\FusBup\Tests\Utils;
 
-use ju1ius\FusBup\Exception\IdnException;
-use ju1ius\FusBup\Utils\Idn;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Exception\IdnException;
+use Souplette\FusBup\Utils\Idn;
 
 final class IdnTest extends TestCase
 {

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-use ju1ius\FusBup\Compiler\DafsaCompiler;
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Compiler\PslParser;
-use ju1ius\FusBup\Compiler\SuffixTreeCompiler;
+use Souplette\FusBup\Compiler\DafsaCompiler;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Compiler\PslParser;
+use Souplette\FusBup\Compiler\SuffixTreeCompiler;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

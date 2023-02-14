@@ -1,5 +1,5 @@
 {
-  "name": "ju1ius/fusbup",
+  "name": "souplette/fusbup",
   "description": "A fast & memory-efficient interface to the Mozilla Public Suffix List.",
   "type": "library",
   "license": "MIT",
@@ -29,13 +29,13 @@
   },
   "autoload": {
     "psr-4": {
-      "ju1ius\\FusBup\\": "src/"
+      "Souplette\\FusBup\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "ju1ius\\FusBup\\Tests\\": "tests/",
-      "ju1ius\\FusBup\\Benchmarks\\": "bench/"
+      "Souplette\\FusBup\\Tests\\": "tests/",
+      "Souplette\\FusBup\\Benchmarks\\": "bench/"
     }
   },
   "require": {

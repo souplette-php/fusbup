@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Compiler\Dafsa;
+namespace Souplette\FusBup\Tests\Compiler\Dafsa;
 
-use ju1ius\FusBup\Compiler\Dafsa\Node;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Compiler\Dafsa\Node;
 
 final class NodeTest extends TestCase
 {

@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php declare(strict_types=1);
 
-use ju1ius\FusBup\Lookup\Dafsa\Result;
-use ju1ius\FusBup\Tests\GPerfParser;
+use Souplette\FusBup\Lookup\Dafsa\Result;
+use Souplette\FusBup\Tests\GPerfParser;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

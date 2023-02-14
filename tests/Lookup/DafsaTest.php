@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Lookup;
+namespace Souplette\FusBup\Tests\Lookup;
 
-use ju1ius\FusBup\Compiler\DafsaCompiler;
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Lookup\Dafsa;
+use Souplette\FusBup\Compiler\DafsaCompiler;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Lookup\Dafsa;
 
 final class DafsaTest extends LookupTestCase
 {

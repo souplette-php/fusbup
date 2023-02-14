@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup;
+namespace Souplette\FusBup;
 
-use ju1ius\FusBup\Loader\DafsaLoader;
-use ju1ius\FusBup\Loader\LoaderInterface;
-use ju1ius\FusBup\Lookup\LookupInterface;
+use Souplette\FusBup\Loader\DafsaLoader;
+use Souplette\FusBup\Loader\LoaderInterface;
+use Souplette\FusBup\Lookup\LookupInterface;
 
 final class PublicSuffixList implements PublicSuffixListInterface
 {

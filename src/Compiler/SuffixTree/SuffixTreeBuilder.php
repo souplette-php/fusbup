@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler\SuffixTree;
+namespace Souplette\FusBup\Compiler\SuffixTree;
 
-use ju1ius\FusBup\Compiler\Parser\Rule;
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Compiler\Parser\RuleType;
-use ju1ius\FusBup\Compiler\Parser\Section;
-use ju1ius\FusBup\Lookup\SuffixTree;
-use ju1ius\FusBup\Lookup\SuffixTree\Flags;
-use ju1ius\FusBup\Lookup\SuffixTree\Node;
+use Souplette\FusBup\Compiler\Parser\Rule;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Compiler\Parser\RuleType;
+use Souplette\FusBup\Compiler\Parser\Section;
+use Souplette\FusBup\Lookup\SuffixTree;
+use Souplette\FusBup\Lookup\SuffixTree\Flags;
+use Souplette\FusBup\Lookup\SuffixTree\Node;
 
 /**
  * Builds a compressed suffix tree from an array of parsed `Rule` objects.

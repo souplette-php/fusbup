@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Lookup\Dafsa;
+namespace Souplette\FusBup\Tests\Lookup\Dafsa;
 
-use ju1ius\FusBup\Compiler\Utils\ByteArray;
-use ju1ius\FusBup\Lookup\Dafsa\IncrementalLookup;
-use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Compiler\Utils\ByteArray;
+use Souplette\FusBup\Lookup\Dafsa\IncrementalLookup;
+use Souplette\FusBup\Tests\ResourceHelper;
 
 final class IncrementalLookupTest extends TestCase
 {

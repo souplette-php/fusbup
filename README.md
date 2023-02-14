@@ -1,6 +1,6 @@
-# ju1ius/fusbup
+# souplette/fusbup
 
-[![codecov](https://codecov.io/gh/ju1ius/fusbup/branch/main/graph/badge.svg?token=bcrU1ru7IF)](https://codecov.io/gh/ju1ius/fusbup)
+[![codecov](https://codecov.io/gh/souplette-php/fusbup/branch/main/graph/badge.svg?token=bcrU1ru7IF)](https://codecov.io/gh/souplette-php/fusbup)
 
 A fast and memory-efficient PHP library to query the
 [Mozilla public suffix list](https://publicsuffix.org/).
@@ -8,7 +8,7 @@ A fast and memory-efficient PHP library to query the
 ## Installation
 
 ```sh
-composer require ju1ius/fusbup
+composer require souplette/fusbup
 ```
 
 ## Basic usage
@@ -16,7 +16,7 @@ composer require ju1ius/fusbup
 ### Querying effective top-level domains (eTLD)
 
 ```php
-use ju1ius\FusBup\PublicSuffixList;
+use Souplette\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList();
 // get the eTLD (short for Effective Top-Level Domain) of a domain
@@ -30,7 +30,7 @@ assert($psl->splitEffectiveTLD('www.foo.co.uk') === ['www.foo', 'co.uk']);
 ### Querying registrable domains (AKA eTLD+1)
 
 ```php
-use ju1ius\FusBup\PublicSuffixList;
+use Souplette\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList();
 // get the registrable part (eTLD+1) of a domain
@@ -46,7 +46,7 @@ The `PublicSuffixList` class implements the
 for matching a cookie domain against a request domain.
 
 ```php
-use ju1ius\FusBup\PublicSuffixList;
+use Souplette\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList();
 // check if a cookie domain is applicable to a hostname
@@ -63,8 +63,8 @@ All `PublicSuffixList` methods that return domains
 return them in their [normalized ASCII](https://url.spec.whatwg.org/#idna) form.
 
 ```php
-use ju1ius\FusBup\PublicSuffixList;
-use ju1ius\FusBup\Utils\Idn;
+use Souplette\FusBup\PublicSuffixList;
+use Souplette\FusBup\Utils\Idn;
 
 $psl = new PublicSuffixList();
 assert($psl->getRegistrableDomain('☕.example') === 'xn--53h.example');
@@ -110,8 +110,8 @@ Both algorithm can be used by passing the appropriate loader to the `PublicSuffi
 #### DAFSA
 
 ```php
-use ju1ius\FusBup\PublicSuffixList;
-use ju1ius\FusBup\Loader\DafsaLoader;
+use Souplette\FusBup\Loader\DafsaLoader;
+use Souplette\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList(new DafsaLoader());
 // since DafsaLoader is the default, the following is equivalent:
@@ -121,8 +121,8 @@ $psl = new PublicSuffixList();
 #### Suffix Tree
 
 ```php
-use ju1ius\FusBup\PublicSuffixList;
-use ju1ius\FusBup\Loader\SuffixTreeLoader;
+use Souplette\FusBup\Loader\SuffixTreeLoader;
+use Souplette\FusBup\PublicSuffixList;
 
 $psl = new PublicSuffixList(new SuffixTreeLoader());
 ```

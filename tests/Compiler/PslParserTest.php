@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Compiler;
+namespace Souplette\FusBup\Tests\Compiler;
 
-use ju1ius\FusBup\Compiler\Parser\Rule;
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Compiler\Parser\RuleType;
-use ju1ius\FusBup\Compiler\Parser\Section;
-use ju1ius\FusBup\Compiler\PslParser;
-use ju1ius\FusBup\Exception\ParseError;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Compiler\Parser\Rule;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Compiler\Parser\RuleType;
+use Souplette\FusBup\Compiler\Parser\Section;
+use Souplette\FusBup\Compiler\PslParser;
+use Souplette\FusBup\Exception\ParseError;
 
 final class PslParserTest extends TestCase
 {

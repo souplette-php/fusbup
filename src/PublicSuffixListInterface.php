@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup;
+namespace Souplette\FusBup;
 
-use ju1ius\FusBup\Exception\PrivateETLDException;
-use ju1ius\FusBup\Exception\UnknownTLDException;
-use ju1ius\FusBup\Lookup\LookupInterface;
+use Souplette\FusBup\Exception\PrivateETLDException;
+use Souplette\FusBup\Exception\UnknownTLDException;
+use Souplette\FusBup\Lookup\LookupInterface;
 
 interface PublicSuffixListInterface
 {

@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler;
+namespace Souplette\FusBup\Compiler;
 
-use ju1ius\FusBup\Compiler\Dafsa\Dafsa;
-use ju1ius\FusBup\Compiler\Dafsa\Encoder;
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Compiler\Parser\RuleType;
-use ju1ius\FusBup\Compiler\Parser\Section;
-use ju1ius\FusBup\Compiler\Utils\ByteArray;
-use ju1ius\FusBup\Lookup\Dafsa\Result;
-use ju1ius\FusBup\Utils\Idn;
+use Souplette\FusBup\Compiler\Dafsa\Dafsa;
+use Souplette\FusBup\Compiler\Dafsa\Encoder;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Compiler\Parser\RuleType;
+use Souplette\FusBup\Compiler\Parser\Section;
+use Souplette\FusBup\Compiler\Utils\ByteArray;
+use Souplette\FusBup\Lookup\Dafsa\Result;
+use Souplette\FusBup\Utils\Idn;
 
 /**
  * @internal

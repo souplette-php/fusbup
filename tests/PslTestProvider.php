@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests;
+namespace Souplette\FusBup\Tests;
 
 use JsonException;
 use Traversable;

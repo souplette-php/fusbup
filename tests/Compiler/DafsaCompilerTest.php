@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Compiler;
+namespace Souplette\FusBup\Tests\Compiler;
 
-use ju1ius\FusBup\Compiler\DafsaCompiler;
-use ju1ius\FusBup\Compiler\Parser\Rule;
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Compiler\Utils\ByteArray;
-use ju1ius\FusBup\Tests\GPerfParser;
-use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Compiler\DafsaCompiler;
+use Souplette\FusBup\Compiler\Parser\Rule;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Compiler\Utils\ByteArray;
+use Souplette\FusBup\Tests\GPerfParser;
+use Souplette\FusBup\Tests\ResourceHelper;
 
 #[Medium]
 final class DafsaCompilerTest extends TestCase

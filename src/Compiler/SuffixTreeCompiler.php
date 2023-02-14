@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler;
+namespace Souplette\FusBup\Compiler;
 
-use ju1ius\FusBup\Compiler\Parser\RuleList;
-use ju1ius\FusBup\Compiler\SuffixTree\SuffixTreeBuilder;
-use ju1ius\FusBup\Lookup\SuffixTree\Node;
 use ju1ius\Luigi\CodeBuilder;
+use Souplette\FusBup\Compiler\Parser\RuleList;
+use Souplette\FusBup\Compiler\SuffixTree\SuffixTreeBuilder;
+use Souplette\FusBup\Lookup\SuffixTree\Node;
 
 /**
  * @internal

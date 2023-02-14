@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Compiler\Parser;
+namespace Souplette\FusBup\Compiler\Parser;
 
-use ju1ius\FusBup\Exception\IdnException;
-use ju1ius\FusBup\Exception\ParseError;
-use ju1ius\FusBup\Utils\Idn;
+use Souplette\FusBup\Exception\IdnException;
+use Souplette\FusBup\Exception\ParseError;
+use Souplette\FusBup\Utils\Idn;
 
 /**
  * @internal

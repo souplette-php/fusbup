@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-use ju1ius\FusBup\Lookup\SuffixTree\Node;
+use Souplette\FusBup\Lookup\SuffixTree\Node;
 
 return new Node(0, [
     'aaa' => 1,

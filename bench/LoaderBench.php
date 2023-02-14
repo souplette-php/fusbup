@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Benchmarks;
+namespace Souplette\FusBup\Benchmarks;
 
-use ju1ius\FusBup\Loader\DafsaLoader;
-use ju1ius\FusBup\Loader\SuffixTreeLoader;
 use PhpBench\Attributes\Iterations;
 use PhpBench\Attributes\RetryThreshold;
 use PhpBench\Attributes\Revs;
 use PhpBench\Attributes\Subject;
+use Souplette\FusBup\Loader\DafsaLoader;
+use Souplette\FusBup\Loader\SuffixTreeLoader;
 
 #[RetryThreshold(2.0)]
 final class LoaderBench

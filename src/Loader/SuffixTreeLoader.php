@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Loader;
+namespace Souplette\FusBup\Loader;
 
-use ju1ius\FusBup\Lookup\LookupInterface;
-use ju1ius\FusBup\Lookup\SuffixTree;
+use Souplette\FusBup\Lookup\LookupInterface;
+use Souplette\FusBup\Lookup\SuffixTree;
 
 final class SuffixTreeLoader implements LoaderInterface
 {

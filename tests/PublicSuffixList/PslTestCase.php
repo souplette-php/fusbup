@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\PublicSuffixList;
+namespace Souplette\FusBup\Tests\PublicSuffixList;
 
-use ju1ius\FusBup\PublicSuffixList;
-use ju1ius\FusBup\Tests\PslTestProvider;
-use ju1ius\FusBup\Utils\Idn;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\PublicSuffixList;
+use Souplette\FusBup\Tests\PslTestProvider;
+use Souplette\FusBup\Utils\Idn;
 
 abstract class PslTestCase extends TestCase
 {

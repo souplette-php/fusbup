@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Tests\Compiler\Dafsa;
+namespace Souplette\FusBup\Tests\Compiler\Dafsa;
 
-use ju1ius\FusBup\Compiler\Dafsa\Dafsa;
-use ju1ius\FusBup\Compiler\Dafsa\Node;
-use ju1ius\FusBup\Tests\ResourceHelper;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Compiler\Dafsa\Dafsa;
+use Souplette\FusBup\Compiler\Dafsa\Node;
+use Souplette\FusBup\Tests\ResourceHelper;
 
 /**
  * Ported from:

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Benchmarks\Lookup;
+namespace Souplette\FusBup\Benchmarks\Lookup;
 
-use ju1ius\FusBup\Loader\DafsaLoader;
-use ju1ius\FusBup\Lookup\LookupInterface;
+use Souplette\FusBup\Loader\DafsaLoader;
+use Souplette\FusBup\Lookup\LookupInterface;
 
 final class DafsaBench extends AbstractLookupBenchmark
 {

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace ju1ius\FusBup\Loader;
+namespace Souplette\FusBup\Loader;
 
-use ju1ius\FusBup\Exception\LoaderException;
-use ju1ius\FusBup\Lookup\Dafsa;
-use ju1ius\FusBup\Lookup\LookupInterface;
+use Souplette\FusBup\Exception\LoaderException;
+use Souplette\FusBup\Lookup\Dafsa;
+use Souplette\FusBup\Lookup\LookupInterface;
 
 final class DafsaLoader implements LoaderInterface
 {
