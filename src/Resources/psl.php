@@ -5929,7 +5929,6 @@ return new Node(0, [
     'limited' => 1,
     'limo' => 1,
     'lincoln' => 1,
-    'linde' => 1,
     'link' => new Node(1, [
         'cyon' => 9,
         'dweb' => 10,
