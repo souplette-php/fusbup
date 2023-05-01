@@ -9065,6 +9065,7 @@ return new Node(0, [
         'kirovograd' => 1,
         'km' => 1,
         'kr' => 1,
+        'kropyvnytskyi' => 1,
         'krym' => 1,
         'ks' => 1,
         'kv' => 1,
