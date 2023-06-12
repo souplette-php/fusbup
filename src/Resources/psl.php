@@ -5,7 +5,6 @@ use Souplette\FusBup\Lookup\SuffixTree\Node;
 return new Node(0, [
     'aaa' => 1,
     'aarp' => 1,
-    'abarth' => 1,
     'abb' => 1,
     'abbott' => 1,
     'abbvie' => 1,
@@ -174,7 +173,6 @@ return new Node(0, [
         'net' => 1,
         'org' => 1,
     ]),
-    'alfaromeo' => 1,
     'alibaba' => 1,
     'alipay' => 1,
     'allfinanz' => 1,
@@ -2498,7 +2496,6 @@ return new Node(0, [
         'kapsi' => 9,
         'myspreadshop' => 9,
     ]),
-    'fiat' => 1,
     'fidelity' => 1,
     'fido' => 1,
     'film' => 1,
@@ -5877,7 +5874,6 @@ return new Node(0, [
     'lamborghini' => 1,
     'lamer' => 1,
     'lancaster' => 1,
-    'lancia' => 1,
     'land' => new Node(1, [
         'static' => new Node(9, [
             'dev' => 9,
@@ -6049,7 +6045,6 @@ return new Node(0, [
     'markets' => 1,
     'marriott' => 1,
     'marshalls' => 1,
-    'maserati' => 1,
     'mattel' => 1,
     'mba' => 1,
     'mc' => new Node(1, [
