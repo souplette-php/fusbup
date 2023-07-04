@@ -1306,18 +1306,28 @@ return new Node(0, [
         'alpha-myqnapcloud' => 9,
         'amazonaws' => new Node(0, [
             'af-south-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
                 ]),
             ]),
             'ap-east-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
                 ]),
             ]),
             'ap-northeast-1' => new Node(0, [
+                'analytics-gateway' => 9,
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1327,6 +1337,9 @@ return new Node(0, [
                 ]),
             ]),
             'ap-northeast-2' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1338,12 +1351,18 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'ap-northeast-3' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
                 ]),
             ]),
             'ap-south-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1355,6 +1374,9 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'ap-southeast-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1364,6 +1386,9 @@ return new Node(0, [
                 ]),
             ]),
             'ap-southeast-2' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1373,6 +1398,9 @@ return new Node(0, [
                 ]),
             ]),
             'ca-central-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1387,6 +1415,9 @@ return new Node(0, [
             'compute-1' => 10,
             'elb' => 10,
             'eu-central-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1398,18 +1429,28 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'eu-north-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
                 ]),
             ]),
             'eu-south-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
                 ]),
             ]),
             'eu-west-1' => new Node(0, [
+                'analytics-gateway' => 9,
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1419,6 +1460,9 @@ return new Node(0, [
                 ]),
             ]),
             'eu-west-2' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1430,6 +1474,9 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'eu-west-3' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1441,6 +1488,9 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'me-south-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1473,6 +1523,9 @@ return new Node(0, [
             's3-website-us-west-1' => 9,
             's3-website-us-west-2' => 9,
             'sa-east-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1482,6 +1535,10 @@ return new Node(0, [
                 ]),
             ]),
             'us-east-1' => new Node(9, [
+                'analytics-gateway' => 9,
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1491,6 +1548,10 @@ return new Node(0, [
                 ]),
             ]),
             'us-east-2' => new Node(0, [
+                'analytics-gateway' => 9,
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1502,12 +1563,19 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'us-west-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
                 ]),
             ]),
             'us-west-2' => new Node(0, [
+                'analytics-gateway' => 9,
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
