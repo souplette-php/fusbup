@@ -2919,7 +2919,6 @@ return new Node(0, [
         'opencraft' => 9,
     ]),
     'hot' => 1,
-    'hoteles' => 1,
     'hotels' => 1,
     'hotmail' => 1,
     'house' => 1,
@@ -7848,7 +7847,6 @@ return new Node(0, [
     'party' => new Node(1, [
         'ybo' => 9,
     ]),
-    'passagens' => 1,
     'pay' => 1,
     'pccw' => 1,
     'pe' => new Node(1, [
@@ -9739,7 +9737,6 @@ return new Node(0, [
         'net' => 1,
         'org' => 1,
     ]),
-    'vuelos' => 1,
     'wales' => 1,
     'walmart' => 1,
     'walter' => 1,
