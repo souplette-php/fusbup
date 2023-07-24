@@ -241,6 +241,7 @@ return new Node(0, [
         'snowflake' => new Node(9, [
             'privatelink' => 9,
         ]),
+        'storipress' => 9,
         'streamlit' => 9,
         'telebit' => 9,
         'typedream' => 9,
@@ -695,11 +696,6 @@ return new Node(0, [
         'com' => new Node(1, [
             'blogspot' => 9,
             'simplesite' => 9,
-            'virtualcloud' => new Node(0, [
-                'scale' => new Node(0, [
-                    'users' => 9,
-                ]),
-            ]),
         ]),
         'contagem' => 1,
         'coop' => 1,
@@ -1616,7 +1612,6 @@ return new Node(0, [
         'cechire' => 9,
         'cf-ipfs' => 9,
         'ciscofreak' => 9,
-        'clicketcloud' => 9,
         'cloudcontrolapp' => 9,
         'cloudcontrolled' => 9,
         'cloudflare-ipfs' => 9,
@@ -1793,7 +1788,6 @@ return new Node(0, [
         'health-carereform' => 9,
         'herokuapp' => 9,
         'herokussl' => 9,
-        'hidora' => 9,
         'hk' => 9,
         'hobby-site' => 9,
         'homelinux' => 9,
