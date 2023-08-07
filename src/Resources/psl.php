@@ -6292,7 +6292,6 @@ return new Node(0, [
     ]),
     'museum' => 1,
     'music' => 1,
-    'mutual' => 1,
     'mv' => new Node(1, [
         'aero' => 1,
         'biz' => 1,
