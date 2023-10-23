@@ -1060,7 +1060,6 @@ return new Node(0, [
     'citi' => 1,
     'citic' => 1,
     'city' => 1,
-    'cityeats' => 1,
     'ck' => new Node(2, [
         'www' => 4,
     ]),
@@ -2648,7 +2647,6 @@ return new Node(0, [
     'fresenius' => 1,
     'frl' => 1,
     'frogans' => 1,
-    'frontdoor' => 1,
     'frontier' => 1,
     'ftr' => 1,
     'fujitsu' => 1,
