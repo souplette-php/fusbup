@@ -3134,7 +3134,6 @@ return new Node(0, [
         'net' => 1,
         'org' => 1,
     ]),
-    'etisalat' => 1,
     'eu' => new Node(1, [
         'airkitapps' => 9,
         'barsy' => 9,
@@ -10558,7 +10557,6 @@ return new Node(0, [
     ]),
     'xn--9dbq2a' => 1,
     'xn--mgbca7dzdo' => 1,
-    'xn--mgbaakc7dvf' => 1,
     'xn--mgba3a3ejt' => 1,
     'xn--mgbayh7gpa' => 1,
     'xn--mgbcpq6gpa1a' => 1,
