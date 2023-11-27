@@ -2936,6 +2936,7 @@ return new Node(0, [
     'democrat' => 1,
     'dental' => 1,
     'dentist' => 1,
+    'desi' => 1,
     'design' => new Node(1, [
         'bss' => 9,
     ]),
@@ -10357,7 +10358,6 @@ return new Node(0, [
         'yenbai' => 1,
     ]),
     'vodka' => 1,
-    'volkswagen' => 1,
     'volvo' => 1,
     'vote' => 1,
     'voting' => 1,
@@ -10387,6 +10387,7 @@ return new Node(0, [
     'website' => new Node(1, [
         'framer' => 9,
     ]),
+    'wed' => 1,
     'wedding' => 1,
     'weibo' => 1,
     'weir' => 1,
