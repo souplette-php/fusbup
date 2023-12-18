@@ -9124,7 +9124,6 @@ return new Node(0, [
         'net' => 1,
         'org' => 1,
     ]),
-    'sca' => 1,
     'scb' => 1,
     'schaeffler' => 1,
     'schmidt' => 1,
