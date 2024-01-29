@@ -548,7 +548,6 @@ return new Node(0, [
     'baby' => 1,
     'baidu' => 1,
     'banamex' => 1,
-    'bananarepublic' => 1,
     'band' => 1,
     'bank' => 1,
     'bar' => 1,
@@ -2221,6 +2220,7 @@ return new Node(0, [
             'r' => 10,
         ]),
         'ar' => 9,
+        'atmeta' => 9,
         'authgear-staging' => 9,
         'authgearapps' => 9,
         'awsapprunner' => 10,
@@ -2635,6 +2635,15 @@ return new Node(0, [
         'sa' => 9,
         'sakuratan' => 9,
         'sakuraweb' => 9,
+        'salesforce' => new Node(0, [
+            'platform' => new Node(0, [
+                'code-builder-stg' => new Node(0, [
+                    'test' => new Node(0, [
+                        '001' => 10,
+                    ]),
+                ]),
+            ]),
+        ]),
         'saves-the-whales' => 9,
         'scrysec' => 9,
         'securitytactics' => 9,
@@ -6631,6 +6640,7 @@ return new Node(0, [
     ]),
     'lipsy' => 1,
     'live' => new Node(1, [
+        'aem' => 9,
         'hlx' => 9,
     ]),
     'living' => 1,
@@ -8211,7 +8221,6 @@ return new Node(0, [
     'okinawa' => 1,
     'olayan' => 1,
     'olayangroup' => 1,
-    'oldnavy' => 1,
     'ollo' => 1,
     'om' => new Node(1, [
         'co' => 1,
@@ -8465,6 +8474,7 @@ return new Node(0, [
         'sld' => 1,
     ]),
     'page' => new Node(1, [
+        'aem' => 9,
         'codeberg' => 9,
         'hlx' => 9,
         'hlx3' => 9,
