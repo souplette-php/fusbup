@@ -223,6 +223,7 @@ return new Node(0, [
         'edgecompute' => 9,
         'encr' => 9,
         'fireweb' => 9,
+        'flutterflow' => 9,
         'framer' => 9,
         'hasura' => 9,
         'loginline' => 9,
@@ -235,9 +236,7 @@ return new Node(0, [
         'ondigitalocean' => 9,
         'onflashdrive' => 9,
         'platform0' => 9,
-        'run' => new Node(9, [
-            'a' => 9,
-        ]),
+        'run' => 10,
         'snowflake' => new Node(9, [
             'privatelink' => 9,
         ]),
@@ -245,6 +244,7 @@ return new Node(0, [
         'streamlit' => 9,
         'telebit' => 9,
         'typedream' => 9,
+        'upsun' => 10,
         'vercel' => 9,
         'web' => 9,
         'wnext' => 9,
@@ -383,6 +383,9 @@ return new Node(0, [
         'com' => 1,
     ]),
     'aws' => new Node(1, [
+        'repost' => new Node(0, [
+            'private' => 10,
+        ]),
         'sagemaker' => new Node(0, [
             'af-south-1' => new Node(0, [
                 'notebook' => 9,
@@ -428,7 +431,12 @@ return new Node(0, [
             ]),
             'ca-central-1' => new Node(0, [
                 'notebook' => 9,
+                'notebook-fips' => 9,
                 'studio' => 9,
+            ]),
+            'ca-west-1' => new Node(0, [
+                'notebook' => 9,
+                'notebook-fips' => 9,
             ]),
             'eu-central-1' => new Node(0, [
                 'notebook' => 9,
@@ -1251,6 +1259,7 @@ return new Node(0, [
                 'nl-ams-1' => 9,
             ]),
             'fr-par' => new Node(0, [
+                'cockpit' => 9,
                 'fnc' => new Node(9, [
                     'functions' => 9,
                 ]),
@@ -1267,6 +1276,7 @@ return new Node(0, [
             ]),
             'k8s' => 9,
             'nl-ams' => new Node(0, [
+                'cockpit' => 9,
                 'k8s' => new Node(9, [
                     'nodes' => 9,
                 ]),
@@ -1275,6 +1285,7 @@ return new Node(0, [
                 'whm' => 9,
             ]),
             'pl-waw' => new Node(0, [
+                'cockpit' => 9,
                 'k8s' => new Node(9, [
                     'nodes' => 9,
                 ]),
@@ -1294,6 +1305,7 @@ return new Node(0, [
         'urown' => 9,
         'vapor' => 9,
         'voorloper' => 9,
+        'zap' => 9,
     ]),
     'club' => new Node(1, [
         'barsy' => 9,
@@ -1456,6 +1468,7 @@ return new Node(0, [
         '1kapp' => 9,
         '3utilities' => 9,
         '4u' => 9,
+        'a2hosted' => 9,
         'adobeaemcloud' => new Node(9, [
             'dev' => 10,
         ]),
@@ -1463,6 +1476,7 @@ return new Node(0, [
         'airkitapps' => 9,
         'airkitapps-au' => 9,
         'aivencloud' => 9,
+        'aliases121' => 9,
         'alpha-myqnapcloud' => 9,
         'amazonaws' => new Node(0, [
             'af-south-1' => new Node(0, [
@@ -1724,6 +1738,21 @@ return new Node(0, [
                 's3-object-lambda' => 9,
                 's3-website' => 9,
             ]),
+            'ca-west-1' => new Node(0, [
+                'dualstack' => new Node(0, [
+                    's3' => 9,
+                    's3-accesspoint' => 9,
+                    's3-accesspoint-fips' => 9,
+                    's3-fips' => 9,
+                    's3-website' => 9,
+                ]),
+                'execute-api' => 9,
+                's3' => 9,
+                's3-accesspoint' => 9,
+                's3-accesspoint-fips' => 9,
+                's3-fips' => 9,
+                's3-website' => 9,
+            ]),
             'compute' => 10,
             'compute-1' => 10,
             'elb' => 10,
@@ -1883,6 +1912,12 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'il-central-1' => new Node(0, [
+                'aws-cloud9' => new Node(0, [
+                    'webview-assets' => 9,
+                ]),
+                'cloud9' => new Node(0, [
+                    'vfs' => 9,
+                ]),
                 'dualstack' => new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
@@ -2226,6 +2261,9 @@ return new Node(0, [
         'awsapprunner' => 10,
         'awsglobalaccelerator' => 9,
         'awsmppl' => 9,
+        'azure' => new Node(0, [
+            'cloudapp' => 10,
+        ]),
         'balena-devices' => 9,
         'barsycenter' => 9,
         'barsyonline' => 9,
@@ -2258,6 +2296,7 @@ return new Node(0, [
             'stg-builder' => 10,
         ]),
         'codespot' => 9,
+        'cpserver' => 9,
         'customer-oci' => new Node(10, [
             'oci' => 10,
             'ocp' => 10,
@@ -2695,6 +2734,7 @@ return new Node(0, [
         ]),
         'uk' => 9,
         'unusualperson' => 9,
+        'upsunapp' => 9,
         'us' => 9,
         'uy' => 9,
         'vipsinaapp' => 9,
@@ -2950,6 +2990,7 @@ return new Node(0, [
         'bss' => 9,
     ]),
     'dev' => new Node(1, [
+        '12chars' => 9,
         'autocode' => 9,
         'curv' => 9,
         'deno' => 9,
@@ -2969,6 +3010,7 @@ return new Node(0, [
         'ngrok' => 9,
         'ngrok-free' => 9,
         'pages' => 9,
+        'panel' => 9,
         'platter-app' => 9,
         'r2' => 9,
         'shiftcrypto' => 9,
@@ -3313,10 +3355,14 @@ return new Node(0, [
     'gallo' => 1,
     'gallup' => 1,
     'game' => 1,
-    'games' => 1,
+    'games' => new Node(1, [
+        'pley' => 9,
+    ]),
     'gap' => 1,
     'garden' => 1,
-    'gay' => 1,
+    'gay' => new Node(1, [
+        'pages' => 9,
+    ]),
     'gb' => 1,
     'gbiz' => 1,
     'gd' => new Node(1, [
@@ -3805,6 +3851,9 @@ return new Node(0, [
         'bitbucket' => 9,
         'bluebite' => 9,
         'boxfuse' => 9,
+        'brave' => new Node(0, [
+            's' => 10,
+        ]),
         'browsersafetymark' => 9,
         'cleverapps' => 9,
         'com' => 1,
@@ -3942,6 +3991,7 @@ return new Node(0, [
     'istanbul' => 1,
     'it' => new Node(1, [
         '123homepage' => 9,
+        '12chars' => 9,
         '16-b' => 9,
         '32-b' => 9,
         '64-b' => 9,
@@ -6432,7 +6482,6 @@ return new Node(0, [
     'kerryproperties' => 1,
     'kfh' => 1,
     'kg' => new Node(1, [
-        'blog' => 9,
         'com' => 1,
         'edu' => 1,
         'gov' => 1,
@@ -7061,7 +7110,10 @@ return new Node(0, [
                 'cdn' => 9,
             ]),
         ]),
+        'azure-api' => 9,
         'azure-mobile' => 9,
+        'azureedge' => 9,
+        'azurefd' => 9,
         'azurestaticapps' => new Node(9, [
             '1' => 9,
             '2' => 9,
@@ -7261,6 +7313,7 @@ return new Node(0, [
         'torproject' => new Node(9, [
             'pages' => 9,
         ]),
+        'trafficmanager' => 9,
         'ts' => 9,
         'tsukaeru' => new Node(0, [
             'jelastic' => 9,
@@ -7277,6 +7330,12 @@ return new Node(0, [
             ]),
         ]),
         'webhop' => 9,
+        'windows' => new Node(0, [
+            'core' => new Node(0, [
+                'blob' => 9,
+            ]),
+            'servicebus' => 9,
+        ]),
         'yandexcloud' => new Node(9, [
             'storage' => 9,
             'website' => 9,
@@ -8236,6 +8295,7 @@ return new Node(0, [
     'omega' => 1,
     'one' => new Node(1, [
         'homelink' => 9,
+        'kin' => 10,
         'onred' => new Node(9, [
             'staging' => 9,
         ]),
@@ -8846,6 +8906,7 @@ return new Node(0, [
     'press' => 1,
     'prime' => 1,
     'pro' => new Node(1, [
+        '12chars' => 9,
         'aaa' => 1,
         'aca' => 1,
         'acct' => 1,
@@ -8896,6 +8957,8 @@ return new Node(0, [
     ]),
     'pub' => new Node(1, [
         'barsy' => 9,
+        'id' => 10,
+        'kin' => 10,
     ]),
     'pw' => new Node(1, [
         'belau' => 1,
@@ -9246,7 +9309,6 @@ return new Node(0, [
         'now' => 9,
         'org' => 1,
         'platform' => new Node(0, [
-            'bc' => 9,
             'ent' => 9,
             'eu' => 9,
             'us' => 9,
