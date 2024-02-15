@@ -217,6 +217,7 @@ return new Node(0, [
         'bookonline' => 9,
         'clerk' => 9,
         'clerkstage' => 9,
+        'cyclic' => 9,
         'deta' => 9,
         'developer' => 10,
         'easypanel' => 9,
@@ -1213,6 +1214,7 @@ return new Node(0, [
             'es-1' => 9,
         ]),
         'banzai' => 10,
+        'cyclic' => 9,
         'diadem' => 9,
         'elementor' => 9,
         'encoway' => new Node(0, [
@@ -2302,6 +2304,7 @@ return new Node(0, [
             'ocp' => 10,
             'ocs' => 10,
         ]),
+        'cyclic-app' => 9,
         'damnserver' => 9,
         'datadetect' => new Node(0, [
             'demo' => 9,
@@ -2768,7 +2771,6 @@ return new Node(0, [
         'yolasite' => 9,
         'za' => 9,
     ]),
-    'comcast' => 1,
     'commbank' => 1,
     'community' => new Node(1, [
         'myforum' => 9,
@@ -3755,7 +3757,9 @@ return new Node(0, [
         'ca' => 1,
         'cloudns' => 9,
         'cn' => 1,
-        'co' => 1,
+        'co' => new Node(1, [
+            'cyclic' => 9,
+        ]),
         'com' => 1,
         'coop' => 1,
         'cs' => 1,
@@ -10497,7 +10501,6 @@ return new Node(0, [
     'wtf' => 1,
     'xbox' => 1,
     'xerox' => 1,
-    'xfinity' => 1,
     'xihuan' => 1,
     'xin' => 1,
     'xxx' => 1,
