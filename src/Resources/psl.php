@@ -2298,6 +2298,7 @@ return new Node(0, [
             'stg-builder' => 10,
         ]),
         'codespot' => 9,
+        'cprapid' => 10,
         'cpserver' => 9,
         'customer-oci' => new Node(10, [
             'oci' => 10,
