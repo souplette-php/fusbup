@@ -5,12 +5,12 @@ namespace Souplette\FusBup\Tests\Compiler;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Souplette\FusBup\Compiler\Exception\ParseError;
 use Souplette\FusBup\Compiler\Parser\Rule;
 use Souplette\FusBup\Compiler\Parser\RuleList;
 use Souplette\FusBup\Compiler\Parser\RuleType;
 use Souplette\FusBup\Compiler\Parser\Section;
 use Souplette\FusBup\Compiler\PslParser;
-use Souplette\FusBup\Exception\ParseError;
 
 final class PslParserTest extends TestCase
 {

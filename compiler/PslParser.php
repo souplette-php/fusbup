@@ -2,11 +2,11 @@
 
 namespace Souplette\FusBup\Compiler;
 
+use Souplette\FusBup\Compiler\Exception\ParseError;
 use Souplette\FusBup\Compiler\Parser\Rule;
 use Souplette\FusBup\Compiler\Parser\RuleList;
 use Souplette\FusBup\Compiler\Parser\RuleType;
 use Souplette\FusBup\Compiler\Parser\Section;
-use Souplette\FusBup\Exception\ParseError;
 use SplFileObject;
 use Traversable;
 

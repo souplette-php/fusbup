@@ -2,7 +2,7 @@
 
 namespace Souplette\FusBup\Lookup;
 
-use Souplette\FusBup\Exception\PrivateETLDException;
+use Souplette\FusBup\Exception\PrivateEffectiveTLDException;
 use Souplette\FusBup\Exception\UnknownTLDException;
 use Souplette\FusBup\Lookup\Dafsa\IncrementalLookup;
 use Souplette\FusBup\Lookup\Dafsa\Result;
@@ -25,7 +25,7 @@ final class Dafsa implements LookupInterface
         $domain = Idn::toAscii($domain);
         try {
             [$result, $suffixLength] = $this->reverseLookup($domain, $flags);
-        } catch (PrivateETLDException) {
+        } catch (PrivateEffectiveTLDException) {
             return false;
         }
         if ($result === Result::NotFound) {
@@ -171,7 +171,7 @@ final class Dafsa implements LookupInterface
                     continue;
                 }
                 if (($value & Result::Private) && ($flags & self::FORBID_PRIVATE)) {
-                    throw new PrivateETLDException($key);
+                    throw new PrivateEffectiveTLDException($key);
                 }
                 // Save length and return value.
                 // Since hosts are looked up from right to left, the last saved value will be from the longest match.

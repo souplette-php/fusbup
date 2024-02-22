@@ -2,7 +2,7 @@
 
 namespace Souplette\FusBup\Exception;
 
-final class PrivateETLDException extends ForbiddenDomainException
+final class PrivateEffectiveTLDException extends ForbiddenDomainException
 {
     public function __construct(string $domain)
     {

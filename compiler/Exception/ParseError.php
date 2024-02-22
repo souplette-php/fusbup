@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Souplette\FusBup\Exception;
+namespace Souplette\FusBup\Compiler\Exception;
 
 use Souplette\FusBup\Compiler\Parser\Rule;
+use Souplette\FusBup\Exception\FusBupException;
 
 /**
  * An error happened while parsing the public suffix list.

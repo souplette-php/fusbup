@@ -2,7 +2,7 @@
 
 namespace Souplette\FusBup\Compiler\Parser;
 
-use Souplette\FusBup\Exception\ParseError;
+use Souplette\FusBup\Compiler\Exception\ParseError;
 use Traversable;
 
 final class RuleList implements \IteratorAggregate

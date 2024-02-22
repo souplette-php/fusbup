@@ -2,8 +2,8 @@
 
 namespace Souplette\FusBup\Compiler\Parser;
 
+use Souplette\FusBup\Compiler\Exception\ParseError;
 use Souplette\FusBup\Exception\IdnException;
-use Souplette\FusBup\Exception\ParseError;
 use Souplette\FusBup\Utils\Idn;
 
 /**

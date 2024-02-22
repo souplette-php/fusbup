@@ -7,7 +7,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Souplette\FusBup\Compiler\Parser\Rule;
 use Souplette\FusBup\Compiler\Parser\RuleType;
-use Souplette\FusBup\Exception\PrivateETLDException;
+use Souplette\FusBup\Exception\PrivateEffectiveTLDException;
 use Souplette\FusBup\Exception\UnknownTLDException;
 use Souplette\FusBup\Lookup\LookupInterface;
 
@@ -134,7 +134,7 @@ abstract class LookupTestCase extends TestCase
     public function testEffectiveLTDDisallowPrivate(array $rules, string $domain): void
     {
         $lookup = static::compile($rules);
-        $this->expectException(PrivateETLDException::class);
+        $this->expectException(PrivateEffectiveTLDException::class);
         $lookup->getEffectiveTLD($domain, $lookup::FORBID_PRIVATE);
     }
 
@@ -150,7 +150,7 @@ abstract class LookupTestCase extends TestCase
     public function testSplitDisallowPrivate(array $rules, string $domain): void
     {
         $lookup = static::compile($rules);
-        $this->expectException(PrivateETLDException::class);
+        $this->expectException(PrivateEffectiveTLDException::class);
         $lookup->split($domain, $lookup::FORBID_PRIVATE);
     }
 

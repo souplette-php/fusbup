@@ -3,7 +3,7 @@
 namespace Souplette\FusBup\Lookup;
 
 use Souplette\FusBup\Exception\ForbiddenDomainException;
-use Souplette\FusBup\Exception\PrivateETLDException;
+use Souplette\FusBup\Exception\PrivateEffectiveTLDException;
 use Souplette\FusBup\Exception\UnknownTLDException;
 use Souplette\FusBup\Lookup\SuffixTree\Flags;
 use Souplette\FusBup\Lookup\SuffixTree\Node;
@@ -53,7 +53,7 @@ final class SuffixTree implements LookupInterface
                 continue;
             }
             if (($nodeFlags & Flags::PRIVATE) && ($flags & self::FORBID_PRIVATE)) {
-                throw new PrivateETLDException($domain);
+                throw new PrivateEffectiveTLDException($domain);
             }
             if ($nodeFlags & Flags::STORE) {
                 $matches[] = $path;
