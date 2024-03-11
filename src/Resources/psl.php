@@ -1335,6 +1335,9 @@ return new Node(0, [
         'ah' => 1,
         'bj' => 1,
         'canva-apps' => 9,
+        'canvasite' => new Node(0, [
+            'my' => 10,
+        ]),
         'com' => new Node(1, [
             'amazonaws' => new Node(0, [
                 'airflow' => new Node(0, [
@@ -9410,6 +9413,9 @@ return new Node(0, [
     'site' => new Node(1, [
         'barsy' => 9,
         'byen' => 9,
+        'canva' => new Node(0, [
+            'my' => 10,
+        ]),
         'cloudera' => 10,
         'convex' => 9,
         'cyon' => 9,
