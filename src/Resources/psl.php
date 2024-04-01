@@ -2276,7 +2276,7 @@ return new Node(0, [
         'awsglobalaccelerator' => 9,
         'awsmppl' => 9,
         'azure' => new Node(0, [
-            'cloudapp' => 10,
+            'cloudapp' => 9,
         ]),
         'balena-devices' => 9,
         'barsycenter' => 9,
@@ -3013,6 +3013,7 @@ return new Node(0, [
     'desi' => 1,
     'design' => new Node(1, [
         'bss' => 9,
+        'graphic' => 9,
     ]),
     'dev' => new Node(1, [
         '12chars' => 9,
@@ -6748,6 +6749,9 @@ return new Node(0, [
         'cyon' => 9,
         'dweb' => 10,
         'mypep' => 9,
+        'nftstorage' => new Node(0, [
+            'ipfs' => 9,
+        ]),
     ]),
     'lipsy' => 1,
     'live' => new Node(1, [
@@ -6876,6 +6880,7 @@ return new Node(0, [
         'at' => 9,
         'blogspot' => 9,
         'de' => 9,
+        'ir' => 9,
         'jp' => 9,
         'to' => 9,
     ]),
