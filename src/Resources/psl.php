@@ -385,7 +385,6 @@ return new Node(0, [
     'author' => 1,
     'auto' => 1,
     'autos' => 1,
-    'avianca' => 1,
     'aw' => new Node(1, [
         'com' => 1,
     ]),
