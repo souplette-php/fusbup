@@ -156,6 +156,7 @@ return new Node(0, [
     'agency' => 1,
     'ai' => new Node(1, [
         'com' => 1,
+        'framer' => 9,
         'net' => 1,
         'off' => 1,
         'org' => 1,
@@ -220,6 +221,9 @@ return new Node(0, [
         'bookonline' => 9,
         'clerk' => 9,
         'clerkstage' => 9,
+        'csb' => new Node(9, [
+            'preview' => 9,
+        ]),
         'cyclic' => 9,
         'deta' => 9,
         'developer' => 10,
@@ -244,8 +248,8 @@ return new Node(0, [
             'id' => 9,
         ]),
         'run' => 10,
-        'snowflake' => new Node(9, [
-            'privatelink' => 9,
+        'snowflake' => new Node(10, [
+            'privatelink' => 10,
         ]),
         'storipress' => 9,
         'streamlit' => 9,
@@ -297,6 +301,8 @@ return new Node(0, [
     'asda' => 1,
     'asia' => new Node(1, [
         'cloudns' => 9,
+        'daemon' => 9,
+        'dix' => 9,
     ]),
     'associates' => 1,
     'at' => new Node(1, [
@@ -599,6 +605,7 @@ return new Node(0, [
         '123website' => 9,
         'ac' => 1,
         'blogspot' => 9,
+        'cloudns' => 9,
         'interhostsolutions' => new Node(0, [
             'cloud' => 9,
         ]),
@@ -1054,6 +1061,7 @@ return new Node(0, [
         'edu' => 1,
         'gov' => 1,
         'gsj' => 9,
+        'mydns' => 9,
         'net' => 1,
         'org' => 1,
         'za' => 9,
@@ -1089,7 +1097,11 @@ return new Node(0, [
     'calvinklein' => 1,
     'cam' => 1,
     'camera' => 1,
-    'camp' => 1,
+    'camp' => new Node(1, [
+        'emf' => new Node(0, [
+            'at' => 9,
+        ]),
+    ]),
     'canon' => 1,
     'capetown' => 1,
     'capital' => 1,
@@ -1146,6 +1158,16 @@ return new Node(0, [
         '2ix' => 9,
         '4lima' => 9,
         'blogspot' => 9,
+        'cloudns' => 9,
+        'cloudscale' => new Node(0, [
+            'cust' => 9,
+            'lpg' => new Node(0, [
+                'objects' => 9,
+            ]),
+            'rma' => new Node(0, [
+                'objects' => 9,
+            ]),
+        ]),
         'dnsking' => 9,
         'firenet' => new Node(10, [
             'svc' => 10,
@@ -1203,6 +1225,7 @@ return new Node(0, [
     ]),
     'cl' => new Node(1, [
         'blogspot' => 9,
+        'cloudns' => 9,
         'co' => 1,
         'gob' => 1,
         'gov' => 1,
@@ -1312,6 +1335,7 @@ return new Node(0, [
             'ch' => 9,
             'de' => 9,
         ]),
+        'unison-services' => 9,
         'urown' => 9,
         'vapor' => 9,
         'voorloper' => 9,
@@ -1466,6 +1490,7 @@ return new Node(0, [
         ]),
         'supabase' => 9,
         'web' => 1,
+        'xmit' => 10,
     ]),
     'coach' => 1,
     'codes' => new Node(1, [
@@ -2295,6 +2320,7 @@ return new Node(0, [
         'builtwithdark' => 9,
         'cafjs' => 9,
         'canva-apps' => 9,
+        'cdn77-storage' => 9,
         'cechire' => 9,
         'cf-ipfs' => 9,
         'ciscofreak' => 9,
@@ -2337,6 +2363,7 @@ return new Node(0, [
         'discordsays' => 9,
         'discordsez' => 9,
         'ditchyourip' => 9,
+        'dnsabr' => 9,
         'dnsalias' => 9,
         'dnsdojo' => 9,
         'dnsiskinky' => 9,
@@ -2482,6 +2509,7 @@ return new Node(0, [
         'gotdns' => 9,
         'gotpantheon' => 9,
         'gr' => 9,
+        'grayjayleagues' => 9,
         'health-carereform' => 9,
         'herokuapp' => 9,
         'herokussl' => 9,
@@ -2757,6 +2785,9 @@ return new Node(0, [
         'uy' => 9,
         'vipsinaapp' => 9,
         'vultrobjects' => 10,
+        'w-corp-staticblitz' => 9,
+        'w-credentialless-staticblitz' => 9,
+        'w-staticblitz' => 9,
         'wafaicloud' => new Node(0, [
             'jed' => 9,
             'lon' => 9,
@@ -2857,6 +2888,7 @@ return new Node(0, [
         'assessments' => 9,
         'ath' => 9,
         'calculators' => 9,
+        'cloudns' => 9,
         'funnels' => 9,
         'gov' => 1,
         'info' => 9,
@@ -2889,6 +2921,9 @@ return new Node(0, [
     'cz' => new Node(1, [
         'blogspot' => 9,
         'co' => 9,
+        'contentproxy9' => new Node(0, [
+            'rsc' => 9,
+        ]),
         'e4' => 9,
         'metacentrum' => new Node(0, [
             'cloud' => 10,
@@ -3024,12 +3059,16 @@ return new Node(0, [
         'fly' => 9,
         'gateway' => 10,
         'githubpreview' => 9,
+        'is-a' => 9,
+        'is-cool' => 9,
+        'is-not-a' => 9,
         'iserv' => 9,
         'lcl' => 10,
         'lclstage' => 10,
         'localcert' => new Node(0, [
             'user' => 10,
         ]),
+        'localplayer' => 9,
         'loginline' => 9,
         'mediatech' => 9,
         'modx' => 9,
@@ -3067,6 +3106,7 @@ return new Node(0, [
             'wesley' => 9,
             'worf' => 9,
         ]),
+        'runcontainers' => 9,
         'shiftcrypto' => 9,
         'stg' => 10,
         'stgstage' => 10,
@@ -3696,6 +3736,7 @@ return new Node(0, [
         'pol' => 1,
         'pro' => 1,
         'rel' => 1,
+        'rt' => 9,
         'shop' => 1,
     ]),
     'hu' => new Node(1, [
@@ -3920,6 +3961,7 @@ return new Node(0, [
         'dappnode' => new Node(0, [
             'dyndns' => 9,
         ]),
+        'darklang' => 9,
         'dedyn' => 9,
         'definima' => 9,
         'drud' => 9,
@@ -3977,6 +4019,9 @@ return new Node(0, [
         ]),
         's5y' => 10,
         'sandcats' => 9,
+        'scrypted' => new Node(0, [
+            'client' => 9,
+        ]),
         'shiftcrypto' => 9,
         'shiftedit' => 9,
         'shw' => 9,
@@ -4513,6 +4558,10 @@ return new Node(0, [
     'jot' => 1,
     'joy' => 1,
     'jp' => new Node(1, [
+        '0am' => 9,
+        '0g0' => 9,
+        '0j0' => 9,
+        '0t0' => 9,
         '2-d' => 9,
         'ac' => 1,
         'ad' => 1,
@@ -5601,6 +5650,7 @@ return new Node(0, [
         'mond' => 9,
         'mongolian' => 9,
         'moo' => 9,
+        'mydns' => 9,
         'nagano' => new Node(1, [
             'achi' => 1,
             'agematsu' => 1,
@@ -5956,6 +6006,7 @@ return new Node(0, [
         'penne' => 9,
         'pepper' => 9,
         'perma' => 9,
+        'pgw' => 9,
         'pigboat' => 9,
         'pinoko' => 9,
         'punyu' => 9,
@@ -6383,6 +6434,7 @@ return new Node(0, [
         'weblike' => 9,
         'websozai' => 9,
         'whitesnow' => 9,
+        'wjg' => 9,
         'xii' => 9,
         'yamagata' => new Node(1, [
             'asahi' => 1,
@@ -6747,6 +6799,7 @@ return new Node(0, [
     'link' => new Node(1, [
         'cyon' => 9,
         'dweb' => 10,
+        'myfritz' => 9,
         'mypep' => 9,
         'nftstorage' => new Node(0, [
             'ipfs' => 9,
@@ -6920,7 +6973,6 @@ return new Node(0, [
         'noip' => 9,
         'org' => 1,
         'priv' => 1,
-        'ravendb' => 9,
         'soundcast' => 9,
         'synology' => 9,
         'tcp4' => 9,
@@ -7233,6 +7285,8 @@ return new Node(0, [
         'ddns' => 9,
         'debian' => 9,
         'definima' => 9,
+        'dns-cloud' => 9,
+        'dns-dynamic' => 9,
         'dnsalias' => 9,
         'dnsdojo' => 9,
         'dnsup' => 9,
@@ -7300,10 +7354,14 @@ return new Node(0, [
         'is-a-geek' => 9,
         'isa-geek' => 9,
         'jp' => 9,
+        'keyword-on' => 9,
         'kicks-ass' => 9,
         'kinghost' => 9,
         'knx-server' => 9,
         'krellian' => 9,
+        'live-on' => 9,
+        'localcert' => 9,
+        'localhostcert' => 9,
         'massivegrid' => new Node(0, [
             'paas' => new Node(0, [
                 'fr-1' => 9,
@@ -7362,6 +7420,7 @@ return new Node(0, [
         'serveblog' => 9,
         'serveftp' => 9,
         'serveminecraft' => 9,
+        'server-on' => 9,
         'shopselect' => 9,
         'siteleaf' => 9,
         'square7' => 9,
@@ -8326,6 +8385,7 @@ return new Node(0, [
     'nyc' => 1,
     'nz' => new Node(1, [
         'ac' => 1,
+        'cloudns' => 9,
         'co' => new Node(1, [
             'blogspot' => 9,
         ]),
@@ -8527,6 +8587,7 @@ return new Node(0, [
         'is-a-patsfan' => 9,
         'is-a-soxfan' => 9,
         'is-found' => 9,
+        'is-local' => 9,
         'is-lost' => 9,
         'is-saved' => 9,
         'is-very-bad' => 9,
@@ -8644,6 +8705,7 @@ return new Node(0, [
     'pfizer' => 1,
     'pg' => 2,
     'ph' => new Node(1, [
+        'cloudns' => 9,
         'com' => 1,
         'edu' => 1,
         'gov' => 1,
@@ -9070,6 +9132,7 @@ return new Node(0, [
     're' => new Node(1, [
         'asso' => 1,
         'blogspot' => 9,
+        'can' => 9,
         'com' => 1,
         'nom' => 1,
     ]),
@@ -9149,7 +9212,6 @@ return new Node(0, [
     ]),
     'rsvp' => 1,
     'ru' => new Node(1, [
-        '123sait' => 9,
         'ac' => 9,
         'adygeya' => 9,
         'bashkiria' => 9,
@@ -9514,6 +9576,7 @@ return new Node(0, [
         'consulado' => 1,
         'edu' => 1,
         'embaixada' => 1,
+        'helioho' => 9,
         'kirara' => 9,
         'mil' => 1,
         'net' => 1,
@@ -9765,6 +9828,7 @@ return new Node(0, [
     'top' => new Node(1, [
         'now-dns' => 9,
         'ntdll' => 9,
+        'wadl' => 10,
     ]),
     'toray' => 1,
     'toshiba' => 1,
@@ -9855,6 +9919,7 @@ return new Node(0, [
         'gov' => 1,
         'idv' => 1,
         'mil' => 1,
+        'mydns' => 9,
         'net' => 1,
         'org' => 1,
         'url' => 9,
@@ -10019,6 +10084,7 @@ return new Node(0, [
         'me' => 1,
         'net' => 1,
         'nhs' => 1,
+        'nimsite' => 9,
         'org' => new Node(1, [
             'affinitylottery' => 9,
             'glug' => 9,
@@ -10114,6 +10180,7 @@ return new Node(0, [
             'k12' => 1,
             'lib' => 1,
         ]),
+        'heliohost' => 9,
         'hi' => new Node(1, [
             'cc' => 1,
             'lib' => 1,
@@ -10292,6 +10359,10 @@ return new Node(0, [
             'lib' => 1,
         ]),
         'servername' => 9,
+        'srv' => new Node(9, [
+            'gh' => 9,
+            'gl' => 9,
+        ]),
         'stuff-4-sale' => 9,
         'tn' => new Node(1, [
             'cc' => 1,
@@ -10371,6 +10442,7 @@ return new Node(0, [
             'd' => 9,
         ]),
         'mil' => 1,
+        'mydns' => 9,
         'net' => 1,
         'org' => 1,
     ]),
@@ -10558,7 +10630,9 @@ return new Node(0, [
     'wme' => 1,
     'wolterskluwer' => 1,
     'woodside' => 1,
-    'work' => 1,
+    'work' => new Node(1, [
+        'corpnet' => 9,
+    ]),
     'works' => 1,
     'world' => 1,
     'wow' => 1,
