@@ -257,6 +257,7 @@ return new Node(0, [
         'vercel' => 9,
         'web' => 9,
         'wnext' => 9,
+        'zeabur' => 9,
     ]),
     'apple' => 1,
     'aq' => 1,
@@ -406,10 +407,12 @@ return new Node(0, [
                 'studio' => 9,
             ]),
             'ap-northeast-1' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'studio' => 9,
             ]),
             'ap-northeast-2' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'studio' => 9,
             ]),
@@ -418,6 +421,7 @@ return new Node(0, [
                 'studio' => 9,
             ]),
             'ap-south-1' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'studio' => 9,
             ]),
@@ -425,10 +429,12 @@ return new Node(0, [
                 'notebook' => 9,
             ]),
             'ap-southeast-1' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'studio' => 9,
             ]),
             'ap-southeast-2' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'studio' => 9,
             ]),
@@ -440,6 +446,7 @@ return new Node(0, [
                 'notebook' => 9,
             ]),
             'ca-central-1' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'notebook-fips' => 9,
                 'studio' => 9,
@@ -449,6 +456,7 @@ return new Node(0, [
                 'notebook-fips' => 9,
             ]),
             'eu-central-1' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'studio' => 9,
             ]),
@@ -465,12 +473,15 @@ return new Node(0, [
             ]),
             'eu-south-2' => new Node(0, [
                 'notebook' => 9,
+                'studio' => 9,
             ]),
             'eu-west-1' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'studio' => 9,
             ]),
             'eu-west-2' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'studio' => 9,
             ]),
@@ -495,11 +506,13 @@ return new Node(0, [
                 'studio' => 9,
             ]),
             'us-east-1' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'notebook-fips' => 9,
                 'studio' => 9,
             ]),
             'us-east-2' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'notebook-fips' => 9,
                 'studio' => 9,
@@ -518,9 +531,11 @@ return new Node(0, [
             ]),
             'us-west-1' => new Node(0, [
                 'notebook' => 9,
+                'notebook-fips' => 9,
                 'studio' => 9,
             ]),
             'us-west-2' => new Node(0, [
+                'labeling' => 9,
                 'notebook' => 9,
                 'notebook-fips' => 9,
                 'studio' => 9,
@@ -1062,6 +1077,7 @@ return new Node(0, [
         'barsy' => 9,
         'bc' => 1,
         'blogspot' => 9,
+        'box' => 9,
         'co' => 9,
         'gc' => 1,
         'mb' => 1,
@@ -1117,6 +1133,7 @@ return new Node(0, [
     'cbn' => 1,
     'cbre' => 1,
     'cc' => new Node(1, [
+        'cleverapps' => 9,
         'cloudns' => 9,
         'csx' => 9,
         'fantasyleague' => 9,
@@ -1255,6 +1272,7 @@ return new Node(0, [
         'kuleuven' => 9,
         'linkyard' => 9,
         'magentosite' => 10,
+        'observablehq' => 9,
         'on-rancher' => 10,
         'onstackit' => new Node(0, [
             'runs' => 9,
@@ -1529,6 +1547,8 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'airflow' => new Node(0, [
+                'af-south-1' => 10,
+                'ap-east-1' => 10,
                 'ap-northeast-1' => 10,
                 'ap-northeast-2' => 10,
                 'ap-south-1' => 10,
@@ -1537,12 +1557,15 @@ return new Node(0, [
                 'ca-central-1' => 10,
                 'eu-central-1' => 10,
                 'eu-north-1' => 10,
+                'eu-south-1' => 10,
                 'eu-west-1' => 10,
                 'eu-west-2' => 10,
                 'eu-west-3' => 10,
+                'me-south-1' => 10,
                 'sa-east-1' => 10,
                 'us-east-1' => 10,
                 'us-east-2' => 10,
+                'us-west-1' => 10,
                 'us-west-2' => 10,
             ]),
             'ap-east-1' => new Node(0, [
@@ -1662,6 +1685,9 @@ return new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
                 ]),
+                'emrappui-prod' => 9,
+                'emrnotebooks-prod' => 9,
+                'emrstudio-prod' => 9,
                 'execute-api' => 9,
                 's3' => 9,
                 's3-accesspoint' => 9,
@@ -1733,6 +1759,9 @@ return new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
                 ]),
+                'emrappui-prod' => 9,
+                'emrnotebooks-prod' => 9,
+                'emrstudio-prod' => 9,
                 'execute-api' => 9,
                 's3' => 9,
                 's3-accesspoint' => 9,
@@ -1773,6 +1802,9 @@ return new Node(0, [
                     's3-fips' => 9,
                     's3-website' => 9,
                 ]),
+                'emrappui-prod' => 9,
+                'emrnotebooks-prod' => 9,
+                'emrstudio-prod' => 9,
                 'execute-api' => 9,
                 's3' => 9,
                 's3-accesspoint' => 9,
@@ -1811,6 +1843,9 @@ return new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
                 ]),
+                'emrappui-prod' => 9,
+                'emrnotebooks-prod' => 9,
+                'emrstudio-prod' => 9,
                 'execute-api' => 9,
                 's3' => 9,
                 's3-accesspoint' => 9,
@@ -1865,6 +1900,9 @@ return new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
                 ]),
+                'emrappui-prod' => 9,
+                'emrnotebooks-prod' => 9,
+                'emrstudio-prod' => 9,
                 'execute-api' => 9,
                 's3' => 9,
                 's3-accesspoint' => 9,
@@ -1949,6 +1987,9 @@ return new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
                 ]),
+                'emrappui-prod' => 9,
+                'emrnotebooks-prod' => 9,
+                'emrstudio-prod' => 9,
                 'execute-api' => 9,
                 's3' => 9,
                 's3-accesspoint' => 9,
@@ -2213,6 +2254,9 @@ return new Node(0, [
             'ap-south-1' => new Node(0, [
                 'auth' => 9,
             ]),
+            'ap-south-2' => new Node(0, [
+                'auth' => 9,
+            ]),
             'ap-southeast-1' => new Node(0, [
                 'auth' => 9,
             ]),
@@ -2222,16 +2266,25 @@ return new Node(0, [
             'ap-southeast-3' => new Node(0, [
                 'auth' => 9,
             ]),
+            'ap-southeast-4' => new Node(0, [
+                'auth' => 9,
+            ]),
             'ca-central-1' => new Node(0, [
                 'auth' => 9,
             ]),
             'eu-central-1' => new Node(0, [
                 'auth' => 9,
             ]),
+            'eu-central-2' => new Node(0, [
+                'auth' => 9,
+            ]),
             'eu-north-1' => new Node(0, [
                 'auth' => 9,
             ]),
             'eu-south-1' => new Node(0, [
+                'auth' => 9,
+            ]),
+            'eu-south-2' => new Node(0, [
                 'auth' => 9,
             ]),
             'eu-west-1' => new Node(0, [
@@ -2244,6 +2297,9 @@ return new Node(0, [
                 'auth' => 9,
             ]),
             'il-central-1' => new Node(0, [
+                'auth' => 9,
+            ]),
+            'me-central-1' => new Node(0, [
                 'auth' => 9,
             ]),
             'me-south-1' => new Node(0, [
@@ -2286,6 +2342,7 @@ return new Node(0, [
         'authgear-staging' => 9,
         'authgearapps' => 9,
         'awsapprunner' => 10,
+        'awsapps' => 9,
         'awsglobalaccelerator' => 9,
         'awsmppl' => 9,
         'balena-devices' => 9,
@@ -2310,6 +2367,9 @@ return new Node(0, [
         'cechire' => 9,
         'cf-ipfs' => 9,
         'ciscofreak' => 9,
+        'clever-cloud' => new Node(0, [
+            'services' => 10,
+        ]),
         'cloudcontrolapp' => 9,
         'cloudcontrolled' => 9,
         'cloudflare-ipfs' => 9,
@@ -2604,9 +2664,6 @@ return new Node(0, [
         'linodeobjects' => 10,
         'linodeusercontent' => new Node(0, [
             'ip' => 9,
-        ]),
-        'lmpm' => new Node(0, [
-            'app' => 9,
         ]),
         'logoip' => 9,
         'loseyourip' => 9,
@@ -3102,6 +3159,7 @@ return new Node(0, [
         'vercel' => 9,
         'webhare' => 10,
         'workers' => 9,
+        'xmit' => 9,
     ]),
     'dhl' => 1,
     'diamonds' => 1,
@@ -3444,6 +3502,7 @@ return new Node(0, [
     'game' => 1,
     'games' => new Node(1, [
         'pley' => 9,
+        'sheezy' => 9,
     ]),
     'gap' => 1,
     'garden' => 1,
@@ -3694,6 +3753,9 @@ return new Node(0, [
     'how' => 1,
     'hr' => new Node(1, [
         'blogspot' => 9,
+        'brendly' => new Node(0, [
+            'shop' => 9,
+        ]),
         'com' => 1,
         'free' => 9,
         'from' => 1,
@@ -3954,7 +4016,6 @@ return new Node(0, [
         'forgerock' => new Node(0, [
             'id' => 9,
         ]),
-        'ghost' => 9,
         'github' => 9,
         'gitlab' => 9,
         'hasura-app' => 9,
@@ -8738,6 +8799,7 @@ return new Node(0, [
         'bialowieza' => 1,
         'bialystok' => 1,
         'bielawa' => 1,
+        'bielsko' => 9,
         'bieszczady' => 1,
         'biz' => 1,
         'boleslawiec' => 1,
@@ -9245,6 +9307,10 @@ return new Node(0, [
         'repl' => 9,
         'servers' => 9,
         'stackit' => 9,
+        'val' => new Node(0, [
+            'express' => 9,
+            'web' => 9,
+        ]),
         'wix' => 9,
     ]),
     'rw' => new Node(1, [
@@ -9459,6 +9525,7 @@ return new Node(0, [
         'lelux' => 9,
         'loginline' => 9,
         'mintere' => 9,
+        'notion' => 9,
         'novecore' => 9,
         'omniwe' => 9,
         'opensocial' => 9,
@@ -9684,7 +9751,9 @@ return new Node(0, [
         'discourse' => 9,
         'jelastic' => 9,
     ]),
-    'tech' => 1,
+    'tech' => new Node(1, [
+        'cleverapps' => 9,
+    ]),
     'technology' => new Node(1, [
         'co' => 9,
     ]),
@@ -10253,6 +10322,7 @@ return new Node(0, [
             'k12' => 1,
             'lib' => 1,
         ]),
+        'ngo' => 9,
         'nh' => new Node(1, [
             'cc' => 1,
             'k12' => 1,
@@ -10539,7 +10609,9 @@ return new Node(0, [
         'vinhphuc' => 1,
         'yenbai' => 1,
     ]),
-    'vodka' => 1,
+    'vodka' => new Node(1, [
+        'aaa' => 9,
+    ]),
     'volvo' => 1,
     'vote' => 1,
     'voting' => 1,
