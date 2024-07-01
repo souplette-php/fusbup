@@ -228,12 +228,20 @@ return new Node(0, [
         'easypanel' => 9,
         'edgecompute' => 9,
         'encr' => 9,
+        'evervault' => new Node(0, [
+            'relay' => 9,
+        ]),
+        'expo' => new Node(9, [
+            'staging' => 9,
+        ]),
         'fireweb' => 9,
         'flutterflow' => 9,
         'framer' => 9,
         'hasura' => 9,
+        'hosted' => 10,
         'loginline' => 9,
         'messerli' => 9,
+        'netfy' => 9,
         'netlify' => 9,
         'ngrok' => 9,
         'ngrok-free' => 9,
@@ -1436,7 +1444,6 @@ return new Node(0, [
         'hk' => 1,
         'hl' => 1,
         'hn' => 1,
-        'instantcloud' => 9,
         'jl' => 1,
         'js' => 1,
         'jx' => 1,
@@ -1454,7 +1461,9 @@ return new Node(0, [
         ]),
         'sc' => 1,
         'sd' => 1,
-        'sh' => 1,
+        'sh' => new Node(1, [
+            'as' => 9,
+        ]),
         'sn' => 1,
         'sx' => 1,
         'tj' => 1,
@@ -2381,7 +2390,7 @@ return new Node(0, [
             'stg-builder' => 10,
         ]),
         'codespot' => 9,
-        'cprapid' => 10,
+        'cprapid' => 9,
         'cpserver' => 9,
         'customer-oci' => new Node(10, [
             'oci' => 10,
@@ -2421,6 +2430,7 @@ return new Node(0, [
         'drayddns' => 9,
         'dreamhosters' => 9,
         'dsmynas' => 9,
+        'durumis' => 9,
         'dyn-o-saur' => 9,
         'dynalias' => 9,
         'dyndns-at-home' => 9,
@@ -2804,6 +2814,9 @@ return new Node(0, [
         'stdlib' => new Node(0, [
             'api' => 9,
         ]),
+        'strapiapp' => new Node(9, [
+            'media' => 9,
+        ]),
         'streak-link' => 9,
         'streaklinks' => 9,
         'streakusercontent' => 9,
@@ -2846,6 +2859,7 @@ return new Node(0, [
         'withgoogle' => 9,
         'withyoutube' => 9,
         'wixsite' => 9,
+        'wixstudio' => 9,
         'woltlab-demo' => 9,
         'workisboring' => 9,
         'wpdevcloud' => 9,
@@ -3098,10 +3112,24 @@ return new Node(0, [
     'dev' => new Node(1, [
         '12chars' => 9,
         'autocode' => 9,
+        'barsy' => 9,
+        'crm' => new Node(0, [
+            'd' => 10,
+            'w' => 10,
+            'wa' => 10,
+            'wb' => 10,
+            'wc' => 10,
+            'wd' => 10,
+            'we' => 10,
+            'wf' => 10,
+        ]),
         'curv' => 9,
         'deno' => 9,
         'deno-staging' => 9,
         'deta' => 9,
+        'evervault' => new Node(0, [
+            'relay' => 9,
+        ]),
         'fly' => 9,
         'gateway' => 10,
         'githubpreview' => 9,
@@ -3613,6 +3641,7 @@ return new Node(0, [
     ]),
     'gq' => 1,
     'gr' => new Node(1, [
+        'barsy' => 9,
         'blogspot' => 9,
         'com' => 1,
         'edu' => 1,
@@ -3741,6 +3770,7 @@ return new Node(0, [
         'myfast' => 9,
         'pcloud' => 9,
         'tempurl' => 9,
+        'wp2' => 9,
         'wpmudev' => 9,
     ]),
     'hosting' => new Node(1, [
@@ -3876,7 +3906,6 @@ return new Node(0, [
         'com' => 1,
         'net' => 1,
         'org' => 1,
-        'ro' => 9,
         'tt' => 1,
         'tv' => 1,
     ]),
@@ -4020,6 +4049,7 @@ return new Node(0, [
         'gitlab' => 9,
         'hasura-app' => 9,
         'hostyhosting' => 9,
+        'hypernode' => 9,
         'hzc' => 9,
         'jele' => 9,
         'lair' => new Node(0, [
@@ -4030,6 +4060,7 @@ return new Node(0, [
         'mo-siemens' => 9,
         'moonscale' => 10,
         'musician' => 9,
+        'myrdbx' => 9,
         'ngrok' => new Node(9, [
             'ap' => 9,
             'au' => 9,
@@ -4055,6 +4086,9 @@ return new Node(0, [
             'sys' => 10,
         ]),
         'qoto' => 9,
+        'rb-hosting' => new Node(0, [
+            'site' => 9,
+        ]),
         'readthedocs' => 9,
         'resindevice' => 9,
         'resinstaging' => new Node(0, [
@@ -7029,6 +7063,7 @@ return new Node(0, [
     'men' => 1,
     'menu' => new Node(1, [
         'barsy' => 9,
+        'barsyonline' => 9,
     ]),
     'merckmsd' => 1,
     'mg' => new Node(1, [
@@ -7094,7 +7129,9 @@ return new Node(0, [
     'moda' => 1,
     'moe' => 1,
     'moi' => 1,
-    'mom' => 1,
+    'mom' => new Node(1, [
+        'ind' => 9,
+    ]),
     'monash' => 1,
     'money' => 1,
     'monster' => 1,
@@ -7231,7 +7268,6 @@ return new Node(0, [
             'forgot' => 9,
         ]),
     ]),
-    'natura' => 1,
     'navy' => 1,
     'nba' => 1,
     'nc' => new Node(1, [
@@ -7303,6 +7339,18 @@ return new Node(0, [
         'clickrising' => 9,
         'cloudaccess' => 9,
         'cloudapp' => 9,
+        'cloudflare' => new Node(9, [
+            'cdn' => 9,
+        ]),
+        'cloudflareanycast' => new Node(0, [
+            'cdn' => 9,
+        ]),
+        'cloudflarecn' => new Node(0, [
+            'cdn' => 9,
+        ]),
+        'cloudflareglobal' => new Node(0, [
+            'cdn' => 9,
+        ]),
         'cloudfront' => 9,
         'cloudfunctions' => 9,
         'cloudjiffy' => new Node(9, [
@@ -8462,7 +8510,9 @@ return new Node(0, [
         ]),
         'service' => 9,
     ]),
-    'ong' => 1,
+    'ong' => new Node(1, [
+        'obl' => 9,
+    ]),
     'onion' => 1,
     'onl' => 1,
     'online' => new Node(1, [
@@ -9228,6 +9278,7 @@ return new Node(0, [
     'room' => 1,
     'rs' => new Node(1, [
         'ac' => 1,
+        'barsy' => 9,
         'blogspot' => 9,
         'brendly' => new Node(0, [
             'shop' => 9,
@@ -9493,6 +9544,7 @@ return new Node(0, [
     'shoes' => 1,
     'shop' => new Node(1, [
         'barsy' => 9,
+        'barsyonline' => 9,
         'base' => 9,
         'hoplix' => 9,
     ]),
@@ -9524,6 +9576,7 @@ return new Node(0, [
         'jouwweb' => 9,
         'lelux' => 9,
         'loginline' => 9,
+        'madethis' => 9,
         'mintere' => 9,
         'notion' => 9,
         'novecore' => 9,
@@ -9532,6 +9585,7 @@ return new Node(0, [
         'platformsh' => 10,
         'srht' => 9,
         'tst' => 10,
+        'wpsquared' => 9,
     ]),
     'sj' => 1,
     'sk' => new Node(1, [
@@ -9587,6 +9641,7 @@ return new Node(0, [
     'soy' => 1,
     'spa' => 1,
     'space' => new Node(1, [
+        'heiyu' => 9,
         'myfast' => 9,
         'uber' => 9,
         'xs4all' => 9,
@@ -9631,6 +9686,7 @@ return new Node(0, [
     'stockholm' => 1,
     'storage' => 1,
     'store' => new Node(1, [
+        'barsy' => 9,
         'sellfy' => 9,
         'shopware' => 9,
         'storebase' => 9,
@@ -10618,7 +10674,6 @@ return new Node(0, [
     'voto' => 1,
     'voyage' => 1,
     'vu' => new Node(1, [
-        'cn' => 9,
         'com' => 1,
         'edu' => 1,
         'net' => 1,
