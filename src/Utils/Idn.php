@@ -21,7 +21,11 @@ final class Idn
         if (\is_array($domain)) {
             $domain = implode('.', $domain);
         }
-        $idn = idn_to_ascii($domain, self::TO_ASCII_FLAGS, \INTL_IDNA_VARIANT_UTS46, $info);
+        try {
+            $idn = idn_to_ascii($domain, self::TO_ASCII_FLAGS, \INTL_IDNA_VARIANT_UTS46, $info);
+        } catch (\ValueError $err) {
+            throw new IdnException($err->getMessage(), $err->getCode(), $err);
+        }
         if ($idn === false) {
             throw IdnException::toAscii($domain, $info);
         }
@@ -37,7 +41,11 @@ final class Idn
         if (\is_array($domain)) {
             $domain = implode('.', $domain);
         }
-        $idn = idn_to_utf8($domain, self::TO_UTF8_FLAGS, \INTL_IDNA_VARIANT_UTS46, $info);
+        try {
+            $idn = idn_to_utf8($domain, self::TO_UTF8_FLAGS, \INTL_IDNA_VARIANT_UTS46, $info);
+        } catch (\ValueError $err) {
+            throw new IdnException($err->getMessage(), $err->getCode(), $err);
+        }
         if ($idn === false) {
             throw IdnException::toUnicode($domain, $info);
         }
