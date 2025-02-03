@@ -149,6 +149,7 @@ return new Node(0, [
         'com' => 1,
         'net' => 1,
         'nom' => 1,
+        'obj' => 9,
         'org' => 1,
     ]),
     'agakhan' => 1,
@@ -219,6 +220,9 @@ return new Node(0, [
         'beget' => 10,
         'bookonline' => 9,
         'botdash' => 9,
+        'brave' => new Node(9, [
+            's' => 10,
+        ]),
         'clerk' => 9,
         'clerkstage' => 9,
         'csb' => new Node(9, [
@@ -2706,6 +2710,7 @@ return new Node(0, [
             'ip' => 9,
         ]),
         'live-website' => 9,
+        'localtonet' => 9,
         'logoip' => 9,
         'loseyourip' => 9,
         'lpusercontent' => 9,
@@ -4057,7 +4062,7 @@ return new Node(0, [
         'bitbucket' => 9,
         'bluebite' => 9,
         'boxfuse' => 9,
-        'brave' => new Node(0, [
+        'brave' => new Node(9, [
             's' => 10,
         ]),
         'browsersafetymark' => 9,
@@ -7421,6 +7426,7 @@ return new Node(0, [
         'live-on' => 9,
         'localcert' => 9,
         'localhostcert' => 9,
+        'localto' => 10,
         'mafelo' => 9,
         'massivegrid' => new Node(0, [
             'paas' => new Node(0, [
