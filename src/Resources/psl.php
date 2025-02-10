@@ -1546,6 +1546,7 @@ return new Node(0, [
         'airkitapps-au' => 9,
         'aivencloud' => 9,
         'aliases121' => 9,
+        'alibabacloudcs' => 9,
         'alpha-myqnapcloud' => 9,
         'amazonaws' => new Node(0, [
             'af-south-1' => new Node(0, [
