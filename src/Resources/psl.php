@@ -1302,6 +1302,7 @@ return new Node(0, [
             'cs' => 9,
         ]),
         'kuleuven' => 9,
+        'laravel' => 9,
         'linkyard' => 9,
         'magentosite' => 10,
         'matlab' => 9,
@@ -4067,6 +4068,10 @@ return new Node(0, [
             's' => 10,
         ]),
         'browsersafetymark' => 9,
+        'bubble' => new Node(0, [
+            'cdn' => 9,
+        ]),
+        'bubbleapps' => 9,
         'cleverapps' => 9,
         'cloudbeesusercontent' => 9,
         'co' => 1,
