@@ -244,6 +244,7 @@ return new Node(0, [
         'hasura' => 9,
         'hosted' => 10,
         'loginline' => 9,
+        'lovable' => 9,
         'medusajs' => 9,
         'messerli' => 9,
         'netfy' => 9,
@@ -2715,6 +2716,7 @@ return new Node(0, [
         'localtonet' => 9,
         'logoip' => 9,
         'loseyourip' => 9,
+        'lovableproject' => 9,
         'lpusercontent' => 9,
         'massivegrid' => new Node(0, [
             'paas' => 9,
