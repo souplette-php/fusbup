@@ -2455,6 +2455,7 @@ return new Node(0, [
         'ddnsgeek' => 9,
         'ddnsking' => 9,
         'de' => 9,
+        'deus-canvas' => 9,
         'dev-myqnapcloud' => 9,
         'digitaloceanspaces' => 10,
         'discordsays' => 9,
@@ -7357,6 +7358,7 @@ return new Node(0, [
         'ddns-ip' => 9,
         'debian' => 9,
         'definima' => 9,
+        'deno' => 9,
         'dns-cloud' => 9,
         'dns-dynamic' => 9,
         'dnsalias' => 9,
@@ -7467,6 +7469,7 @@ return new Node(0, [
         'now-dns' => 9,
         'office-on-the' => 9,
         'onavstack' => 9,
+        'oninferno' => 9,
         'ovh' => new Node(0, [
             'hosting' => 10,
             'webpaas' => 10,
