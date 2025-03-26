@@ -2457,6 +2457,9 @@ return new Node(0, [
         'de' => 9,
         'deus-canvas' => 9,
         'dev-myqnapcloud' => 9,
+        'devinapps' => new Node(9, [
+            'staging' => 9,
+        ]),
         'digitaloceanspaces' => 10,
         'discordsays' => 9,
         'discordsez' => 9,
@@ -7006,9 +7009,7 @@ return new Node(0, [
     'maison' => 1,
     'makeup' => 1,
     'man' => 1,
-    'management' => new Node(1, [
-        'router' => 9,
-    ]),
+    'management' => 1,
     'mango' => 1,
     'map' => 1,
     'market' => 1,
@@ -8560,6 +8561,7 @@ return new Node(0, [
         'doesntexist' => 9,
         'dontexist' => 9,
         'doomdns' => 9,
+        'dpdns' => 9,
         'dsmynas' => 9,
         'duckdns' => 9,
         'dvrdns' => 9,
