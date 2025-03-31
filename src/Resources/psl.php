@@ -3668,7 +3668,9 @@ return new Node(0, [
     ]),
     'glass' => 1,
     'gle' => 1,
-    'global' => 1,
+    'global' => new Node(1, [
+        'appwrite' => 9,
+    ]),
     'globo' => 1,
     'gm' => 1,
     'gmail' => 1,
@@ -6906,6 +6908,12 @@ return new Node(0, [
         'nftstorage' => new Node(0, [
             'ipfs' => 9,
         ]),
+        'storacha' => new Node(0, [
+            'ipfs' => 9,
+        ]),
+        'w3s' => new Node(0, [
+            'ipfs' => 9,
+        ]),
     ]),
     'live' => new Node(1, [
         'aem' => 9,
@@ -9335,6 +9343,7 @@ return new Node(0, [
     'rugby' => 1,
     'ruhr' => 1,
     'run' => new Node(1, [
+        'appwrite' => 10,
         'build' => 10,
         'code' => 10,
         'database' => 10,
