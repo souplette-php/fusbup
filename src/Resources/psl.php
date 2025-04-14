@@ -225,11 +225,13 @@ return new Node(0, [
         ]),
         'clerk' => 9,
         'clerkstage' => 9,
+        'convex' => 9,
         'csb' => new Node(9, [
             'preview' => 9,
         ]),
         'deta' => 9,
         'developer' => 10,
+        'e2b' => 9,
         'easypanel' => 9,
         'edgecompute' => 9,
         'encr' => 9,
@@ -271,6 +273,7 @@ return new Node(0, [
         'vercel' => 9,
         'wdh' => 9,
         'web' => 9,
+        'windsurf' => 9,
         'wnext' => 9,
         'zeabur' => 9,
         'zerops' => 10,
@@ -291,6 +294,7 @@ return new Node(0, [
         'mutual' => 1,
         'net' => 1,
         'org' => 1,
+        'seg' => 1,
         'senasa' => 1,
         'tur' => 1,
     ]),
@@ -1079,6 +1083,7 @@ return new Node(0, [
     ]),
     'build' => new Node(1, [
         'v0' => 9,
+        'windsurf' => 9,
     ]),
     'builders' => new Node(1, [
         'cloudsite' => 9,
@@ -1282,6 +1287,7 @@ return new Node(0, [
         'axarnet' => new Node(0, [
             'es-1' => 9,
         ]),
+        'convex' => 9,
         'diadem' => 9,
         'elementor' => 9,
         'encoway' => new Node(0, [
@@ -2331,6 +2337,9 @@ return new Node(0, [
             'ap-southeast-4' => new Node(0, [
                 'auth' => 9,
             ]),
+            'ap-southeast-5' => new Node(0, [
+                'auth' => 9,
+            ]),
             'ca-central-1' => new Node(0, [
                 'auth' => 9,
             ]),
@@ -2379,6 +2388,9 @@ return new Node(0, [
             ]),
             'us-east-2' => new Node(0, [
                 'auth' => 9,
+                'auth-fips' => 9,
+            ]),
+            'us-gov-east-1' => new Node(0, [
                 'auth-fips' => 9,
             ]),
             'us-gov-west-1' => new Node(0, [
@@ -2457,9 +2469,7 @@ return new Node(0, [
         'de' => 9,
         'deus-canvas' => 9,
         'dev-myqnapcloud' => 9,
-        'devinapps' => new Node(9, [
-            'staging' => 9,
-        ]),
+        'devinapps' => 10,
         'digitaloceanspaces' => 10,
         'discordsays' => 9,
         'discordsez' => 9,
@@ -9558,6 +9568,7 @@ return new Node(0, [
         'cpanel' => 9,
         'cyon' => 9,
         'fastvps' => 9,
+        'figma' => 9,
         'heyflow' => 9,
         'jele' => 9,
         'jouwweb' => 9,
