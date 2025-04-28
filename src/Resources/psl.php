@@ -247,6 +247,7 @@ return new Node(0, [
         'hosted' => 10,
         'loginline' => 9,
         'lovable' => 9,
+        'luyani' => 9,
         'medusajs' => 9,
         'messerli' => 9,
         'netfy' => 9,
@@ -668,7 +669,6 @@ return new Node(0, [
     'beats' => 1,
     'beauty' => 1,
     'beer' => 1,
-    'bentley' => 1,
     'berlin' => 1,
     'best' => 1,
     'bestbuy' => 1,
@@ -1233,6 +1233,10 @@ return new Node(0, [
         'lima-city' => 9,
         'linkyard-cloud' => 9,
         'myspreadshop' => 9,
+        'objectstorage' => new Node(0, [
+            'lpg' => 9,
+            'rma' => 9,
+        ]),
         'square7' => 9,
     ]),
     'chanel' => 1,
@@ -2810,6 +2814,9 @@ return new Node(0, [
         'prgmr' => new Node(0, [
             'xen' => 9,
         ]),
+        'project-study' => new Node(0, [
+            'dev' => 9,
+        ]),
         'pythonanywhere' => new Node(9, [
             'eu' => 9,
         ]),
@@ -3224,6 +3231,7 @@ return new Node(0, [
         ]),
         'localplayer' => 9,
         'loginline' => 9,
+        'lp' => 9,
         'mediatech' => 9,
         'modx' => 9,
         'myaddr' => 9,
@@ -6810,6 +6818,7 @@ return new Node(0, [
         'kg' => 1,
         'me' => 1,
         'mil' => 1,
+        'mmv' => 9,
         'ms' => 1,
         'ne' => 1,
         'or' => 1,
@@ -6818,6 +6827,7 @@ return new Node(0, [
         'sc' => 1,
         'seoul' => 1,
         'ulsan' => 1,
+        'vki' => 9,
     ]),
     'krd' => new Node(1, [
         'co' => 9,
@@ -7464,6 +7474,7 @@ return new Node(0, [
         'localcert' => 9,
         'localhostcert' => 9,
         'localto' => 10,
+        'luyani' => 9,
         'mafelo' => 9,
         'massivegrid' => new Node(0, [
             'paas' => new Node(0, [
@@ -9367,8 +9378,7 @@ return new Node(0, [
         'repl' => 9,
         'servers' => 9,
         'stackit' => 9,
-        'val' => new Node(0, [
-            'express' => 9,
+        'val' => new Node(9, [
             'web' => 9,
         ]),
         'wix' => 9,
@@ -9579,6 +9589,7 @@ return new Node(0, [
         'omniwe' => 9,
         'opensocial' => 9,
         'platformsh' => 10,
+        'preview' => 9,
         'square' => 9,
         'srht' => 9,
         'tst' => 10,
