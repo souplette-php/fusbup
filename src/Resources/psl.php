@@ -3207,17 +3207,7 @@ return new Node(0, [
         'fly' => 9,
         'gateway' => 10,
         'githubpreview' => 9,
-        'hrsn' => new Node(9, [
-            'psl' => new Node(0, [
-                'sub' => 9,
-                'wc' => new Node(10, [
-                    'ignored' => 12,
-                    'sub' => new Node(10, [
-                        'ignored' => 12,
-                    ]),
-                ]),
-            ]),
-        ]),
+        'hrsn' => 9,
         'inbrowser' => 10,
         'is-a' => 9,
         'is-a-fullstack' => 9,
@@ -7472,7 +7462,6 @@ return new Node(0, [
         'krellian' => 9,
         'live-on' => 9,
         'localcert' => 9,
-        'localhostcert' => 9,
         'localto' => 10,
         'luyani' => 9,
         'mafelo' => 9,
