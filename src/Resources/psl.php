@@ -155,8 +155,10 @@ return new Node(0, [
     'agakhan' => 1,
     'agency' => 1,
     'ai' => new Node(1, [
+        'caffeine' => 9,
         'com' => 1,
         'framer' => 9,
+        'id' => 9,
         'net' => 1,
         'off' => 1,
         'org' => 1,
@@ -265,7 +267,9 @@ return new Node(0, [
         'replit' => new Node(9, [
             'id' => 9,
         ]),
-        'run' => 10,
+        'run' => new Node(10, [
+            'mtls' => 10,
+        ]),
         'snowflake' => new Node(10, [
             'privatelink' => 10,
         ]),
@@ -1049,6 +1053,7 @@ return new Node(0, [
         'srv' => 1,
         'taxi' => 1,
         'tc' => 1,
+        'tche' => 9,
         'tec' => 1,
         'teo' => 1,
         'the' => 1,
@@ -2741,6 +2746,7 @@ return new Node(0, [
         'loseyourip' => 9,
         'lovableproject' => 9,
         'lpusercontent' => 9,
+        'lutrausercontent' => 10,
         'massivegrid' => new Node(0, [
             'paas' => 9,
         ]),
@@ -2924,6 +2930,7 @@ return new Node(0, [
         ]),
         'wafflecell' => 9,
         'webadorsite' => 9,
+        'webspace-host' => 9,
         'wiardweb' => new Node(0, [
             'pages' => 9,
         ]),
@@ -3152,6 +3159,7 @@ return new Node(0, [
                 'io' => 9,
             ]),
         ]),
+        'schuldock' => 9,
         'schulplattform' => 9,
         'schulserver' => 9,
         'spdns' => 9,
@@ -3899,6 +3907,7 @@ return new Node(0, [
         'opencraft' => 9,
     ]),
     'hot' => 1,
+    'hotel' => 1,
     'hotels' => 1,
     'hotmail' => 1,
     'house' => 1,
@@ -3979,6 +3988,7 @@ return new Node(0, [
         'co' => 1,
         'desa' => 1,
         'go' => 1,
+        'kop' => 1,
         'mil' => 1,
         'my' => 1,
         'net' => 1,
@@ -4164,6 +4174,13 @@ return new Node(0, [
         'hostyhosting' => 9,
         'hypernode' => 9,
         'hzc' => 9,
+        'icp-api' => 9,
+        'icp0' => new Node(9, [
+            'raw' => 10,
+        ]),
+        'icp1' => new Node(9, [
+            'raw' => 10,
+        ]),
         'jele' => 9,
         'lair' => new Node(0, [
             'apps' => 9,
@@ -7216,9 +7233,7 @@ return new Node(0, [
     'moda' => 1,
     'moe' => 1,
     'moi' => 1,
-    'mom' => new Node(1, [
-        'ind' => 9,
-    ]),
+    'mom' => 1,
     'monash' => 1,
     'money' => 1,
     'monster' => 1,
@@ -9420,6 +9435,7 @@ return new Node(0, [
         'val' => new Node(9, [
             'web' => 9,
         ]),
+        'vercel' => 9,
         'wix' => 9,
     ]),
     'rw' => new Node(1, [
@@ -9609,6 +9625,7 @@ return new Node(0, [
     'site' => new Node(1, [
         'barsy' => 9,
         'byen' => 9,
+        'caffeine' => 9,
         'canva' => new Node(0, [
             'my' => 9,
         ]),
