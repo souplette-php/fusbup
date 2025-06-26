@@ -335,6 +335,7 @@ return new Node(0, [
         '123webseite' => 9,
         '12hp' => 9,
         '2ix' => 9,
+        '4' => 9,
         '4lima' => 9,
         'ac' => new Node(1, [
             'sth' => 1,
@@ -353,6 +354,7 @@ return new Node(0, [
         'gv' => 1,
         'info' => 9,
         'lima-city' => 9,
+        'my' => 9,
         'myspreadshop' => 9,
         'or' => 1,
         'ortsinfo' => new Node(0, [
@@ -3147,6 +3149,7 @@ return new Node(0, [
         'logoip' => 9,
         'mein-iserv' => 9,
         'mein-vigor' => 9,
+        'my' => 9,
         'my-gateway' => 9,
         'my-router' => 9,
         'my-vigor' => 9,
@@ -3502,6 +3505,7 @@ return new Node(0, [
         'dogado' => new Node(0, [
             'jelastic' => 9,
         ]),
+        'nxa' => 10,
         'spdns' => 9,
         'transurl' => 10,
     ]),
@@ -3816,7 +3820,9 @@ return new Node(0, [
     'guide' => 1,
     'guitars' => 1,
     'guru' => 1,
-    'gw' => 1,
+    'gw' => new Node(1, [
+        'nx' => 9,
+    ]),
     'gy' => new Node(1, [
         'co' => 1,
         'com' => 1,
@@ -4280,6 +4286,7 @@ return new Node(0, [
         'net' => 1,
         'org' => 1,
         'sch' => 1,
+        'vistablog' => 9,
         'xn--mgba3a4fra' => 1,
         'xn--mgba3a4f16a' => 1,
     ]),
@@ -7643,6 +7650,7 @@ return new Node(0, [
     'netbank' => 1,
     'netflix' => 1,
     'network' => new Node(1, [
+        'aem' => 9,
         'alces' => 10,
         'arvo' => 9,
         'azimuth' => 9,
@@ -8835,7 +8843,6 @@ return new Node(0, [
         'codeberg' => 9,
         'heyflow' => 9,
         'hlx' => 9,
-        'hlx3' => 9,
         'pdns' => 9,
         'plesk' => 9,
         'prvcy' => 9,
@@ -9319,7 +9326,9 @@ return new Node(0, [
     'rest' => 1,
     'restaurant' => 1,
     'review' => 1,
-    'reviews' => 1,
+    'reviews' => new Node(1, [
+        'aem' => 9,
+    ]),
     'rexroth' => 1,
     'rich' => 1,
     'richardli' => 1,
