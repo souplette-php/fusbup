@@ -420,31 +420,132 @@ return new Node(0, [
     ]),
     'aws' => new Node(1, [
         'on' => new Node(0, [
+            'af-south-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ap-east-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
             'ap-northeast-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ap-northeast-2' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ap-northeast-3' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ap-south-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ap-south-2' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'ap-southeast-1' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'ap-southeast-2' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ap-southeast-3' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ap-southeast-4' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ap-southeast-5' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ca-central-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'ca-west-1' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'eu-central-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'eu-central-2' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'eu-north-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'eu-south-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'eu-south-2' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'eu-west-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'eu-west-2' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'eu-west-3' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'il-central-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'me-central-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'me-south-1' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'sa-east-1' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'us-east-1' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'us-east-2' => new Node(0, [
+                'airflow' => 10,
+                'transfer-webapp' => 9,
+            ]),
+            'us-gov-east-1' => new Node(0, [
+                'transfer-webapp' => 9,
+                'transfer-webapp-fips' => 9,
+            ]),
+            'us-gov-west-1' => new Node(0, [
+                'transfer-webapp' => 9,
+                'transfer-webapp-fips' => 9,
+            ]),
+            'us-west-1' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'us-west-2' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
         ]),
@@ -1356,14 +1457,21 @@ return new Node(0, [
             ]),
             'fr-par' => new Node(0, [
                 'cockpit' => 9,
+                'ddl' => 9,
+                'dtwh' => 9,
                 'fnc' => new Node(9, [
                     'functions' => 9,
                 ]),
+                'ifr' => 9,
                 'k8s' => new Node(9, [
                     'nodes' => 9,
                 ]),
+                'kafk' => 9,
+                'mgdb' => 9,
+                'rdb' => 9,
                 's3' => 9,
                 's3-website' => 9,
+                'scbl' => 9,
                 'whm' => 9,
             ]),
             'instances' => new Node(0, [
@@ -1373,20 +1481,34 @@ return new Node(0, [
             'k8s' => 9,
             'nl-ams' => new Node(0, [
                 'cockpit' => 9,
+                'ddl' => 9,
+                'dtwh' => 9,
+                'ifr' => 9,
                 'k8s' => new Node(9, [
                     'nodes' => 9,
                 ]),
+                'kafk' => 9,
+                'mgdb' => 9,
+                'rdb' => 9,
                 's3' => 9,
                 's3-website' => 9,
+                'scbl' => 9,
                 'whm' => 9,
             ]),
             'pl-waw' => new Node(0, [
                 'cockpit' => 9,
+                'ddl' => 9,
+                'dtwh' => 9,
+                'ifr' => 9,
                 'k8s' => new Node(9, [
                     'nodes' => 9,
                 ]),
+                'kafk' => 9,
+                'mgdb' => 9,
+                'rdb' => 9,
                 's3' => 9,
                 's3-website' => 9,
+                'scbl' => 9,
             ]),
             'scalebook' => 9,
             'smartlabeling' => 9,
@@ -1466,6 +1588,18 @@ return new Node(0, [
                     'cn-northwest-1' => 9,
                 ]),
                 'elb' => 10,
+            ]),
+            'amazonwebservices' => new Node(0, [
+                'on' => new Node(0, [
+                    'cn-north-1' => new Node(0, [
+                        'airflow' => 10,
+                        'transfer-webapp' => 9,
+                    ]),
+                    'cn-northwest-1' => new Node(0, [
+                        'airflow' => 10,
+                        'transfer-webapp' => 9,
+                    ]),
+                ]),
             ]),
             'sagemaker' => new Node(0, [
                 'cn-north-1' => new Node(0, [
@@ -1607,6 +1741,7 @@ return new Node(0, [
                 'ap-southeast-2' => 10,
                 'ap-southeast-3' => 10,
                 'ap-southeast-4' => 10,
+                'ap-southeast-5' => 10,
                 'ca-central-1' => 10,
                 'ca-west-1' => 10,
                 'eu-central-1' => 10,
@@ -2355,6 +2490,9 @@ return new Node(0, [
             'ap-southeast-5' => new Node(0, [
                 'auth' => 9,
             ]),
+            'ap-southeast-7' => new Node(0, [
+                'auth' => 9,
+            ]),
             'ca-central-1' => new Node(0, [
                 'auth' => 9,
             ]),
@@ -2392,6 +2530,9 @@ return new Node(0, [
                 'auth' => 9,
             ]),
             'me-south-1' => new Node(0, [
+                'auth' => 9,
+            ]),
+            'mx-central-1' => new Node(0, [
                 'auth' => 9,
             ]),
             'sa-east-1' => new Node(0, [
@@ -2799,6 +2940,7 @@ return new Node(0, [
                 'o365' => 9,
             ]),
         ]),
+        'oaiusercontent' => 10,
         'observableusercontent' => new Node(0, [
             'static' => 9,
         ]),
@@ -3177,7 +3319,6 @@ return new Node(0, [
         'taifun-dns' => 9,
         'test-iserv' => 9,
         'traeumtgerade' => 9,
-        'uberspace' => 10,
         'virtual-user' => 9,
         'virtualuser' => 9,
         'webspaceconfig' => 9,
@@ -8812,7 +8953,9 @@ return new Node(0, [
         'us' => 9,
         'webhop' => 9,
         'webredirect' => 9,
-        'wmcloud' => 9,
+        'wmcloud' => new Node(9, [
+            'beta' => 9,
+        ]),
         'wmflabs' => 9,
         'za' => 9,
         'zapto' => 9,
