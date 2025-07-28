@@ -9578,6 +9578,7 @@ return new Node(0, [
         'liara' => new Node(9, [
             'iran' => 9,
         ]),
+        'lovable' => 9,
         'migration' => 10,
         'onporter' => 9,
         'ravendb' => 9,
@@ -9740,6 +9741,7 @@ return new Node(0, [
         'com' => 1,
         'gov' => 1,
         'hashbang' => 9,
+        'lovable' => 9,
         'mil' => 1,
         'net' => 1,
         'now' => 9,
