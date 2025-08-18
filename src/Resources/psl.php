@@ -155,10 +155,8 @@ return new Node(0, [
     'agakhan' => 1,
     'agency' => 1,
     'ai' => new Node(1, [
-        'caffeine' => 9,
         'com' => 1,
         'framer' => 9,
-        'id' => 9,
         'net' => 1,
         'off' => 1,
         'org' => 1,
@@ -264,6 +262,9 @@ return new Node(0, [
         'nyat' => 9,
         'on-fleek' => 9,
         'ondigitalocean' => 9,
+        'railway' => new Node(0, [
+            'up' => 9,
+        ]),
         'replit' => new Node(9, [
             'id' => 9,
         ]),
@@ -1668,6 +1669,7 @@ return new Node(0, [
             'id' => 9,
         ]),
         'gov' => 1,
+        'hidns' => 9,
         'leadpages' => 9,
         'lpages' => 9,
         'mil' => 1,
@@ -2945,6 +2947,8 @@ return new Node(0, [
             'static' => 9,
         ]),
         'on-aptible' => 9,
+        'on-forge' => 9,
+        'on-vapor' => 9,
         'onfabrica' => 9,
         'onrender' => 9,
         'onthewifi' => 9,
@@ -2977,6 +2981,8 @@ return new Node(0, [
         'qa2' => 9,
         'qbuser' => 9,
         'qualifioapp' => 9,
+        'qualyhqpartner' => 10,
+        'qualyhqportal' => 10,
         'quicksytes' => 9,
         'quipelements' => 10,
         'rackmaze' => 9,
@@ -3208,6 +3214,7 @@ return new Node(0, [
             'rsc' => 9,
         ]),
         'e4' => 9,
+        'gov' => 1,
         'metacentrum' => new Node(0, [
             'cloud' => 10,
             'custom' => 9,
@@ -3236,6 +3243,7 @@ return new Node(0, [
         '4lima' => 9,
         'barsy' => 9,
         'bplaced' => 9,
+        'co' => 9,
         'com' => 9,
         'community-pro' => 9,
         'cosidns' => new Node(0, [
@@ -3356,6 +3364,9 @@ return new Node(0, [
         'deno' => 9,
         'deno-staging' => 9,
         'deta' => 9,
+        'erp' => new Node(9, [
+            'web' => 9,
+        ]),
         'evervault' => new Node(0, [
             'relay' => 9,
         ]),
@@ -3868,7 +3879,6 @@ return new Node(0, [
     'gives' => 1,
     'giving' => 1,
     'gl' => new Node(1, [
-        'biz' => 9,
         'co' => 1,
         'com' => 1,
         'edu' => 1,
@@ -4321,7 +4331,6 @@ return new Node(0, [
         'hostyhosting' => 9,
         'hypernode' => 9,
         'hzc' => 9,
-        'icp-api' => 9,
         'icp0' => new Node(9, [
             'raw' => 10,
         ]),
@@ -7659,6 +7668,7 @@ return new Node(0, [
         'homelinux' => 9,
         'homeunix' => 9,
         'hu' => 9,
+        'icp' => 10,
         'in' => 9,
         'in-dsl' => 9,
         'in-the-band' => 9,
@@ -7787,6 +7797,7 @@ return new Node(0, [
             'website' => 9,
         ]),
         'za' => 9,
+        'zabc' => 9,
     ]),
     'netbank' => 1,
     'netflix' => 1,
@@ -10781,7 +10792,9 @@ return new Node(0, [
     'viking' => 1,
     'villas' => 1,
     'vin' => 1,
-    'vip' => 1,
+    'vip' => new Node(1, [
+        'hidns' => 9,
+    ]),
     'virgin' => 1,
     'visa' => 1,
     'vision' => 1,
