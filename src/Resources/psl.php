@@ -225,6 +225,7 @@ return new Node(0, [
         ]),
         'clerk' => 9,
         'clerkstage' => 9,
+        'cloudflare' => 9,
         'convex' => 9,
         'csb' => new Node(9, [
             'preview' => 9,
@@ -283,6 +284,7 @@ return new Node(0, [
         'upsun' => 10,
         'vercel' => 9,
         'wal' => 9,
+        'wasmer' => 9,
         'wdh' => 9,
         'web' => 9,
         'windsurf' => 9,
@@ -3691,6 +3693,7 @@ return new Node(0, [
     'eu' => new Node(1, [
         'barsy' => 9,
         'cloudns' => 9,
+        'directwp' => 9,
         'diskstation' => 9,
         'dogado' => new Node(0, [
             'jelastic' => 9,
@@ -4364,6 +4367,7 @@ return new Node(0, [
         'forgerock' => new Node(0, [
             'id' => 9,
         ]),
+        'gitbook' => 9,
         'github' => 9,
         'gitlab' => 9,
         'gov' => 1,
@@ -9042,6 +9046,7 @@ return new Node(0, [
         'plesk' => 9,
         'prvcy' => 9,
         'rocky' => 9,
+        'statichost' => 9,
         'translated' => 9,
     ]),
     'panasonic' => 1,
@@ -10799,6 +10804,7 @@ return new Node(0, [
         'firm' => 1,
         'gob' => 1,
         'gov' => 1,
+        'ia' => 1,
         'info' => 1,
         'int' => 1,
         'mil' => 1,
