@@ -285,7 +285,6 @@ return new Node(0, [
         'vercel' => 9,
         'wal' => 9,
         'wasmer' => 9,
-        'wdh' => 9,
         'web' => 9,
         'windsurf' => 9,
         'wnext' => 9,
@@ -399,7 +398,7 @@ return new Node(0, [
             'vic' => 1,
             'wa' => 1,
         ]),
-        'hrsn' => new Node(9, [
+        'hrsn' => new Node(0, [
             'vps' => 9,
         ]),
         'id' => 1,
@@ -3768,6 +3767,7 @@ return new Node(0, [
             'jelastic' => 9,
         ]),
         'nxa' => 10,
+        'prvw' => 9,
         'spdns' => 9,
         'transurl' => 10,
     ]),
