@@ -246,6 +246,7 @@ return new Node(0, [
         ]),
         'flutterflow' => 9,
         'framer' => 9,
+        'gadget' => 9,
         'github' => 9,
         'hackclub' => 9,
         'hasura' => 9,
@@ -2667,6 +2668,7 @@ return new Node(0, [
             'r' => 10,
         ]),
         'atmeta' => 9,
+        'auiusercontent' => 10,
         'authgear-staging' => 9,
         'authgearapps' => 9,
         'awsapprunner' => 10,
@@ -3208,6 +3210,7 @@ return new Node(0, [
             'u2' => 9,
             'u2-local' => 9,
         ]),
+        'xtooldevice' => 9,
         'yolasite' => 9,
         'za' => 9,
     ]),
@@ -3459,6 +3462,9 @@ return new Node(0, [
         'barsy' => 9,
         'bearblog' => 9,
         'botdash' => 9,
+        'brave' => new Node(9, [
+            's' => 10,
+        ]),
         'crm' => new Node(0, [
             'd' => 10,
             'w' => 10,
@@ -3481,6 +3487,7 @@ return new Node(0, [
         'fly' => 9,
         'gateway' => 10,
         'githubpreview' => 9,
+        'grebedoc' => 9,
         'hrsn' => 9,
         'inbrowser' => 10,
         'is-a' => 9,
@@ -4169,6 +4176,7 @@ return new Node(0, [
         'emergent' => 9,
         'fastvps' => 9,
         'freesite' => 9,
+        'gadget' => 9,
         'half' => 9,
         'iserv' => 9,
         'jele' => 9,
@@ -4273,6 +4281,7 @@ return new Node(0, [
         'sch' => 1,
         'web' => 1,
         'zone' => 9,
+        'xn--9tfky' => 1,
     ]),
     'ie' => new Node(1, [
         'gov' => 1,
@@ -7901,6 +7910,10 @@ return new Node(0, [
         'twmail' => 9,
         'uk' => 9,
         'uni5' => 9,
+        'usgovcloudapi' => new Node(0, [
+            'servicebus' => 9,
+        ]),
+        'usgovcloudapp' => 9,
         'vpndns' => 9,
         'vps-host' => new Node(9, [
             'jelastic' => new Node(0, [
@@ -8881,9 +8894,7 @@ return new Node(0, [
         'service' => 9,
         'website' => 9,
     ]),
-    'ong' => new Node(1, [
-        'obl' => 9,
-    ]),
+    'ong' => 1,
     'onion' => 1,
     'onl' => 1,
     'online' => new Node(1, [
@@ -10571,6 +10582,8 @@ return new Node(0, [
             'k12' => 1,
             'lib' => 1,
         ]),
+        'azure-api' => 9,
+        'azurewebsites' => 9,
         'ca' => new Node(1, [
             'cc' => 1,
             'k12' => 1,
