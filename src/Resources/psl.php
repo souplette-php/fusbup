@@ -1733,6 +1733,10 @@ return new Node(0, [
         'nom' => 1,
         'org' => 1,
         'otap' => 10,
+        'rdpa' => new Node(0, [
+            'clusters' => 10,
+            'srvrless' => 10,
+        ]),
         'repl' => new Node(9, [
             'id' => 9,
         ]),
@@ -2790,6 +2794,9 @@ return new Node(0, [
             'us-gov-west-1' => 9,
             'us-west-1' => 9,
             'us-west-2' => 9,
+        ]),
+        'emergentagent' => new Node(0, [
+            'preview' => 9,
         ]),
         'encoreapi' => 9,
         'est-a-la-maison' => 9,
@@ -9689,7 +9696,6 @@ return new Node(0, [
         'int' => 9,
         'kalmykia' => 9,
         'kustanai' => 9,
-        'lk3' => 9,
         'marine' => 9,
         'mcdir' => new Node(9, [
             'vps' => 9,
