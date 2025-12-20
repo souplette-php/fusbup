@@ -9811,9 +9811,12 @@ return new Node(0, [
     'schwarz' => 1,
     'science' => 1,
     'scot' => new Node(1, [
+        'co' => 9,
         'gov' => new Node(9, [
             'service' => 9,
         ]),
+        'me' => 9,
+        'org' => 9,
     ]),
     'sd' => new Node(1, [
         'com' => 1,
