@@ -255,6 +255,7 @@ return new Node(0, [
         'loginline' => 9,
         'lovable' => 9,
         'luyani' => 9,
+        'magicpatterns' => 9,
         'medusajs' => 9,
         'messerli' => 9,
         'mocha' => 9,
@@ -266,6 +267,7 @@ return new Node(0, [
         'nyat' => 9,
         'on-fleek' => 9,
         'ondigitalocean' => 9,
+        'onhercules' => 1,
         'railway' => new Node(0, [
             'up' => 9,
         ]),
@@ -278,7 +280,7 @@ return new Node(0, [
         'snowflake' => new Node(10, [
             'privatelink' => 10,
         ]),
-        'storipress' => 9,
+        'sprites' => 9,
         'streamlit' => 9,
         'telebit' => 9,
         'typedream' => 9,
@@ -292,7 +294,26 @@ return new Node(0, [
         'zeabur' => 9,
         'zerops' => 10,
     ]),
-    'apple' => 1,
+    'apple' => new Node(1, [
+        'int' => new Node(9, [
+            'cloud' => new Node(10, [
+                'r' => new Node(10, [
+                    'ap-north-1' => 10,
+                    'ap-south-1' => 10,
+                    'ap-south-2' => 10,
+                    'eu-central-1' => 10,
+                    'eu-north-1' => 10,
+                    'us-central-1' => 10,
+                    'us-central-2' => 10,
+                    'us-east-1' => 10,
+                    'us-east-2' => 10,
+                    'us-west-1' => 10,
+                    'us-west-2' => 10,
+                    'us-west-3' => 10,
+                ]),
+            ]),
+        ]),
+    ]),
     'aq' => 1,
     'aquarelle' => 1,
     'ar' => new Node(1, [
@@ -1334,7 +1355,9 @@ return new Node(0, [
             'ui' => 9,
         ]),
     ]),
-    'case' => 1,
+    'case' => new Node(1, [
+        'sav' => 9,
+    ]),
     'cash' => 1,
     'casino' => 1,
     'cat' => 1,
@@ -1344,6 +1367,7 @@ return new Node(0, [
     'cbn' => 1,
     'cbre' => 1,
     'cc' => new Node(1, [
+        'ccwu' => 9,
         'cleverapps' => 9,
         'cloud-ip' => 9,
         'cloudns' => 9,
@@ -1359,6 +1383,7 @@ return new Node(0, [
         'twmail' => 9,
     ]),
     'cd' => new Node(1, [
+        'cc' => 9,
         'gov' => 1,
     ]),
     'center' => 1,
@@ -1427,6 +1452,7 @@ return new Node(0, [
         'net' => 1,
         'or' => 1,
         'org' => 1,
+        'us' => 9,
     ]),
     'cipriani' => 1,
     'circle' => 1,
@@ -1452,6 +1478,7 @@ return new Node(0, [
     'clinique' => 1,
     'clothing' => 1,
     'cloud' => new Node(1, [
+        'antagonist' => 9,
         'axarnet' => new Node(0, [
             'es-1' => 9,
         ]),
@@ -2893,6 +2920,8 @@ return new Node(0, [
         'hatenablog' => 9,
         'hatenadiary' => 9,
         'health-carereform' => 9,
+        'hercules-app' => 1,
+        'hercules-dev' => 1,
         'herokuapp' => 9,
         'hk' => 9,
         'hobby-site' => 9,
@@ -3003,6 +3032,7 @@ return new Node(0, [
         'lovableproject' => 9,
         'lpusercontent' => 9,
         'lutrausercontent' => 10,
+        'magicpatternsapp' => 9,
         'massivegrid' => new Node(0, [
             'paas' => 9,
         ]),
@@ -3899,7 +3929,6 @@ return new Node(0, [
         'chirurgiens-dentistes-en-france' => 9,
         'com' => 1,
         'dedibox' => 9,
-        'en-root' => 9,
         'experts-comptables' => 9,
         'fbx-os' => 9,
         'fbxos' => 9,
@@ -4355,6 +4384,7 @@ return new Node(0, [
         'gov' => 1,
         'gujarat' => 1,
         'ind' => 1,
+        'indevs' => 9,
         'info' => 1,
         'int' => 1,
         'internet' => 1,
@@ -4527,7 +4557,6 @@ return new Node(0, [
         'scrypted' => new Node(0, [
             'client' => 9,
         ]),
-        'shw' => 9,
         'stolos' => 10,
         'telebit' => 9,
         'thingdust' => new Node(0, [
@@ -7762,7 +7791,6 @@ return new Node(0, [
         'dynu' => 9,
         'dynv6' => 9,
         'eating-organic' => 9,
-        'edgeapp' => 9,
         'edgekey' => 9,
         'edgekey-staging' => 9,
         'edgesuite' => 9,
@@ -7949,6 +7977,7 @@ return new Node(0, [
     'network' => new Node(1, [
         'aem' => 9,
         'alces' => 10,
+        'appwrite' => 9,
         'arvo' => 9,
         'azimuth' => 9,
         'co' => 9,
@@ -10045,6 +10074,7 @@ return new Node(0, [
         'sch' => 1,
     ]),
     'st' => new Node(1, [
+        'cn' => 10,
         'co' => 1,
         'com' => 1,
         'consulado' => 1,
@@ -10795,7 +10825,6 @@ return new Node(0, [
             'k12' => 1,
             'lib' => 1,
         ]),
-        'platterp' => 9,
         'pointto' => 9,
         'pr' => new Node(1, [
             'cc' => 1,
@@ -11084,7 +11113,9 @@ return new Node(0, [
     'wme' => 1,
     'wolterskluwer' => 1,
     'woodside' => 1,
-    'work' => 1,
+    'work' => new Node(1, [
+        'imagine-proxy' => 9,
+    ]),
     'works' => 1,
     'world' => 1,
     'wow' => 1,
