@@ -7109,6 +7109,7 @@ return new Node(0, [
     'kerryproperties' => 1,
     'kfh' => 1,
     'kg' => new Node(1, [
+        'ae' => 9,
         'com' => 1,
         'edu' => 1,
         'gov' => 1,
@@ -10001,7 +10002,9 @@ return new Node(0, [
         'wpsquared' => 9,
     ]),
     'sj' => 1,
-    'sk' => 1,
+    'sk' => new Node(1, [
+        'org' => 1,
+    ]),
     'ski' => 1,
     'skin' => 1,
     'sky' => 1,
@@ -10311,6 +10314,7 @@ return new Node(0, [
         'gov' => 1,
         'mil' => 1,
         'net' => 1,
+        'nett' => 9,
         'org' => 1,
         'oya' => 9,
         'quickconnect' => new Node(0, [
