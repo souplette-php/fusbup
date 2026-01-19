@@ -157,6 +157,7 @@ return new Node(0, [
     'ai' => new Node(1, [
         'com' => 1,
         'framer' => 9,
+        'kiloapps' => 9,
         'net' => 1,
         'off' => 1,
         'org' => 1,
@@ -217,6 +218,7 @@ return new Node(0, [
     'app' => new Node(1, [
         'adaptable' => 9,
         'aiven' => 9,
+        'base44' => 9,
         'beget' => 10,
         'bookonline' => 9,
         'botdash' => 9,
@@ -2713,6 +2715,7 @@ return new Node(0, [
         'balena-devices' => 9,
         'barsycenter' => 9,
         'barsyonline' => 9,
+        'base44-sandbox' => 9,
         'blogdns' => 9,
         'blogspot' => 9,
         'blogsyte' => 9,
@@ -4500,6 +4503,7 @@ return new Node(0, [
             'raw' => 10,
         ]),
         'jele' => 9,
+        'kiloapps' => 9,
         'lair' => new Node(0, [
             'apps' => 9,
         ]),
