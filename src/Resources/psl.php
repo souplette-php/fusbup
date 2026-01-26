@@ -229,6 +229,7 @@ return new Node(0, [
         'clerkstage' => 9,
         'cloudflare' => 9,
         'convex' => 9,
+        'corespeed' => 9,
         'csb' => new Node(9, [
             'preview' => 9,
         ]),
@@ -260,6 +261,7 @@ return new Node(0, [
         'magicpatterns' => 9,
         'medusajs' => 9,
         'messerli' => 9,
+        'miren' => 9,
         'mocha' => 9,
         'netlify' => 9,
         'ngrok' => 9,
@@ -279,9 +281,11 @@ return new Node(0, [
         'run' => new Node(10, [
             'mtls' => 10,
         ]),
+        'shiptoday' => 9,
         'snowflake' => new Node(10, [
             'privatelink' => 10,
         ]),
+        'spawnbase' => 9,
         'sprites' => 9,
         'streamlit' => 9,
         'telebit' => 9,
@@ -1267,6 +1271,7 @@ return new Node(0, [
         'org' => 1,
     ]),
     'build' => new Node(1, [
+        'shiptoday' => 9,
         'v0' => 9,
         'windsurf' => 9,
     ]),
@@ -3603,7 +3608,9 @@ return new Node(0, [
     'discount' => 1,
     'discover' => 1,
     'dish' => 1,
-    'diy' => 1,
+    'diy' => new Node(1, [
+        'discourse' => 9,
+    ]),
     'dj' => 1,
     'dk' => new Node(1, [
         '123hjemmeside' => 9,
@@ -10194,6 +10201,7 @@ return new Node(0, [
     'sydney' => 1,
     'systems' => new Node(1, [
         'knightpoint' => 9,
+        'miren' => 9,
     ]),
     'sz' => new Node(1, [
         'ac' => 1,
