@@ -511,6 +511,9 @@ return new Node(0, [
                 'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
+            'ap-southeast-7' => new Node(0, [
+                'transfer-webapp' => 9,
+            ]),
             'ca-central-1' => new Node(0, [
                 'airflow' => 10,
                 'lambda-url' => 9,
@@ -569,6 +572,9 @@ return new Node(0, [
             'me-south-1' => new Node(0, [
                 'airflow' => 10,
                 'lambda-url' => 9,
+                'transfer-webapp' => 9,
+            ]),
+            'mx-central-1' => new Node(0, [
                 'transfer-webapp' => 9,
             ]),
             'sa-east-1' => new Node(0, [
@@ -2508,6 +2514,7 @@ return new Node(0, [
                     's3-accesspoint' => 9,
                     's3-accesspoint-fips' => 9,
                     's3-fips' => 9,
+                    's3-website' => 9,
                 ]),
                 'emrappui-prod' => 9,
                 'emrnotebooks-prod' => 9,
@@ -2526,6 +2533,7 @@ return new Node(0, [
                     's3-accesspoint' => 9,
                     's3-accesspoint-fips' => 9,
                     's3-fips' => 9,
+                    's3-website' => 9,
                 ]),
                 'emrappui-prod' => 9,
                 'emrnotebooks-prod' => 9,
@@ -3505,7 +3513,20 @@ return new Node(0, [
             's' => 10,
         ]),
         'crm' => new Node(0, [
+            'aa' => 10,
+            'ab' => 10,
+            'ac' => 10,
+            'ad' => 10,
+            'ae' => 10,
+            'af' => 10,
+            'ci' => 10,
             'd' => 10,
+            'pa' => 10,
+            'pb' => 10,
+            'pc' => 10,
+            'pd' => 10,
+            'pe' => 10,
+            'pf' => 10,
             'w' => 10,
             'wa' => 10,
             'wb' => 10,
@@ -3807,6 +3828,15 @@ return new Node(0, [
         'org' => 1,
     ]),
     'eu' => new Node(1, [
+        'amazonwebservices' => new Node(0, [
+            'on' => new Node(0, [
+                'eusc-de-east-1' => new Node(0, [
+                    'cognito-idp' => new Node(0, [
+                        'auth' => 9,
+                    ]),
+                ]),
+            ]),
+        ]),
         'barsy' => 9,
         'cloudns' => 9,
         'deuxfleurs' => 9,
@@ -4510,6 +4540,7 @@ return new Node(0, [
             'raw' => 10,
         ]),
         'jele' => 9,
+        'keenetic' => 9,
         'kiloapps' => 9,
         'lair' => new Node(0, [
             'apps' => 9,
@@ -7313,6 +7344,7 @@ return new Node(0, [
         'dweb' => 10,
         'inbrowser' => 10,
         'joinmc' => 9,
+        'keenetic' => 9,
         'myfritz' => 9,
         'mypep' => 9,
         'nftstorage' => new Node(0, [
@@ -7683,6 +7715,7 @@ return new Node(0, [
             'forgot' => 9,
         ]),
         'ispmanager' => 9,
+        'keenetic' => 9,
     ]),
     'navy' => 1,
     'nba' => 1,
@@ -9564,6 +9597,7 @@ return new Node(0, [
         'cpa' => 1,
         'eng' => 1,
         'jur' => 1,
+        'keenetic' => 9,
         'law' => 1,
         'med' => 1,
         'ngrok' => 9,
@@ -9998,6 +10032,7 @@ return new Node(0, [
         'opensocial' => 9,
         'platformsh' => 10,
         'preview' => 9,
+        'sol' => 9,
         'sourcecraft' => 9,
         'square' => 9,
         'srht' => 9,
