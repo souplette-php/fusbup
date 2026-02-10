@@ -1802,6 +1802,7 @@ return new Node(0, [
     'com' => new Node(1, [
         '0emm' => 10,
         '180r' => 9,
+        '1cooldns' => 9,
         '1kapp' => 9,
         '3utilities' => 9,
         '4u' => 9,
@@ -2736,6 +2737,7 @@ return new Node(0, [
         'bplaced' => 9,
         'br' => 9,
         'builtwithdark' => 9,
+        'bumbleshrimp' => 9,
         'cafjs' => 9,
         'canva-apps' => 9,
         'canva-hosted-embed' => 9,
@@ -2773,6 +2775,7 @@ return new Node(0, [
         'dattoweb' => 9,
         'ddnsfree' => 9,
         'ddnsgeek' => 9,
+        'ddnsguru' => 9,
         'ddnsking' => 9,
         'de' => 9,
         'deus-canvas' => 9,
@@ -2812,6 +2815,8 @@ return new Node(0, [
         'dyndns-wiki' => 9,
         'dyndns-work' => 9,
         'dynns' => 9,
+        'dynuddns' => 9,
+        'dynuhosting' => 9,
         'elasticbeanstalk' => new Node(9, [
             'af-south-1' => 9,
             'ap-east-1' => 9,
@@ -3028,9 +3033,6 @@ return new Node(0, [
         'jelastic' => new Node(0, [
             'demo' => 9,
         ]),
-        'joyent' => new Node(0, [
-            'cns' => 10,
-        ]),
         'jpn' => 9,
         'kasserver' => 9,
         'kozow' => 9,
@@ -3125,6 +3127,7 @@ return new Node(0, [
         'pagexl' => 9,
         'paywhirl' => 10,
         'pgfog' => 9,
+        'pivohosting' => 9,
         'pixolino' => 9,
         'playstation-cloud' => 9,
         'pleskns' => 9,
@@ -3249,6 +3252,7 @@ return new Node(0, [
         'wiardweb' => new Node(0, [
             'pages' => 9,
         ]),
+        'wiredbladehosting' => 9,
         'withgoogle' => 9,
         'withyoutube' => 9,
         'wixsite' => 9,
@@ -3505,7 +3509,6 @@ return new Node(0, [
         'graphic' => 9,
     ]),
     'dev' => new Node(1, [
-        '12chars' => 9,
         'barsy' => 9,
         'bearblog' => 9,
         'botdash' => 9,
@@ -4101,7 +4104,6 @@ return new Node(0, [
     'gold' => 1,
     'goldpoint' => 1,
     'golf' => 1,
-    'goo' => 1,
     'goodyear' => 1,
     'goog' => new Node(1, [
         'cloud' => 9,
@@ -4650,7 +4652,6 @@ return new Node(0, [
     'istanbul' => 1,
     'it' => new Node(1, [
         '123homepage' => 9,
-        '12chars' => 9,
         '16-b' => 9,
         '32-b' => 9,
         '64-b' => 9,
@@ -7829,6 +7830,7 @@ return new Node(0, [
         'dynalias' => 9,
         'dynathome' => 9,
         'dynu' => 9,
+        'dynuddns' => 9,
         'dynv6' => 9,
         'eating-organic' => 9,
         'edgekey' => 9,
@@ -7923,11 +7925,13 @@ return new Node(0, [
         'myradweb' => 9,
         'mysecuritycamera' => 9,
         'myspreadshop' => 9,
+        'mysynology' => 9,
         'nhlfan' => 9,
         'no-ip' => 9,
         'now-dns' => 9,
         'office-on-the' => 9,
         'oninferno' => 9,
+        'opik' => 9,
         'ovh' => new Node(0, [
             'hosting' => 10,
             'webpaas' => 10,
@@ -7962,6 +7966,7 @@ return new Node(0, [
         'server-on' => 9,
         'shopselect' => 9,
         'siteleaf' => 9,
+        'spryt' => 9,
         'square7' => 9,
         'squares' => 9,
         'srcf' => new Node(0, [
@@ -7985,9 +7990,15 @@ return new Node(0, [
         'uk' => 9,
         'uni5' => 9,
         'usgovcloudapi' => new Node(0, [
+            'core' => new Node(0, [
+                'blob' => 9,
+                'file' => 9,
+                'web' => 9,
+            ]),
             'servicebus' => 9,
         ]),
         'usgovcloudapp' => 9,
+        'usgovtrafficmanager' => 9,
         'vpndns' => 9,
         'vps-host' => new Node(9, [
             'jelastic' => new Node(0, [
@@ -8001,6 +8012,8 @@ return new Node(0, [
         'windows' => new Node(0, [
             'core' => new Node(0, [
                 'blob' => 9,
+                'file' => 9,
+                'web' => 9,
             ]),
             'servicebus' => 9,
         ]),
@@ -9153,6 +9166,7 @@ return new Node(0, [
         'read-books' => 9,
         'readmyblog' => 9,
         'routingthecloud' => 9,
+        'roxa' => 9,
         'selfip' => 9,
         'sellsyourhome' => 9,
         'servebbs' => 9,
@@ -9586,7 +9600,6 @@ return new Node(0, [
     'press' => 1,
     'prime' => 1,
     'pro' => new Node(1, [
-        '12chars' => 9,
         'aaa' => 1,
         'aca' => 1,
         'acct' => 1,
