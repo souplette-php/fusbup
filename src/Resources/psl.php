@@ -1500,7 +1500,10 @@ return new Node(0, [
         'axarnet' => new Node(0, [
             'es-1' => 9,
         ]),
-        'convex' => 9,
+        'convex' => new Node(9, [
+            'eu-west-1' => 9,
+            'us-east-1' => 9,
+        ]),
         'diadem' => 9,
         'elementor' => 9,
         'emergent' => 9,
@@ -2796,6 +2799,7 @@ return new Node(0, [
         'dopaas' => 9,
         'drayddns' => 9,
         'dreamhosters' => 9,
+        'drive-platform' => 9,
         'dsmynas' => 9,
         'durumis' => 9,
         'dyn-o-saur' => 9,
@@ -3634,6 +3638,7 @@ return new Node(0, [
     'dish' => 1,
     'diy' => new Node(1, [
         'discourse' => 9,
+        'imagine' => 9,
     ]),
     'dj' => 1,
     'dk' => new Node(1, [
@@ -3975,6 +3980,7 @@ return new Node(0, [
         'gouv' => 1,
         'greta' => 1,
         'huissier-justice' => 1,
+        'kdns' => 9,
         'medecin' => 9,
         'myspreadshop' => 9,
         'nom' => 1,
@@ -4520,6 +4526,7 @@ return new Node(0, [
         'darklang' => 9,
         'dedyn' => 9,
         'definima' => 9,
+        'drive-platform' => 9,
         'editorx' => 9,
         'edu' => 1,
         'edugit' => 9,
@@ -7818,7 +7825,9 @@ return new Node(0, [
         'de5' => 9,
         'debian' => 9,
         'definima' => 9,
-        'deno' => 9,
+        'deno' => new Node(9, [
+            'sandbox' => 9,
+        ]),
         'dns-cloud' => 9,
         'dns-dynamic' => 9,
         'dnsalias' => 9,
@@ -10028,7 +10037,10 @@ return new Node(0, [
         ]),
         'cloudera' => 10,
         'co' => 9,
-        'convex' => 9,
+        'convex' => new Node(9, [
+            'eu-west-1' => 9,
+            'us-east-1' => 9,
+        ]),
         'cpanel' => 9,
         'cyon' => 9,
         'fastvps' => 9,
@@ -11080,6 +11092,7 @@ return new Node(0, [
         'haugiang' => 1,
         'health' => 1,
         'hoabinh' => 1,
+        'hue' => 1,
         'hungyen' => 1,
         'id' => 1,
         'info' => 1,
@@ -11168,7 +11181,6 @@ return new Node(0, [
     'wine' => 1,
     'winners' => 1,
     'wme' => 1,
-    'wolterskluwer' => 1,
     'woodside' => 1,
     'work' => new Node(1, [
         'imagine-proxy' => 9,
