@@ -1500,6 +1500,7 @@ return new Node(0, [
         'axarnet' => new Node(0, [
             'es-1' => 9,
         ]),
+        'begetcdn' => 10,
         'convex' => new Node(9, [
             'eu-west-1' => 9,
             'us-east-1' => 9,
@@ -3285,7 +3286,9 @@ return new Node(0, [
         'nog' => 9,
         'ravendb' => 9,
     ]),
-    'company' => 1,
+    'company' => new Node(1, [
+        'mybox' => 9,
+    ]),
     'compare' => 1,
     'computer' => 1,
     'comsec' => 1,
@@ -3795,6 +3798,7 @@ return new Node(0, [
         'crisp' => new Node(0, [
             'on' => 9,
         ]),
+        'intouch' => 9,
         'tawk' => new Node(0, [
             'p' => 9,
         ]),
@@ -7163,7 +7167,13 @@ return new Node(0, [
         'us' => 9,
         'xx' => 9,
     ]),
-    'kh' => 2,
+    'kh' => new Node(1, [
+        'com' => 1,
+        'edu' => 1,
+        'gov' => 1,
+        'net' => 1,
+        'org' => 1,
+    ]),
     'ki' => new Node(1, [
         'biz' => 1,
         'com' => 1,
@@ -7507,6 +7517,7 @@ return new Node(0, [
         'loginto' => 9,
         'lohmus' => 9,
         'mcdir' => 9,
+        'mybox' => 9,
         'myds' => 9,
         'net' => 1,
         'nohost' => 9,
@@ -9230,6 +9241,7 @@ return new Node(0, [
         'deuxfleurs' => 9,
         'heyflow' => 9,
         'hlx' => 9,
+        'mybox' => 9,
         'pdns' => 9,
         'plesk' => 9,
         'prvcy' => 9,
