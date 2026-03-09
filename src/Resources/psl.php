@@ -852,6 +852,7 @@ return new Node(0, [
         'kuleuven' => new Node(0, [
             'ezproxy' => 9,
         ]),
+        'my' => 9,
         'myspreadshop' => 9,
         'transurl' => 10,
         'webhosting' => 9,
@@ -3064,7 +3065,6 @@ return new Node(0, [
         'massivegrid' => new Node(0, [
             'paas' => 9,
         ]),
-        'mazeplay' => 9,
         'messwithdns' => 9,
         'meteorapp' => new Node(9, [
             'eu' => 9,
@@ -4004,7 +4004,9 @@ return new Node(0, [
     'frontier' => 1,
     'ftr' => 1,
     'fujitsu' => 1,
-    'fun' => 1,
+    'fun' => new Node(1, [
+        'ms' => 9,
+    ]),
     'fund' => 1,
     'furniture' => 1,
     'futbol' => 1,
@@ -10031,7 +10033,9 @@ return new Node(0, [
     ]),
     'shopping' => 1,
     'shouji' => 1,
-    'show' => 1,
+    'show' => new Node(1, [
+        'ms' => 9,
+    ]),
     'si' => new Node(1, [
         'f5' => 9,
         'gitapp' => 9,
