@@ -245,7 +245,10 @@ return new Node(0, [
             'relay' => 9,
         ]),
         'expo' => new Node(9, [
-            'staging' => 9,
+            'on' => 9,
+            'staging' => new Node(9, [
+                'on' => 9,
+            ]),
         ]),
         'flutterflow' => 9,
         'framer' => 9,
