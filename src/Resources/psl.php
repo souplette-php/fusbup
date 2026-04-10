@@ -275,6 +275,7 @@ return new Node(0, [
         'on-fleek' => 9,
         'ondigitalocean' => 9,
         'onhercules' => 9,
+        'pplx' => 9,
         'railway' => new Node(0, [
             'up' => 9,
         ]),
@@ -3589,6 +3590,7 @@ return new Node(0, [
         'ngrok-free' => 9,
         'pages' => 9,
         'panel' => 9,
+        'payload' => 9,
         'platter-app' => 9,
         'r2' => 9,
         'replit' => new Node(9, [
