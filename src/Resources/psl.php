@@ -225,6 +225,7 @@ return new Node(0, [
         'brave' => new Node(9, [
             's' => 10,
         ]),
+        'claude' => 9,
         'clerk' => 9,
         'clerkstage' => 9,
         'cloudflare' => 9,
@@ -2744,6 +2745,9 @@ return new Node(0, [
         'appspot' => new Node(9, [
             'r' => 10,
         ]),
+        'atlassian-3p' => 10,
+        'atlassian-3p-us-gov-mod' => 10,
+        'atlassian-isolated-3p' => 10,
         'atmeta' => 9,
         'auiusercontent' => 10,
         'authgear-staging' => 9,
@@ -3087,6 +3091,7 @@ return new Node(0, [
             'paas' => 9,
         ]),
         'messwithdns' => 9,
+        'metaaiusercontent' => 10,
         'meteorapp' => new Node(9, [
             'eu' => 9,
         ]),
@@ -3650,11 +3655,7 @@ return new Node(0, [
     'dhl' => 1,
     'diamonds' => 1,
     'diet' => 1,
-    'digital' => new Node(1, [
-        'cloudapps' => new Node(9, [
-            'london' => 9,
-        ]),
-    ]),
+    'digital' => 1,
     'direct' => new Node(1, [
         'libp2p' => 9,
     ]),
@@ -9158,6 +9159,7 @@ return new Node(0, [
         'freeddns' => 9,
         'freedesktop' => 9,
         'from-me' => 9,
+        'fspages' => 9,
         'game-host' => 9,
         'gotdns' => 9,
         'hatenadiary' => 9,
@@ -10097,6 +10099,7 @@ return new Node(0, [
         'novecore' => 9,
         'omniwe' => 9,
         'opensocial' => 9,
+        'piebox' => 9,
         'platformsh' => 10,
         'preview' => 9,
         'sol' => 9,
@@ -10157,6 +10160,7 @@ return new Node(0, [
     'spa' => 1,
     'space' => new Node(1, [
         'app-ionos' => 9,
+        'deployagent' => 9,
         'heiyu' => 9,
         'hf' => new Node(9, [
             'static' => 9,
