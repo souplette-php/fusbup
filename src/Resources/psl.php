@@ -3819,9 +3819,6 @@ return new Node(0, [
         'tv' => 1,
     ]),
     'email' => new Node(1, [
-        'crisp' => new Node(0, [
-            'on' => 9,
-        ]),
         'intouch' => 9,
         'tawk' => new Node(0, [
             'p' => 9,
@@ -4030,6 +4027,9 @@ return new Node(0, [
     'fujitsu' => 1,
     'fun' => new Node(1, [
         'ms' => 9,
+        'vicp' => 9,
+        'yicp' => 9,
+        'zicp' => 9,
     ]),
     'fund' => 1,
     'furniture' => 1,
@@ -11344,8 +11344,10 @@ return new Node(0, [
     ]),
     'zone' => new Node(1, [
         'lima' => 9,
+        'prg1-zerops' => 9,
         'stackit' => 9,
         'triton' => 10,
+        'zerops' => 10,
     ]),
     'zuerich' => 1,
     'zw' => new Node(1, [
