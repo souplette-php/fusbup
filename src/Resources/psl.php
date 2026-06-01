@@ -220,7 +220,6 @@ return new Node(0, [
         'aiven' => 9,
         'base44' => 9,
         'beget' => 10,
-        'bookonline' => 9,
         'botdash' => 9,
         'brave' => new Node(9, [
             's' => 10,
@@ -1518,6 +1517,7 @@ return new Node(0, [
         'encoway' => new Node(0, [
             'eu' => 9,
         ]),
+        'hstgr' => 9,
         'jelastic' => new Node(0, [
             'vip' => 9,
         ]),
@@ -1757,6 +1757,7 @@ return new Node(0, [
         'jl' => 1,
         'js' => 1,
         'jx' => 1,
+        'khsj' => 9,
         'ln' => 1,
         'mil' => 1,
         'mo' => 1,
@@ -3187,7 +3188,6 @@ return new Node(0, [
             'app' => 9,
         ]),
         'reservd' => 9,
-        'reserve-online' => 9,
         'rhcloud' => 9,
         'rice-labs' => 9,
         'routingthecloud' => 9,
@@ -3646,6 +3646,12 @@ return new Node(0, [
         'runcontainers' => 9,
         'stg' => 10,
         'stgstage' => 10,
+        'storage' => new Node(0, [
+            't3' => 9,
+        ]),
+        'storageapi' => new Node(0, [
+            't3' => 9,
+        ]),
         'vercel' => 9,
         'vivenushop' => 9,
         'webhare' => 10,
@@ -4375,6 +4381,7 @@ return new Node(0, [
     'icu' => 1,
     'id' => new Node(1, [
         'ac' => 1,
+        'ai' => 1,
         'biz' => 1,
         'co' => 1,
         'desa' => 1,
@@ -7384,6 +7391,7 @@ return new Node(0, [
     'limo' => 1,
     'lincoln' => 1,
     'link' => new Node(1, [
+        'canva' => 9,
         'cyon' => 9,
         'dweb' => 10,
         'inbrowser' => 10,
@@ -9036,6 +9044,7 @@ return new Node(0, [
     'onl' => 1,
     'online' => new Node(1, [
         'barsy' => 9,
+        'book' => 9,
         'eero' => 9,
         'eero-stage' => 9,
         'leapcell' => 9,
@@ -10882,10 +10891,7 @@ return new Node(0, [
             'k12' => 1,
             'lib' => 1,
         ]),
-        'nd' => new Node(1, [
-            'cc' => 1,
-            'lib' => 1,
-        ]),
+        'nd' => 1,
         'ne' => new Node(1, [
             'cc' => 1,
             'k12' => 1,
