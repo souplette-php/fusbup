@@ -10088,6 +10088,7 @@ return new Node(0, [
         'canva' => new Node(0, [
             'my' => 9,
         ]),
+        'chatgpt' => 9,
         'cloudera' => 10,
         'co' => 9,
         'convex' => new Node(9, [
@@ -10177,6 +10178,7 @@ return new Node(0, [
         'myfast' => 9,
         'project' => 9,
         'uber' => 9,
+        'vibehost' => 9,
         'xs4all' => 9,
     ]),
     'sport' => 1,
