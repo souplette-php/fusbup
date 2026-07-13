@@ -22,6 +22,7 @@ return new Node(0, [
         'mil' => 1,
         'net' => 1,
         'org' => 1,
+        'sch' => 9,
     ]),
     'academy' => new Node(1, [
         'official' => 9,
@@ -378,7 +379,6 @@ return new Node(0, [
         'ac' => new Node(1, [
             'sth' => 1,
         ]),
-        'biz' => 9,
         'co' => 1,
         'dnshome' => 9,
         'funkfeuer' => new Node(0, [
@@ -391,7 +391,6 @@ return new Node(0, [
         'futurehosting' => 9,
         'futuremailing' => 9,
         'gv' => 1,
-        'info' => 9,
         'lima-city' => 9,
         'my' => 9,
         'myspreadshop' => 9,
@@ -3371,6 +3370,7 @@ return new Node(0, [
     'cuisinella' => 1,
     'cv' => new Node(1, [
         'com' => 1,
+        'dev' => 9,
         'edu' => 1,
         'id' => 1,
         'int' => 1,
@@ -3378,6 +3378,7 @@ return new Node(0, [
         'nome' => 1,
         'org' => 1,
         'publ' => 1,
+        'store' => 9,
     ]),
     'cw' => new Node(1, [
         'com' => 1,
@@ -7560,6 +7561,7 @@ return new Node(0, [
         'filegear' => 9,
         'filegear-sg' => 9,
         'gov' => 1,
+        'grok' => 9,
         'hooc' => new Node(0, [
             'seprox' => 9,
         ]),
