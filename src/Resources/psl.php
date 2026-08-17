@@ -430,9 +430,6 @@ return new Node(0, [
             'vic' => 1,
             'wa' => 1,
         ]),
-        'hrsn' => new Node(0, [
-            'vps' => 9,
-        ]),
         'id' => 1,
         'net' => 1,
         'nsw' => 1,
@@ -7947,6 +7944,9 @@ return new Node(0, [
         'homeip' => 9,
         'homelinux' => 9,
         'homeunix' => 9,
+        'hrsn' => new Node(0, [
+            'vps' => 9,
+        ]),
         'hu' => 9,
         'icp' => 10,
         'in' => 9,
