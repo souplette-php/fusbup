@@ -217,7 +217,6 @@ return new Node(0, [
     'aol' => 1,
     'apartments' => 1,
     'app' => new Node(1, [
-        'adaptable' => 9,
         'aiven' => 9,
         'base44' => 9,
         'beget' => 10,
@@ -229,6 +228,7 @@ return new Node(0, [
         'clerk' => 9,
         'clerkstage' => 9,
         'cloudflare' => 9,
+        'codepen' => 9,
         'convex' => 9,
         'corespeed' => 9,
         'csb' => new Node(9, [
@@ -1559,6 +1559,7 @@ return new Node(0, [
         'matlab' => 9,
         'observablehq' => 9,
         'on-rancher' => 10,
+        'online-server' => 9,
         'onstackit' => new Node(0, [
             'runs' => 9,
         ]),
@@ -1841,7 +1842,7 @@ return new Node(0, [
             'dev' => 10,
         ]),
         'africa' => 9,
-        'aivencloud' => 9,
+        'aivencloud' => 10,
         'aliases121' => 9,
         'alibabacloudcs' => 9,
         'alpha-myqnapcloud' => 9,
@@ -2778,6 +2779,9 @@ return new Node(0, [
         'cechire' => 9,
         'cf-ipfs' => 9,
         'ciscofreak' => 9,
+        'claudeusercontent' => new Node(9, [
+            'frame' => 9,
+        ]),
         'clever-cloud' => new Node(0, [
             'services' => 10,
         ]),
@@ -2792,6 +2796,7 @@ return new Node(0, [
         'codespot' => 9,
         'cprapid' => 9,
         'cpserver' => 9,
+        'cursorusercontent' => 10,
         'customer-oci' => new Node(10, [
             'oci' => 10,
             'ocp' => 10,
@@ -3554,6 +3559,7 @@ return new Node(0, [
         'brave' => new Node(9, [
             's' => 10,
         ]),
+        'codepen' => 9,
         'crm' => new Node(0, [
             'aa' => 10,
             'ab' => 10,
@@ -8996,6 +9002,7 @@ return new Node(0, [
     'norton' => 1,
     'now' => new Node(1, [
         'dyn' => 9,
+        'here' => 9,
     ]),
     'nowruz' => 1,
     'nowtv' => 1,
@@ -10138,6 +10145,10 @@ return new Node(0, [
         'playcode' => 9,
         'preview' => 9,
         'puter' => 9,
+        'scw' => new Node(9, [
+            'ams' => 9,
+            'waw' => 9,
+        ]),
         'sol' => 9,
         'sourcecraft' => 9,
         'square' => 9,
