@@ -1848,7 +1848,6 @@ return new Node(0, [
         'aivencloud' => 10,
         'aliases121' => 9,
         'alibabacloudcs' => 9,
-        'alpha-myqnapcloud' => 9,
         'amazonaws' => new Node(0, [
             'af-south-1' => new Node(0, [
                 'aws-cloud9' => new Node(0, [
@@ -2820,7 +2819,6 @@ return new Node(0, [
         'de' => 9,
         'deployagent' => 9,
         'deus-canvas' => 9,
-        'dev-myqnapcloud' => 9,
         'devinapps' => 10,
         'digitaloceanspaces' => 10,
         'discordsays' => 9,
@@ -2990,13 +2988,16 @@ return new Node(0, [
         'health-carereform' => 9,
         'hercules-app' => 9,
         'hercules-dev' => 9,
-        'herokuapp' => 9,
+        'herokuapp' => new Node(9, [
+            'compute' => 10,
+        ]),
         'hk' => 9,
         'hobby-site' => 9,
         'homelinux' => 9,
         'homesecuritymac' => 9,
         'homesecuritypc' => 9,
         'homeunix' => 9,
+        'hosted-by-files' => 9,
         'hosted-by-previder' => new Node(0, [
             'paas' => 9,
         ]),
@@ -10160,6 +10161,7 @@ return new Node(0, [
             'eu' => 9,
             'us' => 9,
         ]),
+        'surge' => 9,
         'teleport' => 9,
     ]),
     'shangrila' => 1,
