@@ -254,6 +254,7 @@ return new Node(0, [
         'framer' => 9,
         'gadget' => 9,
         'github' => 9,
+        'glideos' => 9,
         'hackclub' => 9,
         'hasura' => 9,
         'hosted' => 10,
@@ -859,7 +860,9 @@ return new Node(0, [
         'my' => 9,
         'myspreadshop' => 9,
         'transurl' => 10,
-        'webhosting' => 9,
+        'webhosting' => new Node(9, [
+            'site' => 9,
+        ]),
     ]),
     'beats' => 1,
     'beauty' => 1,
@@ -2805,6 +2808,11 @@ return new Node(0, [
             'ocs' => 10,
         ]),
         'damnserver' => 9,
+        'databricksapps' => new Node(0, [
+            'aws' => 9,
+            'azure' => 10,
+            'gcp' => 9,
+        ]),
         'datadetect' => new Node(0, [
             'demo' => 9,
             'instance' => 9,
@@ -8263,7 +8271,9 @@ return new Node(0, [
         'co' => 9,
         'demon' => 9,
         'gov' => 9,
-        'hosting-cluster' => 9,
+        'hosting-cluster' => new Node(9, [
+            'site' => 9,
+        ]),
         'khplay' => 9,
         'myspreadshop' => 9,
         'transurl' => 10,
@@ -9572,6 +9582,7 @@ return new Node(0, [
         'homesklep' => 9,
         'ilawa' => 1,
         'info' => 1,
+        'iqhs' => 9,
         'jaworzno' => 1,
         'jelenia-gora' => 1,
         'jgora' => 1,
@@ -10875,6 +10886,9 @@ return new Node(0, [
             'cc' => 1,
             'k12' => 1,
             'lib' => 1,
+        ]),
+        'databricksapps' => new Node(0, [
+            'aws-gov' => 9,
         ]),
         'dc' => new Node(1, [
             'cc' => 1,
