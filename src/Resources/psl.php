@@ -7192,7 +7192,6 @@ return new Node(0, [
     'jpmorgan' => 1,
     'jprs' => 1,
     'juegos' => 1,
-    'juniper' => 1,
     'kaufen' => 1,
     'kddi' => 1,
     'ke' => new Node(1, [
