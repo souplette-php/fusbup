@@ -468,6 +468,9 @@ return new Node(0, [
                 'lambda-url' => 9,
                 'transfer-webapp' => 9,
             ]),
+            'ap-east-2' => new Node(0, [
+                'transfer-webapp' => 9,
+            ]),
             'ap-northeast-1' => new Node(0, [
                 'airflow' => 10,
                 'lambda-url' => 9,
@@ -515,7 +518,11 @@ return new Node(0, [
                 'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
+            'ap-southeast-6' => new Node(0, [
+                'transfer-webapp' => 9,
+            ]),
             'ap-southeast-7' => new Node(0, [
+                'airflow' => 10,
                 'transfer-webapp' => 9,
             ]),
             'ca-central-1' => new Node(0, [
@@ -1573,7 +1580,6 @@ return new Node(0, [
             'tn' => 9,
             'uk' => 9,
         ]),
-        'perspecta' => 9,
         'primetel' => new Node(9, [
             'uk' => 9,
         ]),
@@ -1934,6 +1940,9 @@ return new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
                 ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -1956,6 +1965,9 @@ return new Node(0, [
                 'analytics-gateway' => 9,
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2002,6 +2014,9 @@ return new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
                 ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -2021,6 +2036,9 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'ap-south-2' => new Node(0, [
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'dualstack' => new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
@@ -2039,6 +2057,9 @@ return new Node(0, [
                 'analytics-gateway' => 9,
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2062,6 +2083,9 @@ return new Node(0, [
                 'analytics-gateway' => 9,
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2112,6 +2136,9 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'ap-southeast-5' => new Node(0, [
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'dualstack' => new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
@@ -2124,9 +2151,17 @@ return new Node(0, [
                 's3-object-lambda' => 9,
                 's3-website' => 9,
             ]),
+            'ap-southeast-7' => new Node(0, [
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
+            ]),
             'ca-central-1' => new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2177,6 +2212,9 @@ return new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
                 ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -2214,6 +2252,9 @@ return new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
                 ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -2235,6 +2276,9 @@ return new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
                 ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -2254,6 +2298,9 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'eu-south-2' => new Node(0, [
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'dualstack' => new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
@@ -2272,6 +2319,9 @@ return new Node(0, [
                 'analytics-gateway' => 9,
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2296,6 +2346,9 @@ return new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
                 ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -2316,6 +2369,9 @@ return new Node(0, [
             'eu-west-3' => new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2471,6 +2527,9 @@ return new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
                 ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
                     'webview-assets' => 9,
@@ -2493,6 +2552,9 @@ return new Node(0, [
                 'analytics-gateway' => 9,
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2521,6 +2583,9 @@ return new Node(0, [
                 'analytics-gateway' => 9,
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2565,6 +2630,9 @@ return new Node(0, [
                 's3-website' => 9,
             ]),
             'us-gov-west-1' => new Node(0, [
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
+                ]),
                 'dualstack' => new Node(0, [
                     's3' => 9,
                     's3-accesspoint' => 9,
@@ -2586,6 +2654,9 @@ return new Node(0, [
             'us-west-1' => new Node(0, [
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2613,6 +2684,9 @@ return new Node(0, [
                 'analytics-gateway' => 9,
                 'aws-cloud9' => new Node(0, [
                     'webview-assets' => 9,
+                ]),
+                'bedrock-agentcore' => new Node(0, [
+                    'consent-portal' => 9,
                 ]),
                 'cloud9' => new Node(0, [
                     'vfs' => 9,
@@ -2958,6 +3032,18 @@ return new Node(0, [
         'fbsbx' => new Node(0, [
             'apps' => 9,
         ]),
+        'fin-ncloudstorage' => new Node(0, [
+            'object' => new Node(0, [
+                'kr' => new Node(9, [
+                    's3-website' => 9,
+                ]),
+            ]),
+            'private' => new Node(0, [
+                'object' => new Node(0, [
+                    'kr' => 9,
+                ]),
+            ]),
+        ]),
         'firebaseapp' => 9,
         'firewall-gateway' => 9,
         'fldrv' => 9,
@@ -3024,6 +3110,24 @@ return new Node(0, [
         'googlecode' => 9,
         'gotdns' => 9,
         'gotpantheon' => 9,
+        'gov-ncloudstorage' => new Node(0, [
+            'kr' => 9,
+            'kr-private' => 9,
+            'object' => new Node(0, [
+                'kr' => new Node(9, [
+                    's3-website' => 9,
+                ]),
+                'krs' => new Node(9, [
+                    's3-website' => 9,
+                ]),
+            ]),
+            'private' => new Node(0, [
+                'object' => new Node(0, [
+                    'kr' => 9,
+                    'krs' => 9,
+                ]),
+            ]),
+        ]),
         'gr' => 9,
         'grayjayleagues' => 9,
         'hatenablog' => 9,
@@ -3184,6 +3288,68 @@ return new Node(0, [
         ]),
         'mytuleap' => 9,
         'myvnc' => 9,
+        'ncloud' => new Node(0, [
+            'objectstorage' => new Node(0, [
+                'kr' => 9,
+                'sg' => 9,
+            ]),
+        ]),
+        'ncloudstorage' => new Node(0, [
+            'kr' => 9,
+            'kr-naver' => 9,
+            'kr-naver-dev' => 9,
+            'kr-private' => 9,
+            'object' => new Node(0, [
+                'de' => new Node(9, [
+                    's3-website' => 9,
+                ]),
+                'kr' => new Node(9, [
+                    's3-website' => 9,
+                ]),
+                'sg' => new Node(9, [
+                    's3-website' => 9,
+                ]),
+                'us' => new Node(9, [
+                    's3-website' => 9,
+                ]),
+            ]),
+            'private' => new Node(0, [
+                'object' => new Node(0, [
+                    'kr' => 9,
+                    'sg' => 9,
+                ]),
+            ]),
+            'website' => new Node(0, [
+                'kr' => 9,
+                'kr-naver' => 9,
+                'kr-naver-dev' => 9,
+            ]),
+        ]),
+        'ncpstorage' => new Node(0, [
+            'object' => new Node(0, [
+                'jp' => 9,
+                'jp4' => new Node(0, [
+                    'jp' => 9,
+                ]),
+                'jp5' => new Node(0, [
+                    'jp' => 9,
+                ]),
+                'kr' => 9,
+                's3-website-jp' => 9,
+            ]),
+            'private' => new Node(0, [
+                'object' => new Node(0, [
+                    'jp' => 9,
+                    'jp4' => new Node(0, [
+                        'jp' => 9,
+                    ]),
+                    'jp5' => new Node(0, [
+                        'jp' => 9,
+                    ]),
+                    'kr' => 9,
+                ]),
+            ]),
+        ]),
         'neat-url' => 9,
         'net-freaks' => 9,
         'nfshost' => 9,
@@ -3902,6 +4068,7 @@ return new Node(0, [
                     'cognito-idp' => new Node(0, [
                         'auth' => 9,
                     ]),
+                    'transfer-webapp' => 9,
                 ]),
             ]),
         ]),
@@ -10204,7 +10371,6 @@ return new Node(0, [
     ]),
     'si' => new Node(1, [
         'f5' => 9,
-        'gitapp' => 9,
         'gitpage' => 9,
     ]),
     'silk' => 1,
@@ -10454,7 +10620,6 @@ return new Node(0, [
     ]),
     'sydney' => 1,
     'systems' => new Node(1, [
-        'knightpoint' => 9,
         'miren' => 9,
     ]),
     'sz' => new Node(1, [
