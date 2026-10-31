@@ -1856,7 +1856,6 @@ return new Node(0, [
         ]),
         'africa' => 9,
         'aivencloud' => 10,
-        'aliases121' => 9,
         'alibabacloudcs' => 9,
         'amazonaws' => new Node(0, [
             'af-south-1' => new Node(0, [
@@ -3517,6 +3516,7 @@ return new Node(0, [
         'xtooldevice' => 9,
         'yolasite' => 9,
         'za' => 9,
+        'ztna-dingtalk' => 10,
     ]),
     'commbank' => 1,
     'community' => new Node(1, [
@@ -10738,7 +10738,6 @@ return new Node(0, [
         'net' => 1,
         'nett' => 9,
         'org' => 1,
-        'oya' => 9,
         'quickconnect' => new Node(0, [
             'direct' => 9,
         ]),
