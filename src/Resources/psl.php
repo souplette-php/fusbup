@@ -4428,7 +4428,6 @@ return new Node(0, [
     ]),
     'healthcare' => 1,
     'help' => 1,
-    'helsinki' => 1,
     'here' => 1,
     'hermes' => 1,
     'hiphop' => 1,
