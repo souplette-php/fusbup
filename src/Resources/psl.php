@@ -260,7 +260,9 @@ return new Node(0, [
         'hosted' => 10,
         'leapcell' => 9,
         'loginline' => 9,
-        'lovable' => 9,
+        'lovable' => new Node(9, [
+            'auth' => 9,
+        ]),
         'luyani' => 9,
         'magicpatterns' => 9,
         'medusajs' => 9,
@@ -290,6 +292,7 @@ return new Node(0, [
             'mtls' => 10,
         ]),
         'shiptoday' => 9,
+        'sliplane' => 9,
         'snowflake' => new Node(10, [
             'privatelink' => 10,
         ]),
@@ -1063,7 +1066,12 @@ return new Node(0, [
     'bosch' => 1,
     'bostik' => 1,
     'boston' => 1,
-    'bot' => 1,
+    'bot' => new Node(1, [
+        'grok' => new Node(0, [
+            'apps' => 10,
+            'pages' => 10,
+        ]),
+    ]),
     'boutique' => 1,
     'box' => 1,
     'br' => new Node(1, [
@@ -3830,6 +3838,7 @@ return new Node(0, [
         'myaddr' => 9,
         'ngrok' => 9,
         'ngrok-free' => 9,
+        'pagelemon' => 9,
         'pages' => 9,
         'panel' => 9,
         'payload' => 9,
@@ -9571,6 +9580,7 @@ return new Node(0, [
         'deuxfleurs' => 9,
         'heyflow' => 9,
         'hlx' => 9,
+        'linkyhost' => 9,
         'mybox' => 9,
         'pdns' => 9,
         'plesk' => 9,
@@ -10176,6 +10186,7 @@ return new Node(0, [
         'onporter' => 9,
         'ravendb' => 9,
         'repl' => 9,
+        'sanity' => 9,
         'stackit' => 9,
         'val' => new Node(9, [
             'web' => 9,
@@ -10391,6 +10402,7 @@ return new Node(0, [
         ]),
         'cpanel' => 9,
         'cyon' => 9,
+        'docsflowy' => 9,
         'fastvps' => 9,
         'figma' => 9,
         'figma-gov' => 9,
@@ -10475,6 +10487,7 @@ return new Node(0, [
         'hf' => new Node(9, [
             'static' => 9,
         ]),
+        'manus' => 9,
         'myfast' => 9,
         'project' => 9,
         'uber' => 9,
@@ -10531,6 +10544,7 @@ return new Node(0, [
     'stream' => 1,
     'studio' => new Node(1, [
         'ai' => 9,
+        'sanity' => 9,
     ]),
     'study' => 1,
     'style' => 1,
@@ -11434,8 +11448,10 @@ return new Node(0, [
     'vlaanderen' => 1,
     'vn' => new Node(1, [
         'ac' => 1,
+        'ad' => 1,
         'ai' => 1,
         'angiang' => 1,
+        'ap' => 1,
         'bacgiang' => 1,
         'backan' => 1,
         'baclieu' => 1,
@@ -11489,6 +11505,7 @@ return new Node(0, [
         'nghean' => 1,
         'ninhbinh' => 1,
         'ninhthuan' => 1,
+        'on' => 1,
         'org' => 1,
         'phutho' => 1,
         'phuyen' => 1,
